@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.18)  24 JUN 2022 16:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.18)  24 JUN 2022 22:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -833,63 +833,89 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1 \chapter
+l.2 \chapter
             {Introduction} [1
 
 ]
 Chapter 1.
-) (./chapters/02/scientific-literature.tex [2
+[2
 
 ]
+<chapters/01/images/substring-search.png, id=142, 1221.56375pt x 704.6325pt>
+File: chapters/01/images/substring-search.png Graphic file (type png)
+<use chapters/01/images/substring-search.png>
+Package pdftex.def Info: chapters/01/images/substring-search.png  used on input
+ line 58.
+(pdftex.def)             Requested size: 260.17464pt x 150.07379pt.
+) (./chapters/02/scientific-literature.tex [3 <./chapters/01/images/substring-s
+earch.png>]
 Chapter 2.
-) (./chapters/03/biological-databases.tex [3
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+[]\T1/cmr/m/n/10 Introduction or back-
+ []
+
+[4
 
 ]
+Overfull \hbox (0.96451pt too wide) detected at line 69
+\OML/cmm/m/it/10 IF[] \OT1/cmr/m/n/10 = []
+ []
+
+) (./chapters/03/biological-databases.tex [5]
 Chapter 3.
-) (./chapters/04/motif-analysis.tex [4
+) (./chapters/04/motif-analysis.tex [6
 
 ]
 Chapter 4.
-) (./chapters/05/expression-analysis.tex [5
+) (./chapters/05/expression-analysis.tex [7
 
 ]
 Chapter 5.
-) (./chapters/06/gene-set-enrichment.tex [6
+) (./chapters/06/gene-set-enrichment.tex [8
 
 ]
 Chapter 6.
-) (./chapters/07/network-analysis.tex [7
+) (./chapters/07/network-analysis.tex [9
 
 ]
 Chapter 7.
-) (./chapters/08/gwas.tex [8
+) (./chapters/08/gwas.tex [10
 
 ]
 Chapter 8.
-) [9
+) [11
 
 ] (./build/principal.aux)
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: 3B466A8B80CD406BC1B0827DDA359353;1134.
+(rerunfilecheck)             Checksum: 45E06830B2163B45FC29486E28876094;3195.
  ) 
 Here is how much of TeX's memory you used:
- 22350 strings out of 478238
- 410008 string characters out of 5850456
- 724650 words of memory out of 5000000
- 40247 multiletter control sequences out of 15000+600000
- 481149 words of font info for 56 fonts, out of 8000000 for 9000
+ 22440 strings out of 478238
+ 411433 string characters out of 5850456
+ 733754 words of memory out of 5000000
+ 40297 multiletter control sequences out of 15000+600000
+ 486964 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,7n,82p,386b,792s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
-exmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts
-/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/c
-m-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm090
-0.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on ./build/principal.pdf (10 pages, 104381 bytes).
+ 79i,11n,82p,386b,964s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/t
+exmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/
+fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
+bx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></us
+r/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-d
+ist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1
+/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
+r/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+</usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on ./build/principal.pdf (12 pages, 449082 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
- 19 named destinations out of 1000 (max. 500000)
- 65 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 282 PDF objects out of 1000 (max. 8388607)
+ 232 compressed objects within 3 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 182 words of extra memory for PDF output out of 10000 (max. 10000000)
 
