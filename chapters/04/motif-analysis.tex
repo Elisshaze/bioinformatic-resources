@@ -1,1 +1,217 @@
 \chapter{Motif analysis}
+
+\section{Introduction}
+
+	\subsection{Definition}
+	A DNA motif is a pattern of nucleotide sequences.
+	They are usually associated to DNA-protein binding site and so to regulatory regions.
+	They are a small pattern, usually between $5$ and $30bp$ that can recur many times in the genome and many times in the same gene.
+	Motifs can be:
+
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item Standard.
+			\item Palindromes.
+			\item Gapped.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{Functions}
+	DNA motif functions include:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Sequence specific binding sites reached by transcription factors, nucleases and ribosomes.
+			\item mRNA processing:
+
+				\begin{itemize}
+					\item Splicing: exonic splicing enhancer ESE.
+					\item Editing: protospacer adjacent motif PAM, a DNA sequence that immediately follows the target DNA sequence of the Cas9 nuclease in the CRISPR system.
+					\item Polyadenilation.
+					\item Transcription termination.
+				\end{itemize}
+
+		\end{itemize}
+	\end{multicols}
+
+	\subsubsection{Degenerate motifs}
+	Motifs in regulatory regions are often similar but variable: they are degenerate.
+	Transcription factors are often pleiotropic, meaning that they regulate a lot of genes, but they need to be expressed at different levels.
+	Degenerate motifs cause non-specific binding: a protein can bind genomic position different with respect to the one corresponding to the expected functional state.
+
+\section{Motif search}
+The objectives of motif search are to identify:
+
+\begin{multicols}{3}
+	\begin{itemize}
+		\item Over-represented motifs in the genome.
+		\item Motifs conserved in ortholog sequences.
+		\item Sequences that can be candidates for transcription factor binding.
+	\end{itemize}
+\end{multicols}
+
+Motifs can be represented as a consensus sequence or as profiles like positional matrices or HMMs.
+
+	\subsection{Consensus sequence}
+	A consensus sequence represents the result of multiple sequence alignments with the goal of finding recurrent motifs across the sequences.
+	This sequence can be potentially different from all input sequence: it presents only the most conserved sequences for each position.
+	It is built such that it minimizes the distance from each input sequence at each position.
+	It can be also written following a IUPAC notation.
+
+	\subsection{Positional matrix}
+	A positional matrix is an alternative way to represent a motif than the consensus sequencs.
+	The elements in the matrix represent all possible bases at each position.
+	Example of these matrices are:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Position frequency matrix PFM or PSWM.
+			\item Position probability matrix PPM or PFM.
+			\item Position weight matrix PWM or PSSM.
+		\end{itemize}
+	\end{multicols}
+
+		\subsubsection{Populating a position frequency matrix}
+		A position frequency matrix is computed as:
+
+		$$M_{k,j} = \sum\limits_{i=1}^N\delta(X_{i,j} = k)$$
+
+		Given $k$ the set of all symbols in the alphabet.
+		$N$ the number of aligned sequences.
+		$j$ iterates over the length of the sequence.
+
+		\subsubsection{Populating a position probability matrix}
+		A position probability matrix is very similar with respect to the position frequency matrix, with the exception that each cell represent the probability that in that sequence position a particular base will be found.
+		Its cells are computed as:
+
+		$$M_{k,j} = \frac{1}{N}\sum\limits_{i=1}^N\delta(X_{i,j} = k)$$
+
+		\subsubsection{Assessing the probability that a sequence belong to a PPM}
+		To assess the probability for a sequence to belong to a PPM the probabilities for each base $i$ found at each position $j$ are multiplied:
+
+		$$P(seq\in PPM) = \prod\limits_{j=1}^R M_{seq_j, j}$$
+
+		\subsubsection{Correcting PPMs}
+
+			\paragraph{Laplace smoothing}
+			Laplace smoothing introduces pseudocounts to allow to estimate probabilities in case of too few observations.
+			A pseudocount is an amount added to the number of observed cases in order to change the expected probability.
+
+			\paragraph{Adding a background model}
+			Another way to correct PPMs is to add a background model.
+			With this a new matrix is computed as:
+
+			$$M_{k,j} = \log_2\frac{M_{k,j}}{b_k}$$
+
+			Where $b$ represent a background model and can vary across nucleotides for organisms with high $GC$ content.
+			It is typically computed as:
+
+			$$b_k = \frac{1}{|k|}$$
+
+			And so is $0.25$ for nucleotides and $0.05$ for amino acids.
+
+
+	\subsection{Hidden Markov model}
+	A Markov chain is a mathematical system that experiences transitions from one state to another according to certain probabilistic rules.
+	The possible future states are fixed and not based on how the process arrived at its present state.
+	The state is directly visible to the observer: state transition probabilities are the only parameter.
+	The state remain transparent, while the output is easily obtainable.
+	A HMM of the first order is defined as:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item A finite set of states $S$.
+			\item A discrete alphabet of symbols.
+			\item A matrix of transition probabilities $T = P(i|j)$, the probability of transition from state $j$ to $i$>
+			\item A matrix of emission probabilities (the probability of skipping a state) $T = P(X|i)$, the probability of $X$ emission in state $i$.
+		\end{itemize}
+	\end{multicols}
+
+		\subsubsection{Assessing the probability that a sequence is generated by a HMM}
+		The probability that a sequence is generated by a HMM can be computed as:
+
+		$$P(S|w) = \sum\limits_\pi P(S, \pi |w)$$
+
+		Where $S$ is the sequence, $w$ are the probabilities parameters, $\pi$ are all possible computationally inefficient paths.
+		Efficient algorithm to compute this probability are Forward-Backward and Viterbi.
+
+	\subsection{Sequence logos}
+	Sequence logos are visual representation of positional matrices and simple HMM profiles.
+	The height of each character in a sequence logo is proportional to its information content: $2$ bit if $1$ base occurs in all input sequences, $1$ if two bases occur and $0$ if all bases occur equally.
+	The higher the variability, the lower the height of a specific base.
+	In particular the height of base $b$ at position $l$ is computed as:
+
+	$$f(b,l)R_{sequence}(l)$$
+
+	Where:
+
+	$$R_{sequence}(l) = 2-(H(l) + e(n))$$
+
+	Such that $H(l)$ is the Shannon entropy and is computed as:
+
+	$$H(l) = -\sum\limits_{b=a}^tf(b,l)\log_2 f(b,l)$$
+
+	And
+
+	$$e(n) = \frac{1}{\ln 2}\cdot \frac{4-1}{2n}$$
+
+\section{Motif identification}
+There are two types of motif identification: pattern matching and pattern discovery.
+
+	\subsection{Finding known motifs - pattern matching}
+	Pattern matching is the problem of finding known motifs, for example seeing if a binding of a protein to an upstream region of a gene is significant.
+	In order to find out whether a transcription factor matches a promoter the PFM matrix is used to compute a score for each sliding window.
+	This scores can be plotted against a threshold, so as to identify regions able to support a putative binding.
+
+		\subsubsection{Total binding affinity}
+		Total binding affinity TBA is a cutoff-free method.
+		The TBA is a method used to describe the affinity of a DNA sequence for a transcription factor described by a PFM with a single score.
+		It takes into account binding sites of all possible affinities and considers the whole sequence, keeping into account both high and low affinity sites.
+
+	\subsection{Finding de novo motifs - pattern discovery}
+	Pattern discovery if the problem of finding de novo motif, for example finding the motifs upstream of a specific gene.
+	Given a set of sequences, the objective is to find the most represented motifs.
+	Using the MEME suit it is possible to identify new sequences and through Jaspar they can be compared to already characterized transcription factors.
+	Methods can be:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Exact: give optimal solution given specific parameters.
+			\item Approximated: give suboptimal solution decreasing the computational burden.
+				They are MULTIPROFILER, CONSENSUS, MEME, Gibbs sampler and MotifSampler for example.
+		\end{itemize}
+	\end{multicols}
+
+		\subsubsection{Distance between a real motif and the consensus}
+		The distance between a real motif and the consensus is generally less that that for two real motifs.
+		The consensus sequence must be guess and a scoring function to compare different guesses and choose the best one must be chosen.
+
+		\subsubsection{Elements of the problem}
+		The problem of finding de novo motifs can be formalized considering the following elements:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $n$ the length of each sequence.
+				\item $DNA$, an array of size $t\times n$.
+				\item $l$, the length of the motif or $l$-mer.
+				\item $s_i$, the starting position of an $l$-mer in sequence $l$.
+				\item $s = (s_1, s_2, \dots, s_t)$, an array of motifs starting position.
+			\end{itemize}
+		\end{multicols}
+
+		If the starting positions $s$ are given, finding the consensus is easy.
+		When those are not given, finding the best motif is solving the median string problem.
+
+		\subsubsection{The median string problem}
+		Given a set of $t$ DNA sequences the objective is to find a pattern that appears in all $t$ sequences with the minimum number of mutations.
+		The Hamming distance is used, such that:
+
+		$$d_h(v, w) = \#\ nucleotide\ pairs\ that\ do\ not match\ when\ v\ and\ w\ are\ aligned$$
+
+		Then, for each DNA sequence $I$, all $d_h(v,x)$ are computed, where $x$ is an $l$-mer with starting position $s_i$.
+		Then the minimum $d_h(v,x)$ among all $l$-mers of the sequence.
+		The $TotalDistance(v,DNA)$ is the sum of the minimum Hamming distances for each DNA sequence $I$, so
+
+		$$TotalDistance(v,DNA) = \min\limits_s d_h(v,s)$$
+
+		Where $s$ is the set of starting positions.
