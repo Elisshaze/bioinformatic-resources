@@ -1,1 +1,101 @@
+\graphicspath{{chapters/03/images}}
 \chapter{Biological databases}
+
+\section{Introduction}
+
+	\subsection{Classification of databases}
+	A huge number of biological databases are available and they can be distinguished as:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Primary databases containing sequences of nucleotides and amino acids.
+			\item Derived and specialized databases containing protein domains and motifs, protein structures, genes, transcripts, expression profiles, variations, pathways and many other informations.
+		\end{itemize}
+	\end{multicols}
+
+	Each database is characterized by a central biological element which constitutes the object around which the principal entry of the database is constructed.
+
+	\subsection{Data sources}
+	Data in these databases is derived from:
+
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item Literature.
+			\item In-vitro and in-vivo analysis.
+			\item In-silico analysis.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{Nomenclature}
+	One of tha main problems related with biological database is nomenclature.
+	There can be different name for the same gene or different genes with the same name.
+	To uniquely identify genes and proteins and manage the large amount of information related, primary data banks assign an accession number to each element they store.
+
+	\subsection{Reference genome}
+	A reference genome is a digital sequence of nucleic acids assembled to be a representative sequence for a given species.
+	It is assembled from DNA sequencing of a set of donors.
+	An example of reference genome is \emph{GRCh38} from which \emph{hg38} is derived aggregating many donor informations.
+
+\subsection{Popular databases}
+
+	\subsection{GenBank}
+	GenBank contains nucleotide sequences.
+	The aim of the database is to store and archive historically important but redundant nucleotide sequences.
+	Data can be submitted singularly or in a batch manner.
+
+	\subsection{RefSeq}
+	RefSeq is a curated and non redundant collection of DNA, RNA and protein sequences.
+	Each RefSeq entry represents a sings molecule in a particular organism.
+	Its basis is compiled with a process of collaboration, extraction and computation from GenBank.
+	Each molecule is annotated reporting the name of the organism, the correct gene symbol for that organism and informative names of proteins when possible.
+
+	\subsection{UniProt}
+	UniProt is a comprehensive, high-quality and freely accessible resource of protein sequence and functional information.
+	It provides protein sequences, domains and structural information like subcellular location for many species.
+	It also includes some alignment and mapping tools.
+
+	\subsection{Others}
+	Other examples of derived databases are:
+
+	\begin{multicols}{4}
+		\begin{itemize}
+			\item dbGap.
+			\item Structure.
+			\item Gene.
+			\item Biosystems.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{Genome browser}
+	A genome browser is a database containing reference sequence assemblies for one or more genomes.
+	It allows to browse data at various detail levels, from chromosome to gene, down to a single exon or intron.
+	It also allows for the comparison between species and data extraction.
+
+		\subsubsection{UCSC genome browser}
+		The UCSC genome browser contains the genome of about $100$ species, but it does not provide a browser for all of them.
+		It integrates informations like SNPs, sequence conservation, regulatory elements (ENCODE) and others.
+
+			\paragraph{UCSC table browser}
+			The UCSC table browser allow to extract data from the database tables without the need for a graphical interface.
+			It can also align sequences, annotate SNPs and convert data between genome versions.
+			It is a flexible tool that can retrieve data for one or more genes in a variety of formats.
+			When submitting heavy task it will redirect them to Galaxy, an online workflow system.
+
+		\subsubsection{Ensembl genome browser}
+		The Ensembl genome browser is the European genome browser.
+		It focuses on vertebrate genomes.
+		It includes genomic variants, both somatic and structural, and regulatory elements data.
+		It offers an interfcace to access data directly BioMart.
+		All Ensemble transcripts are based on proteins and mRNAs contained in the databases:
+
+		\begin{multicols}{3}
+			\begin{itemize}
+				\item UniProt/Swiss-Prot (manually curated).
+				\item UniProt/TrEMBL (not reviewed).
+				\item NCBI RefSeq (manually curated).
+			\end{itemize}
+		\end{multicols}
+
+			\paragraph{Biomart}
+			Biomart is a data mining platform which is able to address complex queries on ENSEMBL.
+			It is similar to the USCS table browser, while being more powerful as it can retrieve both annotation and sequences.
