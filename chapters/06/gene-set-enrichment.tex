@@ -1,1 +1,167 @@
+\graphicspath{{chapters/06/images/}}
 \chapter{Gene set enrichment}
+
+\section{Introduction}
+
+	\subsection{Functional groups characterized by gene expression change}
+	Functional groups characterized by gene expression change aer:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Gene sets: the set is scored depending on the expression level of its member genes.
+			\item Network: modules satisfying some joint gene expression and topology requirement are identified.
+			\item Pathways: they are scored exploiting gene expression and topology.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{Gene-set enrichment analysis}
+	Gene-set enrichment analysis is the breakdown of cellular functions into gene sets.
+	Every set of gene is associated to a specific cellular:
+
+	\begin{multicols}{4}
+		\begin{itemize}
+			\item Function.
+			\item Process.
+			\item Component.
+			\item Pathway.
+		\end{itemize}
+	\end{multicols}
+
+	Microarray or RNA-seq data can be related to gene sets in order to mine its functional meaning, to find which gene sets summarize at best gene expression patterns.
+
+	\subsection{Ontology}
+	Ontology normally represents knowledge as a set of concepts within a domain and the relationships among those concepts.
+	It can be used to reason about the entities within that domain and may be used to describe the domain.
+
+	\subsection{Controlled vocabulary}
+	A controlled vocabulary provides a way to organize knowledge for subsequent retrieval but does not allow reasoning about the entities.
+
+	\subsubsection{Ontology and controlled vocabulary uses}
+	Ontologies and controlled vocabularies are heavily used in biological databases as they allow the organization of data within a database, providing a meaningful link between database structure and search queries.
+
+
+\section{Gene ontology}
+A gene ontology is a way to capture biological knowledge for individual gene products in a written and computable form.
+
+	\subsection{Concepts hierarchy}
+	A set of concepts and their relationships to each other is arranged as a hierarchy.
+
+		\subsubsection{Molecular function}
+		The molecular function describes activities that happen at a molecular level like catalytic or binging activity.
+		This category includes the activities rather than the entities that are involved in an action and do not specify where, when or in which context the actions happen.
+		Molecular functions can be executed by single gene products or complexes of gene products.
+		Some examples are:
+
+		\begin{multicols}{4}
+			\begin{itemize}
+				\item Catalytic activity.
+				\item Transport activity.
+				\item Binding.
+				\item Toll receptor binding.
+			\end{itemize}
+		\end{multicols}
+
+		\subsubsection{Biological process}
+		A biological process is a series of events resulting from multiple ordered groups of molecular functions.
+		A biological process is different from a pathway, as gene ontology does not report the dynamics or the dependences that are required to describe a pathway.
+		Some examples are:
+
+		\begin{multicols}{4}
+			\begin{itemize}
+				\item Cellular physiological processes.
+				\item signal transduction.
+				\item Metabolic process of pyrimidine.
+				\item Glucose transport.
+			\end{itemize}
+		\end{multicols}
+
+		\subsubsection{Cellular component}
+		A cellular component is linked to a component of a cell with the condition that is part of a larger object.
+		Some examples are:
+
+		\begin{multicols}{4}
+			\begin{itemize}
+				\item Ribosome.
+				\item Nucleus.
+				\item Neuron parts.
+				\item Internal nuclear membrane.
+			\end{itemize}
+		\end{multicols}
+
+	\subsection{Ontology structure}
+	An ontology is structured as an acyclic graph where terms can have more than one parent.
+	Terms are linked by directed relationships like:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Is part of.
+			\item Regulates.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{The gene ontology project}
+	Originally in the gene ontology or GO project the hierarchies were completely independent, without links between them.
+	From $2009$ biological processes and molecular functions are linked, as biological processes are ordered assemblies of molecular functions.
+	GO is required as there are inconsistencies in the human language: different concepts can have the same name.
+	Furthermore it enables to interpret quickly large datasets.
+	The aim of the GO project is to:
+
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item Compile ontologies.
+			\item Annotate gene products using ontology terms.
+			\item Provide a public resource of data and tools for annotation.
+		\end{itemize}
+	\end{multicols}
+
+	A gene ontology annotation is a statement that a gene product has a particular molecular function, determined by a particular method and described in a reference.
+
+\section{Gene sets}
+
+	\subsection{Sources and types}
+	Other than gene ontology there are other sources and types of gene-sets:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Pathways (KEGG).
+			\item Protein families and domains (PFAM).
+			\item Predicted target of regulators like mRNA and transcription factors (MSigDB-c3).
+			\item Protein-protein interaction modules.
+			\item Gene expression:
+
+				\begin{itemize}
+					\item Up and down regulation after treatment or in relation to disease (MSigDB-c2).
+					\item Co-expression across many conditions (MSigDB-c4).
+				\end{itemize}
+
+			\item Genotype-phenotype association (DiseaseHub).
+			\item Genomic position (MSigDB-c1).
+		\end{itemize}
+	\end{multicols}
+
+		\subsubsection{Main resources}
+		The main resources for these type of data are:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item Bioconductor.
+				\item DiseaseHub.
+				\item MSigDB.
+				\item PathwayCommons.
+				\item WhichGenes.
+			\end{itemize}
+		\end{multicols}
+
+	\subsection{Differences between pathways and processes}
+	From a biological perspective the difference between pathways and processes is philosophical.
+	It is still worth speculating in a bioinformatics perspective because a gene is annotated for a GO biological process if the curators deem it significantly contributes to the process according to a number of evidences.
+	Pathway include the wiring of genes and gene products, hence they rely on a more intensive curation process.
+	Some pathways include large ubiquitous actors such as the proteasome that may confound enrichment analysis, whereas the are usually absent from GO processes.
+
+	\subsection{Enrichment test}
+
+	\subsection{Whole-distribution - GSEA enrichment}
+
+	\subsection{Gene set filter}
+
+	\subsection{Redundancy problem}
