@@ -1,1 +1,431 @@
 \chapter{Expression analysis}
+
+\section{Introduction}
+
+	\subsection{Expressed genes}
+	The expressed genes are those genes that have been transcribed.
+	A gene expression profile of a cell is the snapshot of which genes are expressed in that cell at the time the sample was taken.
+	Knowing which genes are expressed in a cell allows the identification of new genes or transcripts and the comparison of expression profiles between samples.
+	Variability in gene expression is mainly due to alternative splicing and different regulation.
+	It can be analysed to uncover characteristics of diseases, development and dynamic responses to stimuli.
+
+	\subsection{Differential gene expression}
+	During a differential gene expression experiment the expression profile of genes is compared between samples.
+	Comparison can be done between:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Different cells.
+			\item Different tissues.
+			\item Different disease states.
+			\item Different developmental stages.
+			\item Different culture conditions.
+		\end{itemize}
+	\end{multicols}
+
+	Negative and positive controls and the range of variability within samples must be taken into account.
+
+		\subsubsection{Differential gene expression workflow}
+		A typical differential gene expression analysis workflow consists of:
+
+		\begin{multicols}{2}
+			\begin{enumerate}
+				\item Formulation of the biological question.
+				\item Experimental design: choice of platform, control and replicates.
+				\item Running the experiment.
+				\item Image processing done by a machine.
+				\item Low-level analysis: data pre-processing with normalization.
+				\item High-level analysis.
+				\item Obtaining biological conclusions and interpretation of results.
+			\end{enumerate}
+		\end{multicols}
+
+		\subsubsection{High throughput methods}
+		To perform differential gene expression analysis high throughput methods can be used.
+		Their pros and cons are described in table \ref{tab:high-through-dge}.
+
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|c|c|}
+				\hline
+				Pros & Cons\\
+				\hline
+				Fast & Difficult to filter non coding RNA\\
+				Comprehensive (entire genomes) & Not enough attention to design\\
+				Easy & Artefacts\\
+				Getting cheaper & Cannot afford controls or replicates\\
+				\hline
+			\end{tabular}
+			\caption{High throughput methods pros and cons}
+			\label{tab:high-through-dge}
+		\end{table}
+
+	\subsection{Databases}
+	Repositories of array and NGS data mainly contain expression data.
+	All of these databases can be interrogated with Bioconductor packages in R.
+
+		\subsubsection{Gene expression omnibus}
+		The gene expression ombinbus or GEO is a public repository for the archiving and distribution of gene expression data submitted by the scientific community.
+		It is a curated, online resource for gene expression data browsing, query, analysis and retrieval.
+		It is convenient for the deposition of gene expression data as required by funding agencies and journals.
+		Submitted data needs to include:
+
+		\begin{multicols}{4}
+			\begin{itemize}
+				\item Platform.
+				\item Sample.
+				\item Series.
+				\item Dataset.
+			\end{itemize}
+		\end{multicols}
+
+		GEO is connected to repositories specifically tailored to store raw data like BioProject or SRA.
+
+		\subsubsection{ArrayExpress}
+		ArrayExpress or EBI si another online repository of array expression data.
+
+		\subsubsection{Gene expression Atlas}
+		The gene experssion atlas GXE NCBI provides information on gene expression patterns.
+		The raw data is re-analyzed with common pipleines.
+
+
+
+
+\section{Microarrays}
+
+	\subsection{Introduction}
+	Microarrays have been introduced at the beginning of the $2000$s and are the first high throughput technology.
+	They are useful to investigate, for example:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Genomic profiles.
+			\item Transcriptomic profiles.
+			\item The methylome.
+			\item DNA-protein interactions.
+		\end{itemize}
+	\end{multicols}
+
+	Data interpretation is subject to specific computational analyses.
+	Microarrays monitor thousands of genes in parallel.
+	Each spot contains multiple and identical DNA probes and thousands of spots are disposed as a matrix on a solid support.
+
+	\subsection{Fabrication}
+	Microarrays can be fabricated using different technologies.
+	Probes can be:
+
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item Oligonucleotides.
+			\item cDNA.
+			\item Small PCR fragments related to specific mRNA.
+		\end{itemize}
+	\end{multicols}
+
+	The probes are synthesized and placed on the support and can have different lengths, usually between $25$ and $60nt$.
+	Moreover microarrays can have different numbers of channels:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $2$ channels: test and control samples are labelled with different fluorophores.
+			\item $1$ channel: one sample is loaded per time.
+		\end{itemize}
+	\end{multicols}
+
+	Depending on the technology microarrays can capture, for example:
+
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item Exons.
+			\item Genes.
+			\item $3'$-ends.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{Reading signal}
+	A scanner allows to read the fluorescence light emitted by the fluorophores.
+	The information is stored in $2$ images for channels arrays at $16$ bit resolution.
+	The image in grey scale is represented in a red-green scale that represents the light emitted by the two fluorophores.
+	The resulting colour will be proportional to the quantity of test and control DNA.
+
+	\subsection{Image analysis}
+	After having obtained the images, these have to be analyzed.
+	This is performed by a specific technology like Affymetrix.
+	The first step is a segmentation analysis: the shape and patterns inside data is analysed to assess the signal quality for each spot.
+	The background and foreground are identified to correct for noise generated by the former.
+	One of the standard method is to create a signal model and fit the data to it in order to evaluate the quality of the spot, for example computing the interquartile range on the distribution in order to find feature, exclusion zone and background.
+	Then the fluorescence of each spot is estimated and the relative expression for each gene is interpreted thanks to annotation information.
+
+	\subsection{Batch effect}
+	For microarrays is complex to compare different technologies as different probes and methods are used.
+	It is always preferable to avoid performing an integrative analysis.
+
+	\subsection{Data pre-processing}
+	Data pre-processing is needed to reduce errors introduced during the experimental process.
+	It consists typically of:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Background subtraction: eliminates background noise.
+			\item Normalization: all samples are brought into a similar range of distribution, to reduce the effect of:
+
+				\begin{itemize}
+					\item Unequal quantity of starting sample.
+					\item Differences in labelling efficiency.
+					\item Differences in detection efficiency.
+					\item System biases.
+				\end{itemize}
+
+			\item Summarization: summary of information from several spots into a single measure for each gene.
+			\item Statistical quality control: removes low quality samples and probe sets.
+
+		\end{itemize}
+	\end{multicols}
+
+		\subsubsection{Two channels array}
+		The pre-processing pipeline for $2$ channels array consists of different steps.
+
+			\paragraph{Background correction}
+			During background correction signal $R_s$ and $G_s$ and background estimates $R_b$ and $G_b$ are separated.
+			Then the background corrected estimates $R_c$ and $G_c$ are computed as:
+
+			$$R_c = R_s-R_b\qquad\land\qquad G_c = R_s-R_b$$
+
+			Or as:
+
+			$$R_c = \max(R_s-R_b, 0)\qquad\land\qquad G_c = \max(G_s-G_b, 0)$$
+
+			\paragraph{Summarization and transforms}
+			Log-ratios estimates relative expression as"
+
+			$$\log\frac{R_c}{G_c}$$
+
+			\paragraph{Normalization}
+			Normalization is useful to identify systematic intensity-dependent bias in the data.
+			The ratio of signal might depend on the average signal density measured across different channels.
+			The function of dependance can be fitted to a polynomial regression like Loess to obtain normalization to make the plot more informative.
+
+		\subsubsection{One channel array}
+		Many methods have been developed to pre-process Affymetrix one channel arrays:
+
+		\begin{multicols}{3}
+			\begin{itemize}
+				\item Advanced methods: GCRMA, PLIER.
+				\item Popular mehtods: RMA and MAS5.
+				\item Rudimentary methods: MAS4, LOESS.
+			\end{itemize}
+		\end{multicols}
+
+		\subsubsection{Robust multi array average}
+		Robust multi array average is a pre-processing methods that consists of three steps.
+
+			\paragraph{Background correction}
+			Background correction removes local artefacts and nois.
+			The probe measure data is assumed as a combination of background noise in a normal distribution and signal in an exponential distribution.
+			Assuming strictly positive distribution of signal background, the corrected signal is positively distributed.
+			Background correction is performed on each array separately using the observed distribution of PMs.
+
+			\paragraph{Normalization}
+			Normalization is used to remove array effects, making all distributions the same.
+			Quantile normalization is used to correct for array biases, as it compares the expression levels between arrays for various quantiles.
+			It protects against outliers.
+
+			\paragraph{Summarization}
+			Summarization combines probe intensities across arrays to get a single intensity value tor each gene or probeset.
+			In median polishing each chip is normalized to its median and each gene normalized to its median.
+			The procedure is repeated until medians converge.
+			A maximum of $5$ iteration is allowed to prevent infinite loops.
+
+	\subsection{Gene expression microarray}
+	An expression microarray experiment is used to test differences in gene expression between two or more conditions that could be for example cancer versus normal or different treatments.
+	Each condition can be represented by one or more samples.
+	The null hypothesis is that there exists no difference between the gene expression in the two conditions.
+	The comparison is done using the ratio between the test and the control samples.
+	It should not differ in case of null hypothesis validity.
+	These ratios are also defined as fold changes:
+
+	$$FC = \begin{cases}Ratio & Ratio>1\\-\frac{1}{Ratio} & Ratio <1\end{cases}$$
+
+	Because ratios are not symmetric with respect to $1$ the statistics are not easy to analyse, so the log-ratio is often used.
+	The log ratio of the null hypothesis should be $0$.
+
+		\subsubsection{Replicates}
+		Replicates are needed considering the noise of microarray data.
+		They can be distinguished between:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item Technical replicates: experiments on more RNA samples obtained from the same biological source.
+				\item Biological replicates: experiments on more biological sources belonging to the same condition.
+			\end{itemize}
+		\end{multicols}
+
+		Ideally each condition should be represented by more biological replicates in order to perform a statistical test.
+		They can also be summarized as mean for each gene.
+
+		\subsubsection{Statistical tests}
+		Microarray correlation can be exploited to identify differentially expressed genes.
+		A gene is called differentially expressed through a $Z$ statistics.
+		To find significantly differentially expressed genes a test statistic for each gene should be used.
+		A low $p$-value is interpreted as evidence that the null hypothesis can be false and so a gene is differentially expressed.
+
+			\paragraph{T-Test}
+			The T-test is a parametric test to check the difference between the mean of two groups.
+			It assumes that the variance of those two groups is the same.
+			Is computed as:
+
+			$$T(X, Y) = \frac{\bar{X}-\bar{Y}}{\sigma\sqrt{\frac{1}{m}+\frac{1}{n}}}$$
+
+			\paragraph{Walch t-test}
+			Walch t-test considers different variance between two groups.
+			It is the default implementation fo $R$ $t.test()$ function.
+			Is computed as:
+
+			$$T(X, Y) = \frac{\bar{X}-\bar{Y}}{\sqrt{\frac{\sigma^2_{X}}{m}+\frac{\sigma^2_Y}{n}}}$$
+
+			\paragraph{Wilcoxon test}
+			The Wilcoxon test is a non parametric test to check the equality of two distributions.
+
+			\paragraph{Permutation test}
+			The permutation test generates a null distribution on an observation of interest by changing the group labels.
+			It compares the values observed in data and the values in the generated null distribution.
+			Is computed as:
+
+			$$p = \frac{\#\{b:|T_b|\ge T_{obs}}{B}\}$$
+
+			\paragraph{ANOVA analysis}
+			ANOVA analysis is used to control different treatments.
+			It allows to test the null hypothesis that the differences within and between at least $3$ groups are the same on average.
+
+			\paragraph{2-way ANOVA}
+			2-way ANOVA compares the mean differences between groups that have been split on two independent variables called factors.
+			It understand if there is an interaction between the two independent variables on the dependent one.
+
+			\paragraph{From p-value to probability of significant results}
+			Given a p-value and $n$ the number of hypothesis to test, $P$ the probability of having al least one significant result is computed as:
+
+			$$P = 1-(1-pvalue)^n$$
+
+		\subsubsection{Correction methods}
+		Correction methods are used to correct p-values in the presence of multiple null hypothesis.
+		Some examples are:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item Bonferroni: very conservative, it has a significance threshold of $\frac{\alpha}{N}$.
+					It reduces false positive while introducing false negatives.
+				\item Benjamini-Hochenberg: it tunes false positives and false negatives.
+				\item False discovery rates: it checks if the $kth$ ordered p-value is larger than $\frac{k\cdot a}{N}$
+			\end{itemize}
+		\end{multicols}
+
+		\subsubsection{Receiver operating characteristic}
+		The receiver operating characteristic find genes that better discriminate between two conditions.
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $AUC=1$: perfect classification.
+				\item $AUC = 0.5$: random classification.
+			\end{itemize}
+		\end{multicols}
+
+		\subsubsection{Clustering}
+		The objective in differential gene expression is to look for genes that behave differently between samples.
+		Once having obtained then they can be clustered according to similar expression to make the outliers more obvious.
+
+			\paragraph{Clustering pipeline}
+			The algorithm creates a dendrogram based on on a definition of distance measure between observation pairs.
+			The idea is:
+
+			\begin{multicols}{2}
+				\begin{itemize}
+					\item Starting with $N$ observation and a distance measure for all $\frac{N(N-1)}{2}$ pairs.
+						Each observation is a cluster.
+					\item For $i =n$ to $2$:
+
+						\begin{itemize}
+							\item Examine all inter-clusters distances and fuse the cluster with lower distance.
+								The distance between fused clusters represents the height of the bar in the dendrogram.
+							\item Calculate new inter-cluster distances between the remaining $i-1$ clusters.
+						\end{itemize}
+
+				\end{itemize}
+			\end{multicols}
+
+			\paragraph{Linkage}
+			Linkage defines the distance between clusters.
+
+				\subparagraph{Complete linkage}
+				In complete linkage maximal intercluster dissimilarity is reached.
+				All pairwise dissimilarities between the observations in cluster $A$ and in cluster $B$ are computed and the largest is recorded.
+
+				\subparagraph{Single linkage}
+				In single linkage minimal interclsuter dissimilarity is reached.
+				All pairwise dissimilarities between the observations in cluster $A$ and in cluster $B$ are computed and the smallest is recorded.
+				It can result in extended, trailing clusters in which single observations are fused one at a time.
+
+				\subparagraph{Average linkage}
+				In average linkage te mean intercluster dissimilarity  is reached.
+				All pairwise dissimilarities between the observations in cluster $A$ and in cluster $B$ are computed and the average is recorded.
+
+				\subparagraph{Centroid linkage}
+				In centroid linkage the dissimilarity between the centroid for cluster $A$ (a mean vector of length $p$) and for cluster $B$ is computed and recorded.
+				It can result in undesirable inversions.
+
+\section{RNA-sequencing}
+
+	\subsection{Introduction}
+	RNA sequencing is a next-generation sequencing approach that sequences the cDNA from the mRNA component.
+	The whole transcriptome can be compared against the whole transcriptome of another sample.
+	It is very cheap, sequencing $\sim 400$ gigabases per flow cell, but it has an error rate up to $1\%$, issues with $AT$ and $GC$ regions and long sequencing items.
+
+	\subsection{Pipeline}
+	A RNA-sequencing pipeline consists of different steps.
+
+		\subsubsection{Sample preparation}
+		In sample preparation RNA is extracted and sheared into $300$-$600np$ fragments through sonication or enzimatic digestion.
+
+		\subsubsection{Library preparation}
+		During library preparation adapter sequences are ligated to the fragments.
+		Barcoding is possible allowing for sample multiplexing.
+
+		\subsubsection{Cluster generation}
+		During cluster generation the library is loaded into a flow cell where fragments are captured on a lawn of surface-bound oligos complementary to the library adapters.
+
+		\subsubsection{Sequencing}
+		Sequencing is done by synthesis:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item Paired ends are used for duplicates, splicing analysis and discovery of novel isoforms.
+				\item Single ends are used fo gene expression analysis.
+			\end{itemize}
+		\end{multicols}
+
+		\subsubsection{Alignment}
+		Reads are aligned to a reference genome or transcriptome or to a genomic region.
+		Splice-aware aligner such as TopHat or STAR should be used.
+		The alignments are refined according to coding sequences using known and predicted splice junctions.
+
+		\subsubsection{Quantifying reads}
+		Reads per gene are quantified.
+		non-coding RNA are filtered out.
+		Alternative splicing, overlapping genes and pseudogenes are dealt with.
+		Different type of counts can be employed:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item Standard count: number of reads for transcript.
+				\item CPM: counts scaled by the number of fragments sequenced $N$ times one million.
+					It allow to compare each transcript across different smples.
+				\item TPM: measurement of the proportion of transcripts in the pool of RNA.
+					It takes into account the length of the transcript.
+					It is not used for direct comparison across samples, but for intra-sample normalization.
+				\item RPKM: reads per kilobase of exon per million erads mapped.
+					It is called FPKM for fragments.
+			\end{itemize}
+		\end{multicols}
+
+		\subsubsection{Normalization}
+		To perform inter-sample normalization quantile normalization is used to make the distribution identical.
+		The best normalization methods for differential expression are coupled with sophisticated approaches as very low expressing genes are tricky, for example those with $FPKM<1$.
