@@ -1,1 +1,254 @@
+\graphicspath{{chapters/07/images/}}
 \chapter{Network analysis}
+
+\section{Introduction}
+
+	\subsection{Network definition}
+	A network is a series of interconnected components, systems or entities.
+	They can be used to describe a large variety of physical or abstract phenomena.
+	Nodes can represent different entities and arcs any kind of interaction.
+
+	\subsection{Networks in system biology}
+	Networks are a relevant part of system biology, ome and omics.
+	The objectives of system biology are:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Comprehension at the level of system.
+			\item Analysis of individual components.
+				\item Analysis of interactions.
+			\item Analysis of potential emerging properties.
+		\end{itemize}
+	\end{multicols}
+
+\section{Graphs}
+
+	\subsection{Definition}
+	The analysis of a network structure should be done using appropriate mathematical methods.
+	Graph theory is the tool able to extract information from the networks.
+	A graph is a mathematical object defined by a set of nodes and arcs.
+	It is denoted $G = (V, E)$, such that $V = \{v|v\ nodes\}$ and $E = \{(i,j)|i,j\in V\}$.
+
+	\subsection{Magnitude of a graph}
+	The magnitude of a graph is characterized by:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item The number of nodes $|V|$ or order of $G$.
+			\item The number of arcs $|E|$ or size of $G$.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{Degree of a graph}
+	The degree of a node in a graphs is the number of arcs that are incident with that node.
+	In a direct graph the out degree is the number of arcs going out of a node, while the in degree is the number of arcs directed into a node.
+
+	\subsection{Weighted graphs}
+	A weighted graph is a graph which arcs have associated a weight, generally defined as a weighting function:
+
+	$$w:E\rightarrow\mathbb{R}$$
+
+	\subsection{Complete graphs}
+	A complete graph is a direct or indirect graphs in which each pair of nodes is adjacent.
+	If $(u,v)$ is an arc in $G$ then $v$ is adjacent to node $y$.
+	So, for a complete graph:
+
+	$$(u,v)\in E\forall u,v\in V$$
+
+	\subsection{Paths}
+	A path is a sequence of nodes $(v_1,v_2,\dots,v_n)$ such that:
+
+	$$\{(v_1,v_2), (v_2, v_3), \dots, (v_{n-1}, v_n)\}\subseteq E$$
+
+		\subsubsection{Simple paths}
+		A simple path is a path without repeated nodes:
+
+		$$P=\{(v_1,v_2), (v_2, v_3), \dots, (v_{n-1}, v_n)\}\subseteq E\land\forall v_i,v_j\in P, v_i\neq v_j$$
+
+		\subsubsection{Cycles}
+		A cycle is path such that:
+
+		$$P=\{(v_1,v_2), (v_2, v_3), \dots, (v_{n-1}, v_n)\}\subseteq E\land\forall v_i,v_j\in P, v_i\neq v_j\land v_1=v_n$$
+
+		A graph is called cyclic if it contains a cycle, otherwise it is called acyclic.
+
+	\subsection{Bipartite graphs}
+	A bipartite graph is an indirect graph $G = (V,E)$ such that:
+
+	$$(u,v)\in E\Rightarrow  u\in V_1 \land v\in V_2\lor v\in V_1\land u\in V_2$$
+
+	\subsection{Graphs connections}
+	An indirect graphs is connected if each pair of nodes is connected by a path.
+
+		\subsubsection{Weakly connected graphs}
+		A directed graph is weakly connected if for each pair of nodes $(u,v)$ it exists a directed path from $u$ to $v$ or from $v$ to $u$.
+
+		\subsubsection{Strongly connected graphs}
+		A directed graph is strongly connected if a directed path between each pair of nodes exists.
+
+		\subsubsection{Sparse graphs}
+		A graph is sparse if:
+
+		$$|E|\sim|V|$$
+
+		\subsubsection{Dense graphs}
+		A graph is dense if:
+
+		$$|E|\sim|V|^2$$
+
+	\subsection{Subgraphs}
+	A graph $G' = (V', E')$ is a subgraph of $G = (V,E)$ if:
+
+	$$V'\subseteq V \land E'\subseteq E$$
+
+	\subsection{Trees}
+	Trees are complete, acyclic graphs.
+	A tree $ T$ spans $G = (V,E)$ if $T = (V,E')$ and $E'\subseteq E$.
+
+		\subsubsection{Understanding if a graph is a tree}
+		Let $G = (V,E)$ an indirected graph, then the following statements are equivalent:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $G$ is a tree.
+				\item Each pair of nodes in $G$ is connected by a unique single path.
+				\item $G$ is connected, but if a node is removed from $E$, the resulting graph is not connected.
+				\item $G$ is connected and $|E| = |V|-1$.
+				\item $G$ is acyclic and $|E| = |V|-1$.
+				\item $G$ is acyclic but if an edge is added to $E$, the resulting graph contains a cycle.
+			\end{itemize}
+		\end{multicols}
+
+	\subsection{Clique}
+	A clique in an indirect graph $G = (V,E)$ is a subset $V'$ of the set of nodes $V$ such that for each two nodes in $V'$ it exists a unique arc that connects them.
+	So the subgraph induced by $v'$ is complete.
+
+	\subsection{Isomorphisms}
+	An isomorphism between two graphs $G$ and $G'$ is a biunivocal correspondence $f:V(G)\rightarrow V(G')$ such that $u$ and $v$ in $G$ are adjacent if and only if $f(u)$ and $f(v)$ are adjacent in $G'$.
+
+	$$G = (V,E)\land G = (V',E'), f:V \rightarrow V': (u, v)\in E\Leftrightarrow (f(u), f(v))\in E'$$
+
+	If an isomorphism between two graphs can be built they are isomorphic.
+
+		\subsubsection{Automorphism}
+		An automorphism is an isomorphism on a graph onto itself.
+
+		\subsubsection{Building an isomorphism}
+		Building an isomorphism is an important problem in computer science with a complexity to be defined.
+		Isomorphisms are useful when comparing the structure of two graphs.
+
+	\subsection{Representing a graph}
+
+		\subsubsection{Adjacency matrix}
+		A graph can be represented by and adjacency matrix.
+		Let $G = (V,E)$, then the adjacency matrix is a matrix $|V|\times|V|$ such that $A_{uv} = w$ if $(u,v)\in E$ and $A_{uv} = 0$ if $(u,v)\not\in E$.
+		It grows quadratically with the number of nodes and each arc is represented two times, so it will be symmetric for indirect graphs.
+		It is not efficient for sparse graphs.
+
+		\subsubsection{Adjacency lists}
+		The adjacency list of a graph $G=(V,E)$ is an array of lists.
+		Each node has a list of the nodes to which is adjacent.
+		The space is proportional to $|V|+|E|$ and each arch is represented two times.
+		It is not efficient for dense graphs.
+
+\section{Networks properties}
+Theory of graphs or networks is focused on three different abstraction levels.
+
+	\subsection{Analysis of single elements}
+	In the analysis of single elements the more important nodes are identified.
+	Centrality measures are indicators of the importance of a node in a graph or network.
+	Different centrality measures are available.
+
+		\subsubsection{Degree centrality}
+		Degree centrality is measured as:
+
+		$$DC(n) = degree(n)$$
+
+		Nodes with high $DC$ are defined as hubs and usually they have important roles in a network.
+
+		\subsubsection{Closeness centrality}
+		Closeness centrality is measured as:
+
+		$$CC(n) = \frac{|V|}{\sum\limits_{n'}d(n,n')}$$
+
+		Where $d(n,n')$ is the length of the shortest path between $n$ and $n'$.
+		Nodes with high closeness centrality can access quickly other nodes and have rapid cascade effects on other nodes.
+
+		\subsubsection{Eccentricity centrality}
+		Eccentricity centrality is computed as:
+
+		$$C_s(n) = \frac{1}{\max\{dist(u,n):u\in V\}}$$
+
+		The eccentricity is a measure of the centrality index.
+		Is calcualted by computing the shortest path between the node $v$ and all other nodes in the graph and then considering the longest shortest path.
+		Higher eccentricity means that the node is proximal to other nodes.
+
+		\subsubsection{Betweenness centrality}
+		Betweenness centrality is computed as:
+
+		$$BC = \sum\frac{\sigma_{st}(n)}{\sigma_{st}}$$
+
+		Where $\sigma_{st}$ is the number of shortest paths between $s$ and $t$>
+		Nodes with high betweenness centrality can have greater control in the propagation of an effect in a whole network.
+
+		\subsubsection{Subgraph centrality}
+		Subgraph centrality is computed as:
+
+		$$SC(n) = \sum\limits_{k=0}^\infty \frac{\mu_k(n)}{k!}$$
+
+		It accounts for the participation of a node in all sub graphs of the networks.
+		$\mu_k(v)$ is the number of closed walks of length $k$ starting and anding in node $v$.
+
+		\subsubsection{Eivenvector centrality}
+		Eigenvector centrality is computed as:
+
+		$$EC(n) = \frac{1}{\lambda}\sum\limits_{t\in M(n)} EC(t) = \frac{1}{\lambda}\sum\limits_{t\in V} a_{v,t}EC(n)$$
+
+		Where $\lambda$ is a constant, $a$ is the adjacency matrix and $M(v)$ are the neighbours of $v$.
+		It can be written in vector notation as $A\vec{x} = \lambda\vec{x}$.
+		It is a measure of the influence of a node in a network.
+		The hogh-scoring nodes contribute more to the score of the node in question.
+		A high eigenvector score means that a node is connected to many nodes who themselves have high scores.
+
+	\subsection{Analysis of groups}
+	During the analysis of groups groups or nodes are identified that have cohesion characteristics.
+	A typical analysis is network clustering.
+	First a similarity function between nodes is defined in terms of network topology.
+	Then a method to group the nodes in terms of their similarity is applied.
+
+	\subsection{Analysis of network}
+	During the analysis at the level of network topological properties that are global to the network are identified.
+
+		\subsubsection{Clustering coefficient}
+		The clustering coefficient measures the degree at which nodes in a graph tend to e connected.
+
+			\paragraph{Local clustering coefficient}
+			A local clustering coefficient indicates how much the neighbours of a node are distance from being a clique.
+			The local clustering coefficient $LCC(n)$ of a node $n$ is given by the number of links between the members of $N(n)$ divided by the number of potential links between them:
+
+			$$LCC(n) = \frac{2|\{(u,v)|u\land v\in N(n)\land (u,v)\in E\}|}{|N(n)|(|N(n)|-1)}$$
+
+			\paragraph{Global clustering coefficient}
+			A global clustering coefficient $GCC$ is the mean of all $LCC$ computed across nodes in a graph and is called average clustering coefficient.
+			The same measure can be calculated counting the number of closed triplets in the network divided by the total number of triples.
+			$GGC=LCC$ coincide when using the weighted mean.
+			It gives the intensity of the phenomena in the graph
+
+		\subsubsection{Average diameter}
+		The distance between two nodes is the least number of arcs that should be crossed to go from one node to another.
+		The shortest path is the path that satisfies this criteria.
+		The average diameter $AD$ of a graph is the average shortest path computed across all pair of nodes of a graph.
+
+		\subsubsection{Degree distribution}
+		Let $P(k)$ be the percentage of nodes with degree $k$ in a graph.
+		The degree distribution is the distribution of $P(k)$ computed on all $k$.
+		It can be defined as the probability of a node to have a degree $k$.
+		Different distributions indicate different network topology, for example random networks or scale free networks.
+		In scale free networks multiple hubs are present and is a hierarchical structure with an exponential degree distribution.
+
+	\subsection{Small world effect}
+	Small world networks have low $AD$ and high $GCC$.
+	Comparing different graphs mean to combine their different properties like randomness, modularity and heterogeneity.
+	In particular in a regular graph each node has the same number of neighbours.
+	In a random graph there is low AD.
+	In a small world graph $GCC$ tends to be similar to a regular graph or to a bigger random graph and AD is similar to a random graph.

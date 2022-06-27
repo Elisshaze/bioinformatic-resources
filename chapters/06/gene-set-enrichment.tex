@@ -159,9 +159,112 @@ A gene ontology is a way to capture biological knowledge for individual gene pro
 	Some pathways include large ubiquitous actors such as the proteasome that may confound enrichment analysis, whereas the are usually absent from GO processes.
 
 	\subsection{Enrichment test}
+	An enrichment test combines a gene expression table with gene-set databases to build an enrichment table.
+	In the enrichment table each gene set is associated with a p-value, that gives use the probability that the differentially expressed genes are part of the gene set.
+	This is a two class design: genes can be ranked according to different statistics like fold change, log ratio or t-test and a selection by threshold can be performed.
+	Also an expression matrix can be obtained with multiple condition employing for example ANOVA.
+	A gene set can both overlap with significant gene and background genes.
+	To test whether this overlap is significant it must be compared with random sampling of captured genes.
+
+		\subsubsection{Fisher's exact test}
+		Fisher's exact test calculates the exact probability of the table of observed cell frequencies in a table given that:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item THe null hypothesis of independence is true.
+				\item The marginal totals of the observed table are fixed.
+			\end{itemize}
+		\end{multicols}
+
+		It does not require to perform random sampling as it is based on the theoretical null-hypothesis distribution: the hypergeometric distribution.
+		In particular it gives the probability that the overlap between significant genes and gene-set is greater than the one expected by random sampling the captured genes.
+		Fisher's table is built such that:
+
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{ccccc}
+				\multirow{4}{*}{\rotatebox[origin=c]{90}{\tiny{Up regulated genes}}}& \multicolumn{4}{c}{Gene Set}\\
+				 & & No & Yes & \\
+				 \cline{3-4}
+				 &Yes & \multicolumn{1}{|c|}{$a$} & \multicolumn{1}{|c|}{$b$} & $a+b$\\
+				 \cline{3-4}
+				 &No & \multicolumn{1}{|c|}{$c$} & \multicolumn{1}{|c|}{$d$} & $c+d$\\
+				 \cline{3-4}
+				 & & $a+c$ & $b+d$ & \\
+			\end{tabular}
+			\caption{Fisher's exact test table}
+			\ref{tab:fisher}
+		\end{table}
+
+		Considering the table \ref{tab:fisher}:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $a$ depicts the significant gene not in overlap.
+				\item $b$ the significant ones in overlap.
+				\item $c$ the background genes not in overlap.
+				\item $d$ the background gene in overlap.
+			\end{itemize}
+		\end{multicols}
+
+		Then the exact probability of the table is:
+
+		$$\frac{(a+b)!\cdot(c+d)!\cdot(a+c)!\cdot(b+d)!}{n!\cdot a!\cdot b!\cdot c!\cdot d!}$$
+
+		The p-value is calculated by summing all probabilities less than or equal to the probability of the observed table.
+		Fisher's exact test can be used to evaluate the overlaps between gene-sets from databases.
+		It is usually employed in threshold-dependent scenario and suffers from some limitations.
 
 	\subsection{Whole-distribution - GSEA enrichment}
+	Whole distribution methods like GSEA, gene set enrichment analysis, have been shown to be more stable and statistically powerful.
+	Instead of excluding genes they are ranked according to a measure.
+	This type of test can be used to compare $2$ classes of genes and they can be correlated to a phenotype with a Pearson correlation test.
+
+		\subsubsection{Process}
+		First the enrichment score is calculated: genes are ranked according to a specific measure like fold change.
+		Then the chance of observing a gene in a position towards the upregulated or downregulated region is computed.
+		Based on the position in which genes are found, it can be established whether the event is random or not.
+		Every gene present in a gene list gives a positive contribution, while every absent one a negative one.
+		So, an high enrichment score means high local enrichment.
+		After this the enrichment score distribution is generated for the null hypothesis using permutation and the empirical p-value is computed observing how many random data have enrichment score greater than the read ones.
+		Then the FDR correction of the p-value is computed.
+
+		\subsubsection{Permutations}
+		Permutations setting have important implication and can be used only when biological replicates are very similar within classes or are well separated.
+		When biological replicates tend to be dissimilar or stratified according to hidden experimental factors other whole-distribution enrichment methods need to be used.
+
+		\subsubsection{Other uses of GSEA}
+		The GSEA tool allow to perform more general types of analysis specifying desings:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item .GMT data format contains GO ID, description and information of the genes contained in the GO term.
+				\item The gene expression table contains CDM or RPKM values for each gene.
+				\item The expression phenotype file .cls determine which sample belongs to which class.
+			\end{itemize}
+		\end{multicols}
 
 	\subsection{Gene set filter}
+	Gene set for enrichment analysis are usually filtered by size.
+	Large gene-sets are undesired if they are derived from gene ontology or other functional resources as the usually correspond to uninformative concepts.
+	Small gene-sets are undesired as their statistics are noisy and may decrease the FDR of other sets.
 
 	\subsection{Redundancy problem}
+	There are many redundant gene-sets.
+	For example gene ontology has a very large number of gene-sets, often with slight differences.
+	Moreover different pathway databases have different but overlapping definitions of pathways.
+	Globally it is useful to grasp the overlap relations between enriched gene-sets.
+	To do so a visualization framework beyond the enrichment table is needed.
+	The redundancy problem can be handled by correcting for inter-redundancy and prioritizing the most enriched gene-sets or by visualizing gene-set overlap as a network with the EnrichMap tool.
+	Considering up and down regulation a map can be built such that:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Each node is a gene set.
+			\item The colour represent differentially expressed genes.
+			\item The size of the node is the number of genes.
+			\item The edge thickness the overlap or similarity degree.
+		\end{itemize}
+	\end{multicols}
+
+	The network can be then clustered based on similarity values in order to identify redundancy sets.
