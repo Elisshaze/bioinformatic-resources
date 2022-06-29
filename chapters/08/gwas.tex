@@ -1,1 +1,330 @@
 \chapter{Genome wide association studies}
+
+\section{Types of studies}
+
+	\subsection{Descriptive studies}
+	Descriptive studies are studies in which an hypothesis is generated.
+	Then the patterns of disease occurrence in relation to variables such as person, place and time are studies.
+	They are often the first step or initial enquiry into a new topic event, disease or condition.
+	They typically estimate the frequency and the magnitude of the event analysed.
+
+	\subsection{Analytical studies}
+	An analytical study is one in which action will be taken on a cause system to improve the future performance of the system of interest.
+	The focus is to test an hypothesis to produce predictive data.
+	In particular they are used to identify factors that are associated with a disease or to quantify the risk of these factors.
+
+	\subsection{Cohort studies}
+	Cohort studies are a type of analytical studies that involve a cohort.
+	A cohort is a well-defined group of individuals who share a common characteristic or experience.
+	For example individual exposed to a drug, vaccine and pollutant.
+
+		\subsubsection{Prospective cohort studies}
+		Prospective cohort studies potential exposure has already occurred while outcomes have yet to occur.
+		Participants are grouped according to past or current exposure and a follow-up in the future determine whether the predicted outcome occurs.
+
+		\subsubsection{Retrospective cohort studies}
+		Retrospective cohort studies both exposure and outcomes have already occurred.
+		Participants are grouped according to past exposure and certain characteristics and are compared for a particular outcome.
+
+		\subsubsection{Measures of associations}
+		In cohort study a $2\times 2$ table can be built to determine, for example, the effect of exposure to a certain event on disease presence.
+		This type of table is described on table \ref{tab:risk_table}.
+
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{ccc}
+				 & \multicolumn{2}{c}{Disease}\\
+				 & Yes & No \\
+				 \cline{2-3}
+				 Exposed & \multicolumn{1}{|c|}{$a$} & \multicolumn{1}{|c|}{$b$}\\
+				 \cline{2-3}
+				 Not exposed & \multicolumn{1}{|c|}{$c$} & \multicolumn{1}{|c|}{$d$}\\
+				 \cline{2-3}
+			\end{tabular}
+			\caption{Cohort study's table example}
+			\label{tab:risk_table}
+		\end{table}
+
+		Then from this table the percentage of individuals exposed harbouring the disease can be computed:
+
+		$$I_e = \frac{a}{a+b}$$
+
+		Also the percentage of individuals not exposed and not harbouring the disease:
+
+		$$I_{ne} = \frac{c}{c+d}$$
+
+		From this two measure the risk excess $RE$ and the relative risk $RR$ can be computed:
+
+		$$RE = I_e - I_{ne} \qquad\qquad RR= \frac{I_e}{I_{ne}}$$
+
+		The risk excess determine how the exposure betters, or worsen the chance of presenting a disease.
+		The relative risk instead determine the nature of the exposure's event:
+
+		\begin{multicols}{3}
+			\begin{itemize}
+				\item $RR<1$ indicates a protective factor.
+				\item $RR \sim 1$ indicates an absence of risk.
+				\item $RR> 1$ indicates a risk factor.
+			\end{itemize}
+		\end{multicols}
+
+			\paragraph{Statistical confidence}
+			From the table also a significance of association and a precision of association can be determined.
+			The first requires a $p$-value, that determine how unlikely it is that the events observed arise by chance.
+			The second requires a confidence interval $CI$, which can be with a certain level of confidence $\alpha$, usually around $80\%$ and $95\%$, that determine how many times the correct value will be inside the interval when the measurement or the estimate will be replicated many times.
+			Usually the relative risk indicates the amount of random error around the point estimate.
+
+	\subsection{Case-control study}
+	The purpose of a case-control study is typically to study rare diseases or multiple exposures that may be related to a single outcome.
+	Participants are selected based on outcome status:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Case subjects have outcome of interest.
+			\item Control subjects do not have outcome of interest.
+		\end{itemize}
+	\end{multicols}
+
+	This type of study is usually preferred when funding is limited.
+
+		\subsubsection{Measure of association}
+		The same table as a cohort study is built (as in table \ref{tab:risk_table}), but the measure of association is different.
+		First the odds of exposure in cases is computed:
+
+		$$\frac{\frac{a}{a+c}}{\frac{c}{a+c}} = \frac{a}{c}$$
+
+		Then the odds of exposure in control:
+
+		$$\frac{\frac{b}{b+d}}{\frac{d}{d+b}} = \frac{b}{d}$$
+
+		Finally the ratio of this two measure is the odds ratio $OR$, the measure of association for a case control study:
+
+		$$OR = \frac{\frac{a}{c}}{\frac{b}{d}} = \frac{ad}{bc}$$
+
+		$OR$ is in relationship with $RR$ following the equation:
+
+		$$OR = \frac{RR(1-R_0)}{1-RR\cdot R_0}$$
+
+		Where $R_0$ is the frequency of the disease in the not exposed population.
+
+\section{GWAS}
+
+	\subsection{Objective of GWAS}
+	The objective of a GWAS is to find connections between a phenotype known to be heritable and whole-genome genotype.
+	GWAS were developed in $2004$, mainly thanks to the HapMap project, which unravelled the existence of linkage disequilibrium blocks, which allowed the exploitation of tag SNPs.
+	Specific goals are distinct:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Identification of statistical connections between points or areas in the genome and the phenotype.
+				The hypotheses are driven for biological studies of specific genes or regions in specific contexts.
+			\item Generation of insights on genetic architecture or phenotype.
+				In fact a phenotype could be due to many small genetic effects dispersed across the genome or due to few large effects concentrated in one area.
+				An example in the second case is the MHC or major histocompatibility complex, a group of genes involved in the mechanism of immune defence.
+			\item Build statistical models to predict phenotype from genotype.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{Main application of GWAS}
+	The main application of GWAS are:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Identification of susceptibility variants for novel biological insights like:
+
+				\begin{itemize}
+					\item Therapeutic targets.
+					\item Biomarkers.
+				\end{itemize}
+
+			\item Improved measures of individual aetiological (the manner of causation of a disease or condition) processes for personalized medicine.
+		\end{itemize}
+	\end{multicols}
+
+	\subsection{GWAS methodology}
+	A typical GWAS methodology can be described as:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Collect $n$ subjects with known phenotype, usually $n\in [10^3;10^4]$.
+			\item Measure each one in $m$ genomic locations representing common variation in the whole genome.
+				Typically these are SNPs.
+				Usually $m\in [10^5;10^6]$, but recently with whole genome sequencing $m = 3\cdot 10^9$.
+			\item The data can be thought as a matrix $X$ of dimension $n\times m$ with subject as rows and SNPs as columns.
+				This matrix is built such that $X_{ij} \in \{0,1,2\}$, representing the genotype at a single column.
+				Moreover a vector of phenotypes $Y_n$ can be given.
+		\end{itemize}
+	\end{multicols}
+
+	Having collected the data and having computed the matrix $X$ and the vector $Y$ the first task is association testing: finding SNPs (column of $X$) that are statistically associated with $Y$.
+	This can be thought of as $m$ separate statistical tests run on the matrix $X$.
+
+	\subsection{Single nucleotide polymorphisms}
+	A SNP is defined as a single base variation in a DNA sequence.
+	They are classified according to the minor allele frequency $MAF$:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item Common SNPs have $MAF \ge 1\%$.
+			\item Rare SNPs have $MAF < 1\%$.
+		\end{itemize}
+	\end{multicols}
+
+		\subsubsection{SNPs frequency}
+		In the human genome SNPs compose the $0.1\%$ and are what makes human unique.
+		These variants can be:
+
+		\begin{multicols}{3}
+			\begin{itemize}
+				\item Harmless.
+				\item Harmful.
+				\item Latent.
+			\end{itemize}
+		\end{multicols}
+
+		They can lie in coding regions, but the majority of them are found in non-coding one.
+		Thy are present between in $1$ every $1000$ bases or $1$ every $100$-$300$.
+		The abundance of SNPs and the ease with which they can be measured make them very important.
+		Two thirds of SNPs modification are from a $C$ to a $T$.
+		They are typically found in non-coding regions and are found less in less conserved regions.
+		In coding regions synonymous SNPs (that don't change the structure of the coded protein) are more common.
+
+		\subsubsection{SNPs effects}
+		SNPs can have different effect on the genome:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item When they are found near a gene they can act as marker for that gene.
+				\item SNPs in regulatory regions can modify transcription influencing the binding of transcription factors.
+				\item SNPs in coding regions can modify the stricture of codified protein.
+			\end{itemize}
+		\end{multicols}
+
+		\subsubsection{Nucleotide diversity}
+		Nucleotide diversity measures the degree of polymorphism in DNA sequences or in a population.
+		It is defined as the average number of nucleotide differences per site between two DNA sequences in all possible pairs in the same population and is denoted by $\pi$
+		It is estimated as:
+
+		$$\hat{\pi} = \frac{n}{n-1}\sum\limits_{ij} x_ix_j\pi_{ij} = \frac{n}{n-1} \sum\limits_{i=2}^n\sum\limits_{j=1}^{i=1}2x_ix_j\pi_{ij}$$
+
+		Where:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $x_i$ and $x_j$ are the respective frequencies of the $ith$ and $jth$ sequences.
+				\item	$\pi_{ij}$ is the number of nucleotide differences per nucleotide site between the $ith$ and $jth$ sequences.
+				\item $n$ is the number of sequences in the sample.
+				\item $\frac{n}{n-1}$ is a normalization factor that makes the estimator independent on how many sequences are sampled.
+			\end{itemize}
+		\end{multicols}
+
+			\paragraph{Hardy-Weinberg equilibrium}
+			In a population with genotypes $BB$, $bb$ and $Bb$, if:
+
+			\begin{multicols}{2}
+				\begin{itemize}
+					\item $p = freq(B)$.
+					\item $q = freq(b)$.
+				\end{itemize}
+			\end{multicols}
+
+			The frequencies of the genotypes are then:
+
+			\begin{multicols}{3}
+				\begin{itemize}
+					\item $freq(BB) = p^2$.
+					\item $freq(bb) = q^2$.
+					\item $freq(Bb) = 2pq$
+				\end{itemize}
+			\end{multicols}
+
+			In a condition of equilibrium and will not change considering:
+
+			\begin{multicols}{3}
+				\begin{itemize}
+					\item No mutations.
+					\item No emigrations.
+					\item Population of infinite size.
+					\item No selective pressure.
+					\item Random coupling.
+				\end{itemize}
+			\end{multicols}
+
+		\subsubsection{Linkage disequilibrium}
+		Two genetic loci are said to be in linkage disequilibrium $LD$ when there is a non-random association of alleles at different loci in a given population.
+		It usually indicates that two alleles are near and in mammalians $LD$ is usually lost at around $100Kbp$.
+		Let:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $p_A$ be the frequency of an allele $A$ in a genomic locus.
+				\item $p_B$ be the frequency of an allele $B$ in another genomic locus.
+			\end{itemize}
+		\end{multicols}
+
+		The association between allele $A$ and allele $B$ is random when:
+
+		$$p_{AB} = p_Ap_B$$
+
+			\paragraph{Measuring linkage disequilibrium}
+			The coefficient $D$ is a measure of linkage disequilibrium.
+			It is defined for two biallelic loci with alleles $A$ and $a$ at the first locus and $B$ and $b$ at the second one as:
+
+			$$D_{AB} = p_{AB} - p_Ap_B\qquad\qquad D_{Ab} = -D_{AB}\qquad\qquad D_{ab} = D_{AB}$$
+
+			Being $LD$ a property of two loci and not of their alleles, it is the magnitude being of interest, not the sign.
+			The magnitude does not depend on the choice of the allele, and the range of $D$ changes with allele frequency.
+			Knowing that $p_{AB}$ is smaller than $p_A$ and $p_B$ and that the frequencies cannot be negative:
+
+			$$-p_Ap_B\land -p_ap_b\le D_{AB}\le p_ap_B\land p_Ap_b$$
+
+			The possible values of $D$ depend on the allele frequencies and as such is difficult to interpret.
+			Because of this it is normalized in $D'$:
+
+			$$D'_{AB} = \begin{cases}\frac{D_{AB}}{\max(-p_Ap_B, -p_ap_b)} & D_{AB} < 0\\\frac{D_{AB}}{\min(p_ap_B, p_ap_b)} & D_{AB}>0\end{cases}$$
+
+				\subparagraph{Measuring LD with $r^2$}
+				To measure $LD$ with $r^2$ two random variables are defined:
+
+				\begin{multicols}{2}
+					\begin{itemize}
+						\item $X_A$ such that $X_A=1$ if allele at locus $1$ is $A$ and $X_A=0$ if the allele is $a$.
+						\item $X_B$ such that $X_B=1$ if allele at locus $2$ is $B$ and $X_B=0$ if the allele is $b$.
+					\end{itemize}
+				\end{multicols}
+
+				Or:
+
+				$$X_A = \begin{cases}1 & allele=A\\0 & allele = a\end{cases}\qquad\qquad X_B = \begin{cases}1 & allele = B\\0 & allele = b\end{cases}$$
+
+				Then the correlation between the two random variables can be defined as:
+
+				$$r_{AB} = \frac{Cov(X_A, X_B)}{\sqrt{Var(X_A)Var(X_B)}} = \frac{D_{AB}}{\sqrt{p_A(1-p_A)p_B(1-p_B)}}$$
+
+				And:
+
+				$$r^2_{AB} = \frac{D^2_{AB}}{p_A(1-p_A)p_B(1-p_B)}$$
+
+				This measure is usually employed as it is always a positive value.
+
+				\subparagraph{Classifying LD}
+				$LD$ can be classified according to the $D'$ and $r^2$ values:
+
+				\begin{multicols}{2}
+					\begin{itemize}
+						\item When $D'= 1$ there is complete $LD$.
+						\item When $r^2 = 1$ there is perfect $LD$.
+					\end{itemize}
+				\end{multicols}
+
+				Perfect $LD$ implies complete $LD$.
+				There are situations in which $D'=1$ and $r^2$ is low, so usually both measures are reported.
+
+			\paragraph{Haplotypes}
+			An haplotype is a set of linked SNPs on the same chromosome.
+			Genotypes don't report informations about the connections of alleles at different SNPs loci, so there could be several possible haplotypes for the same genotype.
+			An haplotype block is defined as a cluster of SNPs in linkage disequilibrium and an haplotype boundary as sequences of blocks with strong internal linkage disequilibrium but no linkage disequilibrium between them.
+			They usually reflect genetic recombination hotspots.
+
+			\paragraph{Tag SNPs}
+			Tag SNPs are a set of SNPs that captures most variations in haplotypes, removing redundancy.

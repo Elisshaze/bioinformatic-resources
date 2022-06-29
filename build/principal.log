@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.18)  27 JUN 2022 12:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.18)  29 JUN 2022 13:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -848,7 +848,7 @@ Chapter 1.
 [4
 
 ]
-<chapters/01/images/substring-search.png, id=528, 1221.56375pt x 704.6325pt>
+<chapters/01/images/substring-search.png, id=578, 1221.56375pt x 704.6325pt>
 File: chapters/01/images/substring-search.png Graphic file (type png)
 <use chapters/01/images/substring-search.png>
 Package pdftex.def Info: chapters/01/images/substring-search.png  used on input
@@ -978,20 +978,20 @@ Chapter 7.
 
 ] [31] [32] [33] [34]) (./chapters/08/gwas.tex [35]
 Chapter 8.
-) [36
+[36
 
-] (./build/principal.aux)
+] [37] [38] [39] [40] [41]) [42] (./build/principal.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: 36D796401B2306340DC3ADC6B6969393;14263.
+(rerunfilecheck)             Checksum: 3032B5A0F1DAFB552B2A676D0D96959A;15804.
  ) 
 Here is how much of TeX's memory you used:
- 22784 strings out of 478238
- 417264 string characters out of 5850456
- 741452 words of memory out of 5000000
- 40442 multiletter control sequences out of 15000+600000
+ 22827 strings out of 478238
+ 417968 string characters out of 5850456
+ 741522 words of memory out of 5000000
+ 40453 multiletter control sequences out of 15000+600000
  487730 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,12n,82p,416b,964s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1015,10 +1015,10 @@ lic/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
 rm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></us
 r/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-d
 ist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on ./build/principal.pdf (37 pages, 633419 bytes).
+Output written on ./build/principal.pdf (43 pages, 660845 bytes).
 PDF statistics:
- 941 PDF objects out of 1000 (max. 8388607)
- 846 compressed objects within 9 object streams
- 243 named destinations out of 1000 (max. 500000)
- 782 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1041 PDF objects out of 1200 (max. 8388607)
+ 939 compressed objects within 10 object streams
+ 275 named destinations out of 1000 (max. 500000)
+ 862 words of extra memory for PDF output out of 10000 (max. 10000000)
 

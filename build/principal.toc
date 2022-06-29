@@ -183,3 +183,28 @@
 \contentsline {subsubsection}{\numberline {7.3.3.3}Degree distribution}{35}{subsubsection.7.3.3.3}%
 \contentsline {subsection}{\numberline {7.3.4}Small world effect}{35}{subsection.7.3.4}%
 \contentsline {chapter}{\numberline {8}Genome wide association studies}{36}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Types of studies}{36}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Descriptive studies}{36}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Analytical studies}{36}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}Cohort studies}{36}{subsection.8.1.3}%
+\contentsline {subsubsection}{\numberline {8.1.3.1}Prospective cohort studies}{36}{subsubsection.8.1.3.1}%
+\contentsline {subsubsection}{\numberline {8.1.3.2}Retrospective cohort studies}{36}{subsubsection.8.1.3.2}%
+\contentsline {subsubsection}{\numberline {8.1.3.3}Measures of associations}{37}{subsubsection.8.1.3.3}%
+\contentsline {paragraph}{\numberline {8.1.3.3.1}Statistical confidence}{37}{paragraph.8.1.3.3.1}%
+\contentsline {subsection}{\numberline {8.1.4}Case-control study}{37}{subsection.8.1.4}%
+\contentsline {subsubsection}{\numberline {8.1.4.1}Measure of association}{38}{subsubsection.8.1.4.1}%
+\contentsline {section}{\numberline {8.2}GWAS}{38}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Objective of GWAS}{38}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Main application of GWAS}{38}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}GWAS methodology}{39}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Single nucleotide polymorphisms}{39}{subsection.8.2.4}%
+\contentsline {subsubsection}{\numberline {8.2.4.1}SNPs frequency}{39}{subsubsection.8.2.4.1}%
+\contentsline {subsubsection}{\numberline {8.2.4.2}SNPs effects}{39}{subsubsection.8.2.4.2}%
+\contentsline {subsubsection}{\numberline {8.2.4.3}Nucleotide diversity}{40}{subsubsection.8.2.4.3}%
+\contentsline {paragraph}{\numberline {8.2.4.3.1}Hardy-Weinberg equilibrium}{40}{paragraph.8.2.4.3.1}%
+\contentsline {subsubsection}{\numberline {8.2.4.4}Linkage disequilibrium}{40}{subsubsection.8.2.4.4}%
+\contentsline {paragraph}{\numberline {8.2.4.4.1}Measuring linkage disequilibrium}{41}{paragraph.8.2.4.4.1}%
+\contentsline {subparagraph}{\numberline {8.2.4.4.1.1}Measuring LD with $r^2$}{41}{subparagraph.8.2.4.4.1.1}%
+\contentsline {subparagraph}{\numberline {8.2.4.4.1.2}Classifying LD}{41}{subparagraph.8.2.4.4.1.2}%
+\contentsline {paragraph}{\numberline {8.2.4.4.2}Haplotypes}{42}{paragraph.8.2.4.4.2}%
+\contentsline {paragraph}{\numberline {8.2.4.4.3}Tag SNPs}{42}{paragraph.8.2.4.4.3}%
