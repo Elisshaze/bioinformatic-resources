@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.18)  4 JUL 2022 13:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.18)  4 JUL 2022 13:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -933,11 +933,6 @@ Underfull \hbox (badness 7238) in paragraph at lines 71--72
  []
 
 
-Underfull \hbox (badness 5490) in paragraph at lines 72--73
-[]\T1/cmr/m/n/10 signal trans-duc-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 73--74
 []\T1/cmr/m/n/10 Metabolic pro-
  []
@@ -966,12 +961,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--134
 Overfull \vbox (9.2152pt too high) detected at line 186
  []
 
-
-LaTeX Warning: Reference `tab:fisher' on page 29 undefined on input line 196.
-
-
-LaTeX Warning: Reference `tab:fisher' on page 29 undefined on input line 199.
-
 [29] [30]) (./chapters/07/network-analysis.tex [31]
 Chapter 7.
 [32
@@ -981,16 +970,13 @@ Chapter 8.
 [38
 
 ] [39] [40] [41] [42] [43]) [44] (./build/principal.aux)
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `principal.out' has not changed.
 (rerunfilecheck)             Checksum: FF8993BC1697728C639538BC53746EE4;15862.
  ) 
 Here is how much of TeX's memory you used:
  22830 strings out of 478238
  418003 string characters out of 5850456
- 741522 words of memory out of 5000000
+ 741580 words of memory out of 5000000
  40453 multiletter control sequences out of 15000+600000
  487730 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1015,10 +1001,10 @@ lic/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
 rm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></us
 r/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-d
 ist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on ./build/principal.pdf (45 pages, 668271 bytes).
+Output written on ./build/principal.pdf (45 pages, 668294 bytes).
 PDF statistics:
- 1051 PDF objects out of 1200 (max. 8388607)
- 947 compressed objects within 10 object streams
+ 1052 PDF objects out of 1200 (max. 8388607)
+ 948 compressed objects within 10 object streams
  278 named destinations out of 1000 (max. 500000)
  862 words of extra memory for PDF output out of 10000 (max. 10000000)
 

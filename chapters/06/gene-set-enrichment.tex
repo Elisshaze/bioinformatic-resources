@@ -4,7 +4,7 @@
 \section{Introduction}
 
 	\subsection{Functional groups characterized by gene expression change}
-	Functional groups characterized by gene expression change aer:
+	Functional groups characterized by gene expression change are:
 
 	\begin{multicols}{2}
 		\begin{itemize}
@@ -47,7 +47,7 @@ A gene ontology is a way to capture biological knowledge for individual gene pro
 	A set of concepts and their relationships to each other is arranged as a hierarchy.
 
 		\subsubsection{Molecular function}
-		The molecular function describes activities that happen at a molecular level like catalytic or binging activity.
+		The molecular function describes activities that happen at a molecular level like catalytic or binding activity.
 		This category includes the activities rather than the entities that are involved in an action and do not specify where, when or in which context the actions happen.
 		Molecular functions can be executed by single gene products or complexes of gene products.
 		Some examples are:
@@ -69,7 +69,7 @@ A gene ontology is a way to capture biological knowledge for individual gene pro
 		\begin{multicols}{4}
 			\begin{itemize}
 				\item Cellular physiological processes.
-				\item signal transduction.
+				\item Signal transduction.
 				\item Metabolic process of pyrimidine.
 				\item Glucose transport.
 			\end{itemize}
@@ -171,7 +171,7 @@ A gene ontology is a way to capture biological knowledge for individual gene pro
 
 		\begin{multicols}{2}
 			\begin{itemize}
-				\item THe null hypothesis of independence is true.
+				\item The null hypothesis of independence is true.
 				\item The marginal totals of the observed table are fixed.
 			\end{itemize}
 		\end{multicols}
@@ -193,7 +193,7 @@ A gene ontology is a way to capture biological knowledge for individual gene pro
 				 & & $a+c$ & $b+d$ & \\
 			\end{tabular}
 			\caption{Fisher's exact test table}
-			\ref{tab:fisher}
+			\label{tab:fisher}
 		\end{table}
 
 		Considering the table \ref{tab:fisher}:
@@ -228,13 +228,16 @@ A gene ontology is a way to capture biological knowledge for individual gene pro
 		So, an high enrichment score means high local enrichment.
 		After this the enrichment score distribution is generated for the null hypothesis using permutation and the empirical p-value is computed observing how many random data have enrichment score greater than the read ones.
 		Then the FDR correction of the p-value is computed.
+		The standard ranking metrics is:
+
+		$$\log_2 FC\cdot -10\log_{10} pvalue$$
 
 		\subsubsection{Permutations}
 		Permutations setting have important implication and can be used only when biological replicates are very similar within classes or are well separated.
 		When biological replicates tend to be dissimilar or stratified according to hidden experimental factors other whole-distribution enrichment methods need to be used.
 
 		\subsubsection{Other uses of GSEA}
-		The GSEA tool allow to perform more general types of analysis specifying desings:
+		The GSEA tool allow to perform more general types of analysis specifying designs:
 
 		\begin{multicols}{2}
 			\begin{itemize}
