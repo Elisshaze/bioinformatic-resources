@@ -122,7 +122,7 @@ Motifs can be represented as a consensus sequence or as profiles like positional
 		\begin{itemize}
 			\item A finite set of states $S$.
 			\item A discrete alphabet of symbols.
-			\item A matrix of transition probabilities $T = P(i|j)$, the probability of transition from state $j$ to $i$>
+			\item A matrix of transition probabilities $T = P(i|j)$, the probability of transition from state $j$ to $i$.
 			\item A matrix of emission probabilities (the probability of skipping a state) $T = P(X|i)$, the probability of $X$ emission in state $i$.
 		\end{itemize}
 	\end{multicols}
@@ -167,10 +167,29 @@ There are two types of motif identification: pattern matching and pattern discov
 		Total binding affinity TBA is a cutoff-free method.
 		The TBA is a method used to describe the affinity of a DNA sequence for a transcription factor described by a PFM with a single score.
 		It takes into account binding sites of all possible affinities and considers the whole sequence, keeping into account both high and low affinity sites.
+		For a sequence is computed as:
+
+		$$a_{rw} = \sum\limits_{i=1}^{L-l+i}\max\bigg(\prod\limits_{j=1}^l \frac{P(w_j, r_{i+j-1})}{P(b, r_{i+j-1})}, \prod\limits_{j=1}^l\frac{P(w_{l-j+1}, r'_{i+j-1})}{P(b, r'_{i+j-1})}\bigg)$$
+
+		Where:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item $r$ is the sequence.
+				\item $w$ is the $PFM$.
+				\item $l$ is the length of $w$.
+				\item $L$ is the length of $r$.
+				\item $r_i$ is the nucleotide at position $i$.
+				\item $r'_i$ is the nucleotide at position $i$ on the other strand.
+				\item $P(w_j, r_i)$ is the probability to observe the given nucleotide $r_i$ at position $j$ of $w$.
+				\item $P(b, r_i)$ is the background probability to observe the same nucleotide $r_i$.
+			\end{itemize}
+		\end{multicols}
 
 	\subsection{Finding de novo motifs - pattern discovery}
-	Pattern discovery if the problem of finding de novo motif, for example finding the motifs upstream of a specific gene.
+	Pattern discovery is the problem of finding de novo motif, for example finding the motifs upstream of a specific gene.
 	Given a set of sequences, the objective is to find the most represented motifs.
+	In particular the hidden sequence can be considered of length $N$ and with a slightly different pattern in each sequence.
 	Using the MEME suit it is possible to identify new sequences and through Jaspar they can be compared to already characterized transcription factors.
 	Methods can be:
 
@@ -184,7 +203,7 @@ There are two types of motif identification: pattern matching and pattern discov
 
 		\subsubsection{Distance between a real motif and the consensus}
 		The distance between a real motif and the consensus is generally less that that for two real motifs.
-		The consensus sequence must be guess and a scoring function to compare different guesses and choose the best one must be chosen.
+		The consensus sequence must be guessed and a scoring function to compare different guesses and choose the best one must be chosen.
 
 		\subsubsection{Elements of the problem}
 		The problem of finding de novo motifs can be formalized considering the following elements:
@@ -194,7 +213,7 @@ There are two types of motif identification: pattern matching and pattern discov
 				\item $n$ the length of each sequence.
 				\item $DNA$, an array of size $t\times n$.
 				\item $l$, the length of the motif or $l$-mer.
-				\item $s_i$, the starting position of an $l$-mer in sequence $l$.
+				\item $s_i$, the starting position of an $l$-her in sequence $l$.
 				\item $s = (s_1, s_2, \dots, s_t)$, an array of motifs starting position.
 			\end{itemize}
 		\end{multicols}
@@ -215,3 +234,12 @@ There are two types of motif identification: pattern matching and pattern discov
 		$$TotalDistance(v,DNA) = \min\limits_s d_h(v,s)$$
 
 		Where $s$ is the set of starting positions.
+
+		\subsubsection{Planted motif search}
+		Planted motif search PMS is another algorithm that can be used to find de novo motifs.
+		Given $t$ sequences of length $n$ it outputs a motif $M$ of length $l$.
+		Variants of interest have an hamming distance of $d$ from $M$.
+		From the input sequences the algorithm generates all possible $l$-mers.
+		Let $C_i$ be the collection of this $l$-mers.
+		Then this are sorted and the duplicates deleted.
+		Then for all sequences the motif common for all lists of motifs is found, and that outputs the planted motif sets.
