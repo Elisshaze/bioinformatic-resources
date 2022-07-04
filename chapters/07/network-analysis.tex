@@ -177,7 +177,7 @@ Theory of graphs or networks is focused on three different abstraction levels.
 		\subsubsection{Eccentricity centrality}
 		Eccentricity centrality is computed as:
 
-		$$C_s(n) = \frac{1}{\max\{dist(u,n):u\in V\}}$$
+		$$C_s(n) = \frac{1}{\max\{d(u,n):u\in V\}}$$
 
 		The eccentricity is a measure of the centrality index.
 		Is calcualted by computing the shortest path between the node $v$ and all other nodes in the graph and then considering the longest shortest path.
@@ -188,7 +188,7 @@ Theory of graphs or networks is focused on three different abstraction levels.
 
 		$$BC = \sum\frac{\sigma_{st}(n)}{\sigma_{st}}$$
 
-		Where $\sigma_{st}$ is the number of shortest paths between $s$ and $t$>
+		Where $\sigma_{st}$ is the number of shortest paths between $s$ and $t$.
 		Nodes with high betweenness centrality can have greater control in the propagation of an effect in a whole network.
 
 		\subsubsection{Subgraph centrality}
@@ -224,9 +224,11 @@ Theory of graphs or networks is focused on three different abstraction levels.
 
 			\paragraph{Local clustering coefficient}
 			A local clustering coefficient indicates how much the neighbours of a node are distance from being a clique.
-			The local clustering coefficient $LCC(n)$ of a node $n$ is given by the number of links between the members of $N(n)$ divided by the number of potential links between them:
+			The local clustering coefficient $LCC(n)$ of a node $n$ is given by the number of links between the members of $N(n)$, the neighbours of $n$, divided by the number of potential links between them:
 
 			$$LCC(n) = \frac{2|\{(u,v)|u\land v\in N(n)\land (u,v)\in E\}|}{|N(n)|(|N(n)|-1)}$$
+
+			For directed graphs the $2$ factor is eliminated.
 
 			\paragraph{Global clustering coefficient}
 			A global clustering coefficient $GCC$ is the mean of all $LCC$ computed across nodes in a graph and is called average clustering coefficient.
