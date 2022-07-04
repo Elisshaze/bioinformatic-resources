@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.18)  4 JUL 2022 12:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.18)  4 JUL 2022 13:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -913,9 +913,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 216--217
 []\T1/cmr/m/n/10 Rudimentary meth-ods:
  []
 
-[20] [21] [22] [23]) (./chapters/06/gene-set-enrichment.tex [24]
+[20] [21] [22] [23] [24]) (./chapters/06/gene-set-enrichment.tex [25]
 Chapter 6.
-[25
+[26
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 57--58
@@ -957,39 +957,39 @@ Underfull \hbox (badness 6493) in paragraph at lines 87--88
 []\T1/cmr/m/n/10 Internal nu-clear
  []
 
-[26]
+[27]
 Underfull \hbox (badness 10000) in paragraph at lines 133--134
 \T1/cmr/m/n/10 ment or in re-la-tion to dis-ease
  []
 
-[27]
+[28]
 Overfull \vbox (9.2152pt too high) detected at line 186
  []
 
 
-LaTeX Warning: Reference `tab:fisher' on page 28 undefined on input line 196.
+LaTeX Warning: Reference `tab:fisher' on page 29 undefined on input line 196.
 
 
-LaTeX Warning: Reference `tab:fisher' on page 28 undefined on input line 199.
+LaTeX Warning: Reference `tab:fisher' on page 29 undefined on input line 199.
 
-[28] [29]) (./chapters/07/network-analysis.tex [30]
+[29] [30]) (./chapters/07/network-analysis.tex [31]
 Chapter 7.
-[31
+[32
 
-] [32] [33] [34] [35]) (./chapters/08/gwas.tex [36]
+] [33] [34] [35] [36]) (./chapters/08/gwas.tex [37]
 Chapter 8.
-[37
+[38
 
-] [38] [39] [40] [41] [42]) [43] (./build/principal.aux)
+] [39] [40] [41] [42] [43]) [44] (./build/principal.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: 3032B5A0F1DAFB552B2A676D0D96959A;15804.
+(rerunfilecheck)             Checksum: FF8993BC1697728C639538BC53746EE4;15862.
  ) 
 Here is how much of TeX's memory you used:
- 22829 strings out of 478238
- 417996 string characters out of 5850456
+ 22830 strings out of 478238
+ 418003 string characters out of 5850456
  741522 words of memory out of 5000000
  40453 multiletter control sequences out of 15000+600000
  487730 words of font info for 71 fonts, out of 8000000 for 9000
@@ -1015,10 +1015,10 @@ lic/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
 rm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></us
 r/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-d
 ist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on ./build/principal.pdf (44 pages, 664206 bytes).
+Output written on ./build/principal.pdf (45 pages, 668271 bytes).
 PDF statistics:
- 1047 PDF objects out of 1200 (max. 8388607)
- 944 compressed objects within 10 object streams
- 277 named destinations out of 1000 (max. 500000)
+ 1051 PDF objects out of 1200 (max. 8388607)
+ 947 compressed objects within 10 object streams
+ 278 named destinations out of 1000 (max. 500000)
  862 words of extra memory for PDF output out of 10000 (max. 10000000)
 

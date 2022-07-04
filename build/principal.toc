@@ -80,132 +80,132 @@
 \contentsline {paragraph}{\numberline {5.2.6.1.3}Normalization}{20}{paragraph.5.2.6.1.3}%
 \contentsline {subsubsection}{\numberline {5.2.6.2}One channel array}{20}{subsubsection.5.2.6.2}%
 \contentsline {subsubsection}{\numberline {5.2.6.3}Robust multi array average}{20}{subsubsection.5.2.6.3}%
-\contentsline {paragraph}{\numberline {5.2.6.3.1}Background correction}{20}{paragraph.5.2.6.3.1}%
+\contentsline {paragraph}{\numberline {5.2.6.3.1}Background correction}{21}{paragraph.5.2.6.3.1}%
 \contentsline {paragraph}{\numberline {5.2.6.3.2}Normalization}{21}{paragraph.5.2.6.3.2}%
 \contentsline {paragraph}{\numberline {5.2.6.3.3}Summarization}{21}{paragraph.5.2.6.3.3}%
 \contentsline {subsection}{\numberline {5.2.7}Gene expression microarray}{21}{subsection.5.2.7}%
 \contentsline {subsubsection}{\numberline {5.2.7.1}Replicates}{21}{subsubsection.5.2.7.1}%
-\contentsline {subsubsection}{\numberline {5.2.7.2}Statistical tests}{21}{subsubsection.5.2.7.2}%
-\contentsline {paragraph}{\numberline {5.2.7.2.1}T-Test}{21}{paragraph.5.2.7.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.7.2}Statistical tests}{22}{subsubsection.5.2.7.2}%
+\contentsline {paragraph}{\numberline {5.2.7.2.1}T-Test}{22}{paragraph.5.2.7.2.1}%
 \contentsline {paragraph}{\numberline {5.2.7.2.2}Walch t-test}{22}{paragraph.5.2.7.2.2}%
 \contentsline {paragraph}{\numberline {5.2.7.2.3}Wilcoxon test}{22}{paragraph.5.2.7.2.3}%
 \contentsline {paragraph}{\numberline {5.2.7.2.4}Permutation test}{22}{paragraph.5.2.7.2.4}%
 \contentsline {paragraph}{\numberline {5.2.7.2.5}ANOVA analysis}{22}{paragraph.5.2.7.2.5}%
 \contentsline {paragraph}{\numberline {5.2.7.2.6}2-way ANOVA}{22}{paragraph.5.2.7.2.6}%
 \contentsline {paragraph}{\numberline {5.2.7.2.7}From p-value to probability of significant results}{22}{paragraph.5.2.7.2.7}%
-\contentsline {subsubsection}{\numberline {5.2.7.3}Correction methods}{22}{subsubsection.5.2.7.3}%
-\contentsline {subsubsection}{\numberline {5.2.7.4}Receiver operating characteristic}{22}{subsubsection.5.2.7.4}%
+\contentsline {subsubsection}{\numberline {5.2.7.3}Correction methods}{23}{subsubsection.5.2.7.3}%
+\contentsline {subsubsection}{\numberline {5.2.7.4}Receiver operating characteristic}{23}{subsubsection.5.2.7.4}%
 \contentsline {subsubsection}{\numberline {5.2.7.5}Clustering}{23}{subsubsection.5.2.7.5}%
-\contentsline {paragraph}{\numberline {5.2.7.5.1}Clustering pipeline}{23}{paragraph.5.2.7.5.1}%
+\contentsline {paragraph}{\numberline {5.2.7.5.1}Hierarchical clustering}{23}{paragraph.5.2.7.5.1}%
 \contentsline {paragraph}{\numberline {5.2.7.5.2}Linkage}{23}{paragraph.5.2.7.5.2}%
 \contentsline {subparagraph}{\numberline {5.2.7.5.2.1}Complete linkage}{23}{subparagraph.5.2.7.5.2.1}%
 \contentsline {subparagraph}{\numberline {5.2.7.5.2.2}Single linkage}{23}{subparagraph.5.2.7.5.2.2}%
-\contentsline {subparagraph}{\numberline {5.2.7.5.2.3}Average linkage}{23}{subparagraph.5.2.7.5.2.3}%
-\contentsline {subparagraph}{\numberline {5.2.7.5.2.4}Centroid linkage}{23}{subparagraph.5.2.7.5.2.4}%
-\contentsline {section}{\numberline {5.3}RNA-sequencing}{23}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Introduction}{23}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Pipeline}{23}{subsection.5.3.2}%
+\contentsline {subparagraph}{\numberline {5.2.7.5.2.3}Average linkage}{24}{subparagraph.5.2.7.5.2.3}%
+\contentsline {subparagraph}{\numberline {5.2.7.5.2.4}Centroid linkage}{24}{subparagraph.5.2.7.5.2.4}%
+\contentsline {section}{\numberline {5.3}RNA-sequencing}{24}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Introduction}{24}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Illumina's pipeline}{24}{subsection.5.3.2}%
 \contentsline {subsubsection}{\numberline {5.3.2.1}Sample preparation}{24}{subsubsection.5.3.2.1}%
 \contentsline {subsubsection}{\numberline {5.3.2.2}Library preparation}{24}{subsubsection.5.3.2.2}%
 \contentsline {subsubsection}{\numberline {5.3.2.3}Cluster generation}{24}{subsubsection.5.3.2.3}%
 \contentsline {subsubsection}{\numberline {5.3.2.4}Sequencing}{24}{subsubsection.5.3.2.4}%
-\contentsline {subsubsection}{\numberline {5.3.2.5}Alignment}{24}{subsubsection.5.3.2.5}%
-\contentsline {subsubsection}{\numberline {5.3.2.6}Quantifying reads}{24}{subsubsection.5.3.2.6}%
-\contentsline {subsubsection}{\numberline {5.3.2.7}Normalization}{24}{subsubsection.5.3.2.7}%
-\contentsline {chapter}{\numberline {6}Gene set enrichment}{25}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Introduction}{25}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Functional groups characterized by gene expression change}{25}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Gene-set enrichment analysis}{25}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Ontology}{25}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Controlled vocabulary}{25}{subsection.6.1.4}%
-\contentsline {subsubsection}{\numberline {6.1.4.1}Ontology and controlled vocabulary uses}{26}{subsubsection.6.1.4.1}%
-\contentsline {section}{\numberline {6.2}Gene ontology}{26}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Concepts hierarchy}{26}{subsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.1.1}Molecular function}{26}{subsubsection.6.2.1.1}%
-\contentsline {subsubsection}{\numberline {6.2.1.2}Biological process}{26}{subsubsection.6.2.1.2}%
-\contentsline {subsubsection}{\numberline {6.2.1.3}Cellular component}{26}{subsubsection.6.2.1.3}%
-\contentsline {subsection}{\numberline {6.2.2}Ontology structure}{26}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}The gene ontology project}{27}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Gene sets}{27}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Sources and types}{27}{subsection.6.3.1}%
-\contentsline {subsubsection}{\numberline {6.3.1.1}Main resources}{27}{subsubsection.6.3.1.1}%
-\contentsline {subsection}{\numberline {6.3.2}Differences between pathways and processes}{27}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Enrichment test}{28}{subsection.6.3.3}%
-\contentsline {subsubsection}{\numberline {6.3.3.1}Fisher's exact test}{28}{subsubsection.6.3.3.1}%
-\contentsline {subsection}{\numberline {6.3.4}Whole-distribution - GSEA enrichment}{29}{subsection.6.3.4}%
-\contentsline {subsubsection}{\numberline {6.3.4.1}Process}{29}{subsubsection.6.3.4.1}%
-\contentsline {subsubsection}{\numberline {6.3.4.2}Permutations}{29}{subsubsection.6.3.4.2}%
-\contentsline {subsubsection}{\numberline {6.3.4.3}Other uses of GSEA}{29}{subsubsection.6.3.4.3}%
-\contentsline {subsection}{\numberline {6.3.5}Gene set filter}{29}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}Redundancy problem}{29}{subsection.6.3.6}%
-\contentsline {chapter}{\numberline {7}Network analysis}{31}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Introduction}{31}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Network definition}{31}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Networks in system biology}{31}{subsection.7.1.2}%
-\contentsline {section}{\numberline {7.2}Graphs}{31}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Definition}{31}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Magnitude of a graph}{31}{subsection.7.2.2}%
-\contentsline {subsection}{\numberline {7.2.3}Degree of a graph}{32}{subsection.7.2.3}%
-\contentsline {subsection}{\numberline {7.2.4}Weighted graphs}{32}{subsection.7.2.4}%
-\contentsline {subsection}{\numberline {7.2.5}Complete graphs}{32}{subsection.7.2.5}%
-\contentsline {subsection}{\numberline {7.2.6}Paths}{32}{subsection.7.2.6}%
-\contentsline {subsubsection}{\numberline {7.2.6.1}Simple paths}{32}{subsubsection.7.2.6.1}%
-\contentsline {subsubsection}{\numberline {7.2.6.2}Cycles}{32}{subsubsection.7.2.6.2}%
-\contentsline {subsection}{\numberline {7.2.7}Bipartite graphs}{32}{subsection.7.2.7}%
-\contentsline {subsection}{\numberline {7.2.8}Graphs connections}{32}{subsection.7.2.8}%
-\contentsline {subsubsection}{\numberline {7.2.8.1}Weakly connected graphs}{33}{subsubsection.7.2.8.1}%
-\contentsline {subsubsection}{\numberline {7.2.8.2}Strongly connected graphs}{33}{subsubsection.7.2.8.2}%
-\contentsline {subsubsection}{\numberline {7.2.8.3}Sparse graphs}{33}{subsubsection.7.2.8.3}%
-\contentsline {subsubsection}{\numberline {7.2.8.4}Dense graphs}{33}{subsubsection.7.2.8.4}%
-\contentsline {subsection}{\numberline {7.2.9}Subgraphs}{33}{subsection.7.2.9}%
-\contentsline {subsection}{\numberline {7.2.10}Trees}{33}{subsection.7.2.10}%
-\contentsline {subsubsection}{\numberline {7.2.10.1}Understanding if a graph is a tree}{33}{subsubsection.7.2.10.1}%
-\contentsline {subsection}{\numberline {7.2.11}Clique}{33}{subsection.7.2.11}%
-\contentsline {subsection}{\numberline {7.2.12}Isomorphisms}{34}{subsection.7.2.12}%
-\contentsline {subsubsection}{\numberline {7.2.12.1}Automorphism}{34}{subsubsection.7.2.12.1}%
-\contentsline {subsubsection}{\numberline {7.2.12.2}Building an isomorphism}{34}{subsubsection.7.2.12.2}%
-\contentsline {subsection}{\numberline {7.2.13}Representing a graph}{34}{subsection.7.2.13}%
-\contentsline {subsubsection}{\numberline {7.2.13.1}Adjacency matrix}{34}{subsubsection.7.2.13.1}%
-\contentsline {subsubsection}{\numberline {7.2.13.2}Adjacency lists}{34}{subsubsection.7.2.13.2}%
-\contentsline {section}{\numberline {7.3}Networks properties}{34}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Analysis of single elements}{34}{subsection.7.3.1}%
-\contentsline {subsubsection}{\numberline {7.3.1.1}Degree centrality}{34}{subsubsection.7.3.1.1}%
-\contentsline {subsubsection}{\numberline {7.3.1.2}Closeness centrality}{35}{subsubsection.7.3.1.2}%
-\contentsline {subsubsection}{\numberline {7.3.1.3}Eccentricity centrality}{35}{subsubsection.7.3.1.3}%
-\contentsline {subsubsection}{\numberline {7.3.1.4}Betweenness centrality}{35}{subsubsection.7.3.1.4}%
-\contentsline {subsubsection}{\numberline {7.3.1.5}Subgraph centrality}{35}{subsubsection.7.3.1.5}%
-\contentsline {subsubsection}{\numberline {7.3.1.6}Eivenvector centrality}{35}{subsubsection.7.3.1.6}%
-\contentsline {subsection}{\numberline {7.3.2}Analysis of groups}{36}{subsection.7.3.2}%
-\contentsline {subsection}{\numberline {7.3.3}Analysis of network}{36}{subsection.7.3.3}%
-\contentsline {subsubsection}{\numberline {7.3.3.1}Clustering coefficient}{36}{subsubsection.7.3.3.1}%
-\contentsline {paragraph}{\numberline {7.3.3.1.1}Local clustering coefficient}{36}{paragraph.7.3.3.1.1}%
-\contentsline {paragraph}{\numberline {7.3.3.1.2}Global clustering coefficient}{36}{paragraph.7.3.3.1.2}%
-\contentsline {subsubsection}{\numberline {7.3.3.2}Average diameter}{36}{subsubsection.7.3.3.2}%
-\contentsline {subsubsection}{\numberline {7.3.3.3}Degree distribution}{36}{subsubsection.7.3.3.3}%
-\contentsline {subsection}{\numberline {7.3.4}Small world effect}{36}{subsection.7.3.4}%
-\contentsline {chapter}{\numberline {8}Genome wide association studies}{37}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Types of studies}{37}{section.8.1}%
-\contentsline {subsection}{\numberline {8.1.1}Descriptive studies}{37}{subsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.1.2}Analytical studies}{37}{subsection.8.1.2}%
-\contentsline {subsection}{\numberline {8.1.3}Cohort studies}{37}{subsection.8.1.3}%
-\contentsline {subsubsection}{\numberline {8.1.3.1}Prospective cohort studies}{37}{subsubsection.8.1.3.1}%
-\contentsline {subsubsection}{\numberline {8.1.3.2}Retrospective cohort studies}{37}{subsubsection.8.1.3.2}%
-\contentsline {subsubsection}{\numberline {8.1.3.3}Measures of associations}{38}{subsubsection.8.1.3.3}%
-\contentsline {paragraph}{\numberline {8.1.3.3.1}Statistical confidence}{38}{paragraph.8.1.3.3.1}%
-\contentsline {subsection}{\numberline {8.1.4}Case-control study}{38}{subsection.8.1.4}%
-\contentsline {subsubsection}{\numberline {8.1.4.1}Measure of association}{39}{subsubsection.8.1.4.1}%
-\contentsline {section}{\numberline {8.2}GWAS}{39}{section.8.2}%
-\contentsline {subsection}{\numberline {8.2.1}Objective of GWAS}{39}{subsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.2.2}Main application of GWAS}{39}{subsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.2.3}GWAS methodology}{40}{subsection.8.2.3}%
-\contentsline {subsection}{\numberline {8.2.4}Single nucleotide polymorphisms}{40}{subsection.8.2.4}%
-\contentsline {subsubsection}{\numberline {8.2.4.1}SNPs frequency}{40}{subsubsection.8.2.4.1}%
-\contentsline {subsubsection}{\numberline {8.2.4.2}SNPs effects}{40}{subsubsection.8.2.4.2}%
-\contentsline {subsubsection}{\numberline {8.2.4.3}Nucleotide diversity}{41}{subsubsection.8.2.4.3}%
-\contentsline {paragraph}{\numberline {8.2.4.3.1}Hardy-Weinberg equilibrium}{41}{paragraph.8.2.4.3.1}%
-\contentsline {subsubsection}{\numberline {8.2.4.4}Linkage disequilibrium}{41}{subsubsection.8.2.4.4}%
-\contentsline {paragraph}{\numberline {8.2.4.4.1}Measuring linkage disequilibrium}{42}{paragraph.8.2.4.4.1}%
-\contentsline {subparagraph}{\numberline {8.2.4.4.1.1}Measuring LD with $r^2$}{42}{subparagraph.8.2.4.4.1.1}%
-\contentsline {subparagraph}{\numberline {8.2.4.4.1.2}Classifying LD}{42}{subparagraph.8.2.4.4.1.2}%
-\contentsline {paragraph}{\numberline {8.2.4.4.2}Haplotypes}{43}{paragraph.8.2.4.4.2}%
-\contentsline {paragraph}{\numberline {8.2.4.4.3}Tag SNPs}{43}{paragraph.8.2.4.4.3}%
+\contentsline {subsubsection}{\numberline {5.3.2.5}Alignment}{25}{subsubsection.5.3.2.5}%
+\contentsline {subsubsection}{\numberline {5.3.2.6}Quantifying reads}{25}{subsubsection.5.3.2.6}%
+\contentsline {subsubsection}{\numberline {5.3.2.7}Normalization}{25}{subsubsection.5.3.2.7}%
+\contentsline {chapter}{\numberline {6}Gene set enrichment}{26}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Introduction}{26}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Functional groups characterized by gene expression change}{26}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Gene-set enrichment analysis}{26}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Ontology}{26}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Controlled vocabulary}{26}{subsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.4.1}Ontology and controlled vocabulary uses}{27}{subsubsection.6.1.4.1}%
+\contentsline {section}{\numberline {6.2}Gene ontology}{27}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Concepts hierarchy}{27}{subsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.1.1}Molecular function}{27}{subsubsection.6.2.1.1}%
+\contentsline {subsubsection}{\numberline {6.2.1.2}Biological process}{27}{subsubsection.6.2.1.2}%
+\contentsline {subsubsection}{\numberline {6.2.1.3}Cellular component}{27}{subsubsection.6.2.1.3}%
+\contentsline {subsection}{\numberline {6.2.2}Ontology structure}{27}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}The gene ontology project}{28}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Gene sets}{28}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Sources and types}{28}{subsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.1}Main resources}{28}{subsubsection.6.3.1.1}%
+\contentsline {subsection}{\numberline {6.3.2}Differences between pathways and processes}{28}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Enrichment test}{29}{subsection.6.3.3}%
+\contentsline {subsubsection}{\numberline {6.3.3.1}Fisher's exact test}{29}{subsubsection.6.3.3.1}%
+\contentsline {subsection}{\numberline {6.3.4}Whole-distribution - GSEA enrichment}{30}{subsection.6.3.4}%
+\contentsline {subsubsection}{\numberline {6.3.4.1}Process}{30}{subsubsection.6.3.4.1}%
+\contentsline {subsubsection}{\numberline {6.3.4.2}Permutations}{30}{subsubsection.6.3.4.2}%
+\contentsline {subsubsection}{\numberline {6.3.4.3}Other uses of GSEA}{30}{subsubsection.6.3.4.3}%
+\contentsline {subsection}{\numberline {6.3.5}Gene set filter}{30}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}Redundancy problem}{30}{subsection.6.3.6}%
+\contentsline {chapter}{\numberline {7}Network analysis}{32}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Introduction}{32}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Network definition}{32}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Networks in system biology}{32}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Graphs}{32}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Definition}{32}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Magnitude of a graph}{32}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Degree of a graph}{33}{subsection.7.2.3}%
+\contentsline {subsection}{\numberline {7.2.4}Weighted graphs}{33}{subsection.7.2.4}%
+\contentsline {subsection}{\numberline {7.2.5}Complete graphs}{33}{subsection.7.2.5}%
+\contentsline {subsection}{\numberline {7.2.6}Paths}{33}{subsection.7.2.6}%
+\contentsline {subsubsection}{\numberline {7.2.6.1}Simple paths}{33}{subsubsection.7.2.6.1}%
+\contentsline {subsubsection}{\numberline {7.2.6.2}Cycles}{33}{subsubsection.7.2.6.2}%
+\contentsline {subsection}{\numberline {7.2.7}Bipartite graphs}{33}{subsection.7.2.7}%
+\contentsline {subsection}{\numberline {7.2.8}Graphs connections}{33}{subsection.7.2.8}%
+\contentsline {subsubsection}{\numberline {7.2.8.1}Weakly connected graphs}{34}{subsubsection.7.2.8.1}%
+\contentsline {subsubsection}{\numberline {7.2.8.2}Strongly connected graphs}{34}{subsubsection.7.2.8.2}%
+\contentsline {subsubsection}{\numberline {7.2.8.3}Sparse graphs}{34}{subsubsection.7.2.8.3}%
+\contentsline {subsubsection}{\numberline {7.2.8.4}Dense graphs}{34}{subsubsection.7.2.8.4}%
+\contentsline {subsection}{\numberline {7.2.9}Subgraphs}{34}{subsection.7.2.9}%
+\contentsline {subsection}{\numberline {7.2.10}Trees}{34}{subsection.7.2.10}%
+\contentsline {subsubsection}{\numberline {7.2.10.1}Understanding if a graph is a tree}{34}{subsubsection.7.2.10.1}%
+\contentsline {subsection}{\numberline {7.2.11}Clique}{34}{subsection.7.2.11}%
+\contentsline {subsection}{\numberline {7.2.12}Isomorphisms}{35}{subsection.7.2.12}%
+\contentsline {subsubsection}{\numberline {7.2.12.1}Automorphism}{35}{subsubsection.7.2.12.1}%
+\contentsline {subsubsection}{\numberline {7.2.12.2}Building an isomorphism}{35}{subsubsection.7.2.12.2}%
+\contentsline {subsection}{\numberline {7.2.13}Representing a graph}{35}{subsection.7.2.13}%
+\contentsline {subsubsection}{\numberline {7.2.13.1}Adjacency matrix}{35}{subsubsection.7.2.13.1}%
+\contentsline {subsubsection}{\numberline {7.2.13.2}Adjacency lists}{35}{subsubsection.7.2.13.2}%
+\contentsline {section}{\numberline {7.3}Networks properties}{35}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Analysis of single elements}{35}{subsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.1.1}Degree centrality}{35}{subsubsection.7.3.1.1}%
+\contentsline {subsubsection}{\numberline {7.3.1.2}Closeness centrality}{36}{subsubsection.7.3.1.2}%
+\contentsline {subsubsection}{\numberline {7.3.1.3}Eccentricity centrality}{36}{subsubsection.7.3.1.3}%
+\contentsline {subsubsection}{\numberline {7.3.1.4}Betweenness centrality}{36}{subsubsection.7.3.1.4}%
+\contentsline {subsubsection}{\numberline {7.3.1.5}Subgraph centrality}{36}{subsubsection.7.3.1.5}%
+\contentsline {subsubsection}{\numberline {7.3.1.6}Eivenvector centrality}{36}{subsubsection.7.3.1.6}%
+\contentsline {subsection}{\numberline {7.3.2}Analysis of groups}{37}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}Analysis of network}{37}{subsection.7.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.3.1}Clustering coefficient}{37}{subsubsection.7.3.3.1}%
+\contentsline {paragraph}{\numberline {7.3.3.1.1}Local clustering coefficient}{37}{paragraph.7.3.3.1.1}%
+\contentsline {paragraph}{\numberline {7.3.3.1.2}Global clustering coefficient}{37}{paragraph.7.3.3.1.2}%
+\contentsline {subsubsection}{\numberline {7.3.3.2}Average diameter}{37}{subsubsection.7.3.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3.3}Degree distribution}{37}{subsubsection.7.3.3.3}%
+\contentsline {subsection}{\numberline {7.3.4}Small world effect}{37}{subsection.7.3.4}%
+\contentsline {chapter}{\numberline {8}Genome wide association studies}{38}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Types of studies}{38}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Descriptive studies}{38}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Analytical studies}{38}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}Cohort studies}{38}{subsection.8.1.3}%
+\contentsline {subsubsection}{\numberline {8.1.3.1}Prospective cohort studies}{38}{subsubsection.8.1.3.1}%
+\contentsline {subsubsection}{\numberline {8.1.3.2}Retrospective cohort studies}{38}{subsubsection.8.1.3.2}%
+\contentsline {subsubsection}{\numberline {8.1.3.3}Measures of associations}{39}{subsubsection.8.1.3.3}%
+\contentsline {paragraph}{\numberline {8.1.3.3.1}Statistical confidence}{39}{paragraph.8.1.3.3.1}%
+\contentsline {subsection}{\numberline {8.1.4}Case-control study}{39}{subsection.8.1.4}%
+\contentsline {subsubsection}{\numberline {8.1.4.1}Measure of association}{40}{subsubsection.8.1.4.1}%
+\contentsline {section}{\numberline {8.2}GWAS}{40}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Objective of GWAS}{40}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Main application of GWAS}{40}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}GWAS methodology}{41}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Single nucleotide polymorphisms}{41}{subsection.8.2.4}%
+\contentsline {subsubsection}{\numberline {8.2.4.1}SNPs frequency}{41}{subsubsection.8.2.4.1}%
+\contentsline {subsubsection}{\numberline {8.2.4.2}SNPs effects}{41}{subsubsection.8.2.4.2}%
+\contentsline {subsubsection}{\numberline {8.2.4.3}Nucleotide diversity}{42}{subsubsection.8.2.4.3}%
+\contentsline {paragraph}{\numberline {8.2.4.3.1}Hardy-Weinberg equilibrium}{42}{paragraph.8.2.4.3.1}%
+\contentsline {subsubsection}{\numberline {8.2.4.4}Linkage disequilibrium}{42}{subsubsection.8.2.4.4}%
+\contentsline {paragraph}{\numberline {8.2.4.4.1}Measuring linkage disequilibrium}{43}{paragraph.8.2.4.4.1}%
+\contentsline {subparagraph}{\numberline {8.2.4.4.1.1}Measuring LD with $r^2$}{43}{subparagraph.8.2.4.4.1.1}%
+\contentsline {subparagraph}{\numberline {8.2.4.4.1.2}Classifying LD}{43}{subparagraph.8.2.4.4.1.2}%
+\contentsline {paragraph}{\numberline {8.2.4.4.2}Haplotypes}{44}{paragraph.8.2.4.4.2}%
+\contentsline {paragraph}{\numberline {8.2.4.4.3}Tag SNPs}{44}{paragraph.8.2.4.4.3}%
