@@ -4,7 +4,7 @@
 
 	\subsection{Descriptive studies}
 	Descriptive studies are studies in which an hypothesis is generated.
-	Then the patterns of disease occurrence in relation to variables such as person, place and time are studies.
+	Then the patterns of disease occurrence in relation to variables such as person, place and time are studied.
 	They are often the first step or initial enquiry into a new topic event, disease or condition.
 	They typically estimate the frequency and the magnitude of the event analysed.
 
@@ -106,6 +106,16 @@
 		$$OR = \frac{RR(1-R_0)}{1-RR\cdot R_0}$$
 
 		Where $R_0$ is the frequency of the disease in the not exposed population.
+
+		$OR$ can be interpreted like $RR$:
+
+		\begin{multicols}{3}
+			\begin{itemize}
+				\item $OR <1$: protective factor.
+				\item $OR = 1$: absence of risk.
+				\item $OR > 1$: risk factor.
+			\end{itemize}
+		\end{multicols}
 
 \section{GWAS}
 
@@ -328,3 +338,71 @@
 
 			\paragraph{Tag SNPs}
 			Tag SNPs are a set of SNPs that captures most variations in haplotypes, removing redundancy.
+
+		\subsubsection{SNP genotyping}
+		SNP genotyping represents each SNP in the dimension of its $A$ and $B$ allele intensity.
+		Not all SNPs have a clear representation.
+
+			\paragraph{Birdseed}
+			A method to call the genotype is Birdseed, a clustering algorithm that first construct training models for each SNP in the array and then compute SNPs genotyping on data of interest using the training models.
+			Each SNP is a bird, where its wing points are genotypes $AA$ and $BB$ and the body is $AB$.
+			Birds are computed for all SNPs.
+			Then Birdseed estimates cluster centres and covariance matrices.
+			Its confidence is computed as:
+
+			$$Confidence = 80\% E_1 + 20\% E_2$$
+
+			Where $E_1$ is the posterior to the second closest peak over the posterior to the closest and $E_2$ is the deviation penalty from the closest peak.
+			Then the quality score is computed as:
+
+			$$QS = -\log_{10}(confidence + 0.00001)\cdot 2000$$
+
+			\paragraph{SNP genotyping from NGS data}
+			To genotype SNP from NGS the pileup is used.
+			After the reads are aligned and the coverage computed the pileup is the count of the number of times the reference and the alternative reads appear.
+			From this the allelic fraction can be computed.
+
+			\paragraph{Quality control}
+			To perform quality control of SNP genotyping:
+
+			\begin{multicols}{2}
+				\begin{itemize}
+					\item Subjects with missing call rate less than $1$ or $5\%$ are filtered out because of poor DNA quality.
+					\item SNP with genotype call rates less than $5\%$ are filtered out because of errors, noise and non-specific probes.
+					\item SNPs with minor allele frequencies less than $1\%$ are filtered out because they are error prone and unpowered.
+					\item SNPs are filtered out by testing for HW equilibrium: a deviation can indicate genotyping errors, batch effects or a change in the genetic structure.
+				\end{itemize}
+			\end{multicols}
+
+		\subsubsection{Independence of individuals}
+		Independence among samples is a fundamental assumption of case-control studies, so related individuals are excluded, or their association taken into account during association analysis.
+		Genomic distance between samples can be computed based on SNP profiles through genetic fingerprinting or through SPIA:
+
+		$$D(CL_1, CL_2) = \frac{1}{vN_{SNPs}} \sum\limits_{i=1}^{N_{SNPs}} \neg\delta(CL_{1i}, CL_{2i})$$
+
+		\subsubsection{Genetic structure}
+		Not everyone in the population has the same genetic background: some people are more genetically similar than others.
+		Admixed population are particularly interesting and many SNPs in the genome have different distribution between different population due to random drift.
+		Many traits have strong population association, so the genetic background of individuals of a cohort must be taken into account to avoid structure and stratification of the samples.
+		The degree of admixture and population of origin identification is important.
+		This can be done through SNP-based or model-based methods.
+
+			\paragraph{Logistic regression}
+			Logistic regression is a method used to assess the associations of SNPs and outcomes.
+			The better the fit the stronger the association.
+			It is computed as:
+
+			$$\log(\frac{\pi}{1-\pi}) = \beta_0+\beta_1x_1+\cdots \beta_mx_m$$
+
+			Where $x_i$ are the SNP genotype and $\beta$ the covariates like age, sex and population structure.
+			Then genetic structure correction is performed through $QQ$ plots, where deviation from the diagonal indicates structure.
+			The data is fitted to the diagonal as to reduce structures effects.
+
+	\subsection{Standard cutoff in GWAS}
+	Considering evidence for $1M$ haplotype blocks in the genome, the accepted p-value cutoff in GWAS studies is between $10^{-6}$ and $10^{-8}$.
+	This is due to the fact that each SNP is tested at the traditional significance level and multiple comparison is an important consideration in a GWAS analysis and must be handled properly.
+
+	\subsection{Independent replication}
+	Independent replication is used to evaluate systemically whether or not the discovered SNPs in initial GWAS are spurious signals.
+	Samples are collected the same way as the original study and the association is computed with the same genetic model.
+	The effect sizes of marker should show the same signs in both the replicated and original study.
