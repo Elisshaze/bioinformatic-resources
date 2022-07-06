@@ -9,17 +9,18 @@
 	Nodes can represent different entities and arcs any kind of interaction.
 
 	\subsection{Networks in system biology}
-	Networks are a relevant part of system biology, ome and omics.
+	Networks are a relevant part of system biology, in particular since the advent in systems biology. Genome and genomics, proteome and proteomics are represented by networks. 
 	The objectives of system biology are:
 
-	\begin{multicols}{2}
 		\begin{itemize}
-			\item Comprehension at the level of system.
+			\item Comprehension at the level of system, representing it using formalisms like networks.
 			\item Analysis of individual components.
-				\item Analysis of interactions.
+			\item Analysis of interactions.
 			\item Analysis of potential emerging properties.
 		\end{itemize}
-	\end{multicols}
+
+Network (graph theory) allows us to recognize properties seen only at system level and not individual, need to capture the whole system dynamics. 
+In biology, networks are used to model Signal transduction networks, gene regulatory networks, protein-protein interaction.
 
 \section{Graphs}
 
@@ -151,13 +152,15 @@
 		The space is proportional to $|V|+|E|$ and each arch is represented two times.
 		It is not efficient for dense graphs.
 
-\section{Networks properties}
-Theory of graphs or networks is focused on three different abstraction levels.
+\section{Networks analysis}
+Comparing two big networks is not as easy. For example, defining isomorphisms is simply not feasible. 
+A field of research focuses on network properties and works on three main abstraction levels: analysis of \textbf{single elements}, analysis at the level of \textbf{groups} and \textbf{global} analysis.
 
 	\subsection{Analysis of single elements}
 	In the analysis of single elements the more important nodes are identified.
-	Centrality measures are indicators of the importance of a node in a graph or network.
-	Different centrality measures are available.
+	\textbf{Centrality measures} are a class of measures that indicate of the importance of a node in a graph or network.
+	Different centrality measures are available, the main ones being \textbf{degree}, \textbf{closeness} and \textbf{betweenness} centrality.
+	But other are also used, like the eigenvector centrality.
 
 		\subsubsection{Degree centrality}
 		Degree centrality is measured as:
@@ -165,14 +168,18 @@ Theory of graphs or networks is focused on three different abstraction levels.
 		$$DC(n) = degree(n)$$
 
 		Nodes with high $DC$ are defined as hubs and usually they have important roles in a network.
+E.g., in protein-protein interaction, the failure (or absence) of a hub could produce a dramatic cascade effect. 
 
 		\subsubsection{Closeness centrality}
 		Closeness centrality is measured as:
 
 		$$CC(n) = \frac{|V|}{\sum\limits_{n'}d(n,n')}$$
-
+		
 		Where $d(n,n')$ is the length of the shortest path between $n$ and $n'$.
+		Can be seen a the ratio between the number of nodes and a notion of t\textit{total distance} between the node and all the others, calculated as shortest path. 
+
 		Nodes with high closeness centrality can access quickly other nodes and have rapid cascade effects on other nodes.
+		Closeness us to rank the nodes in order of importance. 
 
 		\subsubsection{Eccentricity centrality}
 		Eccentricity centrality is computed as:
@@ -180,7 +187,8 @@ Theory of graphs or networks is focused on three different abstraction levels.
 		$$C_s(n) = \frac{1}{\max\{d(u,n):u\in V\}}$$
 
 		The eccentricity is a measure of the centrality index.
-		Is calcualted by computing the shortest path between the node $v$ and all other nodes in the graph and then considering the longest shortest path.
+		
+		Is calculated by computing the shortest path between the node $v$ and all other nodes in the graph and then considering the longest shortest path.
 		Higher eccentricity means that the node is proximal to other nodes.
 
 		\subsubsection{Betweenness centrality}
@@ -199,7 +207,7 @@ Theory of graphs or networks is focused on three different abstraction levels.
 		It accounts for the participation of a node in all sub graphs of the networks.
 		$\mu_k(v)$ is the number of closed walks of length $k$ starting and anding in node $v$.
 
-		\subsubsection{Eivenvector centrality}
+		\subsubsection{Eigenvector centrality}
 		Eigenvector centrality is computed as:
 
 		$$EC(n) = \frac{1}{\lambda}\sum\limits_{t\in M(n)} EC(t) = \frac{1}{\lambda}\sum\limits_{t\in V} a_{v,t}EC(n)$$
@@ -212,8 +220,9 @@ Theory of graphs or networks is focused on three different abstraction levels.
 
 	\subsection{Analysis of groups}
 	During the analysis of groups groups or nodes are identified that have cohesion characteristics.
-	A typical analysis is network clustering.
-	First a similarity function between nodes is defined in terms of network topology.
+	A typical analysis is network clustering, which means diving the graph by its characteristics.
+	First a similarity function between nodes is defined in terms of network topology. 
+	For example, in the enrichment analysis (gene ontology) the higher the overlap, the closer the terms
 	Then a method to group the nodes in terms of their similarity is applied.
 
 	\subsection{Analysis of network}
