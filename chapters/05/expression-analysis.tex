@@ -8,10 +8,12 @@
 	A gene expression profile of a cell is the snapshot of which genes are expressed in that cell at the time the sample was taken.
 	Knowing which genes are expressed in a cell allows the identification of new genes or transcripts and the comparison of expression profiles between samples.
 	Variability in gene expression is mainly due to alternative splicing and different regulation.
-	It can be analysed to uncover characteristics of diseases, development and dynamic responses to stimuli.
+	It can be analyzed to uncover characteristics of diseases, development and dynamic responses to stimuli.
 
-	\subsection{Differential gene expression}
-	During a differential gene expression experiment the expression profile of genes is compared between samples.
+	\subsection{Differential gene expression (DGE)}
+	Gene expression profiles are extremely heterogeneous, since they vary based on the individual, tissue, condition and cells of origin.
+	Variability is mainly due to alternative splicing and different regulation.
+	During a \textbf{differential gene expression} experiment the expression profile of genes is compared between samples.
 	Comparison can be done between:
 
 	\begin{multicols}{2}
@@ -23,8 +25,8 @@
 			\item Different culture conditions.
 		\end{itemize}
 	\end{multicols}
-
-	Negative and positive controls and the range of variability within samples must be taken into account.
+	For example, a basic experiment can be done by simply measuring two expression profiles, subtract the overlap, obtain the difference and interpret it.
+	Two things to pay attention to are negative and positive controls and the range of variability within samples. 
 
 		\subsubsection{Differential gene expression workflow}
 		A typical differential gene expression analysis workflow consists of:
@@ -32,11 +34,11 @@
 		\begin{multicols}{2}
 			\begin{enumerate}
 				\item Formulation of the biological question.
-				\item Experimental design: choice of platform, control and replicates.
+				\item Experimental design: choice of platform, control and replicates to have trustful data.
 				\item Running the experiment.
 				\item Image processing done by a machine.
 				\item Low-level analysis: data pre-processing with normalization.
-				\item High-level analysis.
+				\item High-level analysis: actual data analysis.
 				\item Obtaining biological conclusions and interpretation of results.
 			\end{enumerate}
 		\end{multicols}
@@ -60,6 +62,14 @@
 			\caption{High throughput methods pros and cons}
 			\label{tab:high-through-dge}
 		\end{table}
+		
+		Even if the cons of high-throughput methods are important obstacles for performing complete, trustful analysis, these methods are becoming always better (less errors), cheaper and the computational side of the experiment is also improving to make the best out of the output data.
+		
+		\subsection{Main technologies}
+		\begin{itemize}
+		\item Microarray technology: used more in the past.
+		\item RNA-seq technology: today's best approach to DGE analysis, as it is becoming more accessible and allows for transcriptome sequencing and quantification of mRNA transcripts.
+		\end{itemize}
 
 	\subsection{Databases}
 	Repositories of array and NGS data mainly contain expression data.
@@ -95,21 +105,22 @@
 \section{Microarrays}
 
 	\subsection{Introduction}
-	Microarrays have been introduced at the beginning of the $2000$s and are the first high throughput technology.
-	They are useful to investigate, for example:
+	Microarrays have been introduced at the beginning of the $2000$s and were the first high throughput technology.
+	They are useful to investigate a variety of omics data, for example:
 
 	\begin{multicols}{2}
 		\begin{itemize}
-			\item Genomic profiles.
-			\item Transcriptomic profiles.
+			\item Genomic and transcriptomic profiles.
 			\item The methylome.
 			\item DNA-protein interactions.
+			\item microbiome
 		\end{itemize}
 	\end{multicols}
 
 	Data interpretation is subject to specific computational analyses.
-	Microarrays monitor thousands of genes in parallel.
-	Each spot contains multiple and identical DNA probes and thousands of spots are disposed as a matrix on a solid support.
+	Microarrays are considered high-throughput because they monitor thousands of genes in parallel.
+	Each spot contains multiple and identical DNA probes and thousands of spots are disposed as a matrix on a solid support, the microarray. 
+	Microarrays are basically a glass surface hosting spots containing redundant information about the DNA. 
 
 	\subsection{Fabrication}
 	Microarrays can be fabricated using different technologies.
@@ -123,12 +134,13 @@
 		\end{itemize}
 	\end{multicols}
 
-	The probes are synthesized and placed on the support and can have different lengths, usually between $25$ and $60nt$.
+	The probes are synthesized and placed on the support and can have different lengths, usually between $25$ and $60nt$, to ensure a strong hybridization. 
+	IMMAGINE
 	Moreover microarrays can have different numbers of channels:
 
 	\begin{multicols}{2}
 		\begin{itemize}
-			\item $2$ channels: test and control samples are labelled with different fluorophores.
+			\item $2$ channels: test and control samples are labeled with different fluorophores. It is a comparative technique implemented at the experiment stage of the analysis. After hybridization to the microarray we will find different colors (e.g., red for cancer and green for normal cells), which will be be read by a reading system.
 			\item $1$ channel: one sample is loaded per time.
 		\end{itemize}
 	\end{multicols}
@@ -144,44 +156,55 @@
 	\end{multicols}
 
 	\subsection{Reading signal}
-	A scanner allows to read the fluorescence light emitted by the fluorophores.
+	A "scanner" allows to read the fluorescence light emitted by the fluorophores.
 	The information is stored in $2$ images for channels arrays at $16$ bit resolution.
 	The image in grey scale is represented in a red-green scale that represents the light emitted by the two fluorophores.
-	The resulting colour will be proportional to the quantity of test and control DNA.
-
+	
+	IMMAGINE
+	If each of the spot contains probes from both samples, we will have a resulting color that is the combination of the quantity of DNA from the two conditions that hybridized in that specific spot. 
+	The resulting color in each spot will be proportional to the quantity of test and control DNA.
+	 
 	\subsection{Image analysis}
 	After having obtained the images, these have to be analysed.
 	This is performed by a specific technology like Affymetrix.
-	The first step is a segmentation analysis: the shape and patterns inside data is analysed to assess the signal quality for each spot.
-	The background and foreground are identified to correct for noise generated by the former.
-	One of the standard method is to create a signal model and fit the data to it in order to evaluate the quality of the spot, for example computing the interquartile range on the distribution in order to find feature, exclusion zone and background.
-	Then the fluorescence of each spot is estimated and the relative expression for each gene is interpreted thanks to annotation information.
+	The first step, after position the images on a grid, is a \textbf{segmentation} analysis: the shape and patterns inside data is analyzed to assess the signal quality for each spot.
+	If the quality assessed by the segmentation is fine, we can then proceed to the analysis of the flourescent signal.
+	Problem: determine background noise wrt the so-called foreground at each spot to better determine which is the actual signal.
+	%The background and foreground are identified to correct for noise generated by the former.
+	One of the standard method for signal correction is to create a \textbf{signal model} and fit the data to it in order to evaluate the quality of the spot, for example computing the interquartile range (IQR) on the distribution in order to find feature, exclusion zone and background.
+	\\
+	Finally, each microarray is provided with a specific design file. 
+	After signal correction, the fluorescence of each spot is estimated and the relative expression for each gene (spots can be viewed as genes or portion of the genome) is interpreted thanks to annotation information.
+	IMMAGINE
 
-	\subsection{Batch effect}
-	For microarrays is complex to compare different technologies as different probes and methods are used.
+	For microarrays is complex to compare different technologies (but also different machines) as different probes and methods are used.
 	It is always preferable to avoid performing an integrative analysis.
 
-	\subsection{Data pre-processing}
-	Data pre-processing is needed to reduce errors introduced during the experimental process.
-	It consists typically of:
+	\subsection{Expression microarrays}
+	There are different types of arrays, but in any category, for example expression microarrays, we have sub-categories. For example, exon, gene, 3' array. 
+	Collecting all the signal coming from the different pieces, genes, in different conditions, we can know if the quantity representing a transcript is much higher in one condition wrt another.
+	The results of micorarrays' experiments are extremely specific and also for this reason is very different to integrate different analyses.
 
-	\begin{multicols}{2}
+	\subsection{Data pre-processing}
+	After the experiment is done, data pre-processing is needed to reduce errors introduced during the experimental process.
+	It consists typically of: 
+
 		\begin{itemize}
 			\item Background subtraction: eliminates background noise.
-			\item Normalization: all samples are brought into a similar range of distribution, to reduce the effect of:
+			\item Normalization (intra/inter sample): all samples are brought into a similar range of distribution, to reduce the effect of:
 
 				\begin{itemize}
 					\item Unequal quantity of starting sample.
-					\item Differences in labelling efficiency.
+					\item Differences in labeling efficiency.
 					\item Differences in detection efficiency.
 					\item System biases.
 				\end{itemize}
 
-			\item Summarization: summary of information from several spots into a single measure for each gene.
+			\item Summarization: aggregation of information from several spots into a single measure for each gene.
 			\item Statistical quality control: removes low quality samples and probe sets.
 
 		\end{itemize}
-	\end{multicols}
+	
 
 		\subsubsection{Two channels array}
 		The pre-processing pipeline for $2$ channels array consists of different steps.
@@ -201,10 +224,15 @@
 
 			$$\log\frac{R_c}{G_c}$$
 
-			\paragraph{Normalization}
-			Normalization is useful to identify systematic intensity-dependent bias in the data.
-			The ratio of signal might depend on the average signal density measured across different channels.
-			The function of dependance can be fitted to a polynomial regression like Loess to obtain normalization to make the plot more informative.
+			\paragraph{MA normalization}
+			MA normalization is useful to identify systematic intensity-dependent bias in the data.
+			MA normalization follows empirical observations known to be present in most microarray technologies.
+			The ratio of signal might depend on the average signal intensity measured across different channels, normalization gets rid of this bias.
+			
+			The function of dependence can be fitted to a polynomial regression like Loess to obtain normalization to make the plot more informative. 
+			IMMAGINE
+			Expected M hat is zero among all observable intensities.
+			This MA methodology is also very informative since it allows for perfomring basic DEG analysis. 
 
 		\subsubsection{One channel array}
 		Many methods have been developed to pre-process Affymetrix one channel arrays:
@@ -212,29 +240,33 @@
 		\begin{multicols}{3}
 			\begin{itemize}
 				\item Advanced methods: GCRMA, PLIER.
-				\item Popular methods: RMA and MAS5.
+				\item Popular methods: RMA (discussed below) and MAS5.
 				\item Rudimentary methods: MAS4, LOESS.
 			\end{itemize}
 		\end{multicols}
 
-		\subsubsection{Robust multi array average}
-		Robust multi array average is a pre-processing methods that consists of three steps.
+		\subsubsection{Robust Multi-array average}
+		Robust multi array average is a pre-processing method that consists of three steps.
 
 			\paragraph{Background correction}
-			Background correction removes local artefacts and noise.
+			Background correction removes local artifacts and noise.
 			The probe measure data is assumed as a combination of background noise in a normal distribution and signal in an exponential distribution.
-			Assuming strictly positive distribution of signal background, the corrected signal is positively distributed.
-			Background correction is performed on each array separately using the observed distribution of PMs (probe measures).
-			It estimates $\mu$, $\sigma$ and $\lambda$ in:
-
+			
 			$$PM = Signal + Background \rightarrow Signal: S \sim e^\lambda \land Background : B\sim N(\mu, \sigma^2)$$
 
-			Then an estimate $E(S|PM)$ for each $PM$ value can be obtained.
+			
+			By assuming strictly positive distribution of signal background, the corrected signal is also positively distributed.
+			Background correction is performed on each array separately.
+			Estimate $\mu$, $\sigma$ and $\lambda$ separately in each chip using the observed distributions of PMS.
+
+			
+			Introducing these paramteres in the formula above, an estimate $E(S|PM)$ for each $PM$ value can be obtained.
 
 			\paragraph{Normalization}
 			Normalization is used to remove array effects, making all distributions the same.
 			Quantile normalization is used to correct for array biases, as it compares the expression levels between arrays for various quantiles.
 			It protects against outliers.
+			Quantile normalization is widely used in many "inter-sample" normalization tasks.
 
 			\paragraph{Summarization}
 			Summarization combines probe intensities across arrays to get a single intensity value tor each gene or probeset.
@@ -243,39 +275,51 @@
 			A maximum of $5$ iteration is allowed to prevent infinite loops.
 
 	\subsection{Gene expression microarray}
-	An expression microarray experiment is used to test differences in gene expression between two or more conditions that could be for example cancer versus normal or different treatments.
+	Now, the downstream analysis can take place, as the previous steps pre-process a trustful matrix.
+	An expression microarray experiment is used to test differences in gene expression between two or more conditions, that could be for example cancer versus normal or different treatments.
 	Each condition can be represented by one or more samples.
-	The null hypothesis is that there exists no difference between the gene expression in the two conditions.
-	The comparison is done using the ratio between the test and the control samples.
-	It should not differ in case of null hypothesis validity.
-	These ratios are also defined as fold changes:
+	The null hypothesis to test is that \textit{there exists no difference between the gene expression in the two conditions}.
+	The comparison between the samples is done using the ratio between the test and the control samples.
+	The ratio should not differ in case of null hypothesis validity.
+	These ratios are also defined as \textit{fold changes}:
 
 	$$FC = \begin{cases}Ratio & Ratio>1\\-\frac{1}{Ratio} & Ratio <1\end{cases}$$
-
-	Because ratios are not symmetric with respect to $1$ the statistics are not easy to analyse, so the log-ratio is often used.
+	
+	Fold change, a gene level, is a ratio that represents how much the quantity of a gene changes in different conditions.
+	Because ratios are not symmetric with respect to $1$ the statistics are not easy to analyze, so the log-ratio is often used.
 	The log ratio of the null hypothesis should be $0$.
+	
+	$$Ratio = [0, inf] \,\, \rightarrow \,\, Log-Ratio = [-inf, inf]$$
 
 		\subsubsection{Replicates}
+		The fold change / log-ratio is a measure that gives an immediate idea of what is the difference in expression at gene level. 
+		It can be extended to the level of the entire gene expression profile.
+		However, we might have random deviations from the null hypothesis, which can lead to the introduction of errors in cases in which we have false negative and/or false positive. 
+		To improve statistical confidence in the results, we should have replicates.
 		Replicates are needed considering the noise of microarray data.
 		They can be distinguished between:
 
 		\begin{multicols}{2}
 			\begin{itemize}
-				\item Technical replicates: experiments on more RNA samples obtained from the same biological source.
-				\item Biological replicates: experiments on more biological sources belonging to the same condition.
+				\item Technical replicates: experiments on more RNA samples obtained from the \textbf{same} biological source.
+				\item Biological replicates: experiments on \textbf{more} biological sources belonging to the same condition.
 			\end{itemize}
 		\end{multicols}
 
-		Ideally each condition should be represented by more biological replicates in order to perform a statistical test.
+		Ideally each condition should be represented by more biological replicates, in order to perform a statistical test.
 		They can also be summarized as mean for each gene.
+		Ideally we would end up with a matrix containing many instances for each condition. 
 
 		\subsubsection{Statistical tests}
+		Many tools for statistical analyses have been developed, which need to take into consideration noise, several replicates, thousands of genes, the multiple hypothesis problem, etc.
 		Microarray correlation can be exploited to identify differentially expressed genes.
 		A gene is called differentially expressed through a $Z$ statistics.
 		To find significantly differentially expressed genes a test statistic for each gene should be used.
 		A low $p$-value is interpreted as evidence that the null hypothesis can be false and so a gene is differentially expressed.
+		At single-gene level, basic statistics, like the T-test can be applied. 
 
 			\paragraph{T-Test}
+			
 			The T-test is a parametric test to check the difference between the mean of two groups.
 			It assumes that the variance of those two groups is the same.
 			Is computed as:
@@ -283,7 +327,7 @@
 			$$T(X, Y) = \frac{\bar{X}-\bar{Y}}{\sigma\sqrt{\frac{1}{m}+\frac{1}{n}}}$$
 
 			\paragraph{Walch t-test}
-			Walch t-test considers different variance between two groups.
+			Walch t-test considers different variance between two groups, an extension of t-test.
 			It is the default implementation for $R$ $t.test()$ function.
 			Is computed as:
 
@@ -299,38 +343,44 @@
 
 			$$p = \frac{\#\{b:|T_b|\ge T_{obs}\}}{B}$$
 
-			\paragraph{ANOVA analysis}
+			
+
+		\subsubsection{Correction methods}
+		Correction methods are used to correct p-values in the presence of \textbf{multiple null hypothesis}.
+		Correction for this problem is extremely important.
+		Say we have a set of hypothesis we want to test simultaneously, like for a microarray setting.
+		Let's say we have $20$ hypothesis, and a significance level of $0.05$, what's the probability of observing at least one significant result just due to chance?
+		$$P(at least one significant result) = 1- P(no significant result) = 1-(1-0.05)^{20}$$
+		
+		Considering $n$ multiple hypothesis the probability of observing one significant result due to chance is:
+
+		$$1-(1-pvalue)^n$$
+
+		Some examples of correction methods are:
+
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item Bonferroni: very conservative, it has a significance threshold of $\frac{\alpha}{N}$. 
+					It reduces false positive while introducing false negatives.
+				\item Benjamini-Hochenberg: it tunes false positives and false negatives.
+				\item False Discovery Rates: it checks if the $kth$ ordered p-value is larger than $\frac{k\cdot a}{N}$
+			\end{itemize}
+		\end{multicols}
+		
+		Methods for multiple null hypothesis analyses are:
+		
+		\paragraph{ANOVA analysis}
 			ANOVA analysis is used to control different treatments.
 			It allows to test the null hypothesis that the differences within and between at least $3$ groups are the same on average.
 
 			\paragraph{2-way ANOVA}
 			2-way ANOVA compares the mean differences between groups that have been split on two independent variables called factors.
 			It understand if there is an interaction between the two independent variables on the dependent one.
-
-			\paragraph{From p-value to probability of significant results}
-			Given a p-value and $n$ the number of hypothesis to test, $P$ the probability of having al least one significant result is computed as:
-
-			$$P = 1-(1-pvalue)^n$$
-
-		\subsubsection{Correction methods}
-		Correction methods are used to correct p-values in the presence of multiple null hypothesis.
-		Considering $n$ multiple hypothesis the probability of observing one significant result due to chance is:
-
-		$$1-(1-pvalue)^n$$
-
-		Some examples are:
-
-		\begin{multicols}{2}
-			\begin{itemize}
-				\item Bonferroni: very conservative, it has a significance threshold of $\frac{\alpha}{N}$.
-					It reduces false positive while introducing false negatives.
-				\item Benjamini-Hochenberg: it tunes false positives and false negatives.
-				\item False discovery rates: it checks if the $kth$ ordered p-value is larger than $\frac{k\cdot a}{N}$
-			\end{itemize}
-		\end{multicols}
-
-		\subsubsection{Receiver operating characteristic}
-		The receiver operating characteristic find genes that better discriminate between two conditions by plotting sensitivity and $1-$specificity.
+		
+	
+		\subsubsection{Receiver Operating Characteristic}
+		At the end, we end up with the ROC curve.
+		The receiver Operating Characteristic finds genes that better discriminate between two conditions by plotting sensitivity and $1-$specificity.
 		Let $AUC$ be the area under the $ROC$ curve, then:
 
 		\begin{multicols}{2}
@@ -341,56 +391,62 @@
 		\end{multicols}
 
 		\subsubsection{Clustering}
-		The objective in differential gene expression is to look for genes that behave differently between samples.
+		The objective in differential gene expression is to look for genes that behave differently between samples, either up- or down- regulated.
+		In clustering, the deregulated genes are aggregated together, to see if they form some patterns, maybe they come from the same pathways which is overall deregulated.
 		Once having obtained then they can be clustered according to similar expression to make the outliers more obvious.
 
 			\paragraph{Hierarchical clustering}
-			The algorithm creates a dendrogram based on on a definition of distance measure between observation pairs.
-			The idea is:
-
-			\begin{multicols}{2}
+			The algorithm creates a dendrogram based on on the definition of a distance (dissimilarity) measure between observation pairs.
+			The algorithm works as follows:
+			
 				\begin{itemize}
-					\item Starting with $N$ observation and a distance measure for all $\frac{N(N-1)}{2}$ pairs.
-						Each observation is a cluster.
+					\item Starting with $N$ observations and a distance measure (euclidean, pearson correlation...) for all $\frac{N(N-1)}{2}$ pairs.
+						At the beginning, each observation is a cluster.
 					\item For $i =n$ to $2$:
 
 						\begin{itemize}
-							\item Examine all inter-clusters distances and fuse the cluster with lower distance.
-								The distance between fused clusters represents the height of the bar in the dendrogram.
-							\item Calculate new inter-cluster distances between the remaining $i-1$ clusters.
+							\item Examine all inter-clusters distances and fuse the cluster with 										lower distance.
+								The distance between fused clusters represents the height of the 										bar in the dendrogram.
+							\item Calculate new inter-cluster distances between the remaining 											$i-1$ clusters.
 						\end{itemize}
 
 				\end{itemize}
-			\end{multicols}
-
+			
+	With the linkage we define a notion of distance between clusters (containing many observations), as the distance measure is only used between single samples (clusters with one instance).
 			\paragraph{Linkage}
 			Linkage defines the distance between clusters.
 
 				\subparagraph{Complete linkage}
 				In complete linkage maximal intercluster dissimilarity is reached.
-				All pairwise dissimilarities between the observations in cluster $A$ and in cluster $B$ are computed and the largest is recorded.
+				Computes all pairwise dissimilarities between the observations in cluster $A$ and in cluster $B$, and record the \textbf{largest} of these dissimilarities.
 
 				\subparagraph{Single linkage}
 				In single linkage minimal interclsuter dissimilarity is reached.
-				All pairwise dissimilarities between the observations in cluster $A$ and in cluster $B$ are computed and the smallest is recorded.
+				All pairwise dissimilarities between the observations in cluster $A$ and in cluster $B$ are computed and the \textbf{smallest} is recorded.
 				It can result in extended, trailing clusters in which single observations are fused one at a time.
 
 				\subparagraph{Average linkage}
 				In average linkage te mean intercluster dissimilarity  is reached.
-				All pairwise dissimilarities between the observations in cluster $A$ and in cluster $B$ are computed and the average is recorded.
+				All pairwise dissimilarities between the observations in cluster $A$ and in cluster $B$ are computed and the \textbf{average} is recorded.
 
 				\subparagraph{Centroid linkage}
 				In centroid linkage the dissimilarity between the centroid for cluster $A$ (a mean vector of length $p$) and for cluster $B$ is computed and recorded.
-				It can result in undesirable inversions.
+				It can result in undesirable \textbf{inversions}.
+				
+				IMMAGINE LINKAGE METHODS - branches represent the distance we calculated. 
 
 \section{RNA-sequencing}
-
-	\subsection{Introduction}
 	RNA sequencing is a next-generation sequencing approach that sequences the cDNA from the mRNA component.
+	RNA-seq is considered a high-throughput technology because in one shot we are able to sequence the whole transcriptome.
 	The whole transcriptome can be compared against the whole transcriptome of another sample.
 	It is very cheap, sequencing $\sim 400$ gigabases per flow cell, but it has an error rate up to $1\%$, issues with $AT$ and $GC$ regions and long sequencing items.
+	
+	\subsection{Issues}
+	RNA-seq shares some litimations with microarray technology. 
+	For example, one needs availability of biological replicates (at least $3$) and to take care of batch effects to derive confident conclusions.
+	RNA-seq also requires the selection of a sequencing protocol after library preparation. For example, we might want to use PE or SE protocol, we also need to control the read length (100/150 bp) and sequencing depth (20-50M per sample for differential expression).  
 
-	\subsection{Illumina's pipeline}
+	\subsection{Illumina's protocol}
 	Illumina's RNA-sequencing pipeline consists of different steps.
 
 		\subsubsection{Sample preparation}
@@ -417,38 +473,49 @@
 		\end{multicols}
 
 		\subsubsection{Alignment}
-		Reads are aligned to a reference genome or transcriptome or to a genomic region.
-		Splice-aware aligner such as TopHat or STAR should be used.
+		Reads, stored in a FASTQ file, are aligned to a reference genome or transcriptome or to a genomic region.
+		\textbf{Splice-aware} aligner such as TopHat or STAR should be used.
 		The alignments are refined according to coding sequences using known and predicted splice junctions.
+		Splice-aware alignment is nowadays pretty fast, it is implemented though heuristic methods which converges to satisfying results.
+		Alternatively, one may want to assemble the reads \textit{de-novo} (e.g. Trinity).
 
-		\subsubsection{Quantifying reads}
-		Reads per gene are quantified.
-		non-coding RNA are filtered out.
+		\subsubsection{Quantifying reads per gene}
+		The aim of this step is to count (quantify) sequence reads per gene (parallel to quantify the fluorescence signal in microarray).
+		Several decision and precautions must be made when mapping reads to the genome. For example, while we need to filter out rRNA, tRNA, mitRNA etc, we may decide to filter out/in non-coding RNA, depending on the type of analysis we're performing.
 		Alternative splicing, overlapping genes and pseudogenes are dealt with.
-		Different type of counts can be employed:
-
-		\begin{multicols}{2}
+		Moreover, different type of counts can be employed:
+		
 			\begin{itemize}
-				\item Standard count: number of reads for transcript.
-				\item CPM: counts scaled by the number of fragments sequenced $N$ times one million.
-					It allow to compare each transcript across different samples.
+			\item \textbf{Counts used by differential expression methods}
+				\begin{itemize}
+								\item \textbf{Standard count}: number of reads for transcript.
+				\item \textbf{CPM}: counts scaled by the number of fragments sequenced $N$ times one million.
+					It allows to compare each transcript across different samples.
 
 					$$CPM_i = \frac{X+i}{N}\cdot 10^6$$
 
-				\item TPM: measurement of the proportion of transcripts in the pool of RNA.
-					It takes into account the length of the transcript.
-					It is not used for direct comparison across samples, but for intra-sample normalization.
+				\end{itemize}
+\item \textbf{Intra-sample normalization}
+\begin{itemize}
+				\item \textbf{TPM}: measurement of the proportion of transcripts in the pool of RNA.
+					It takes into account the length of the transcript, more reads that fall into that gene.
+					It is not used for direct comparison across samples, but for intra-sample normalization (compare different genes inside the same sample).
 					Let $\tilde{l}_i$ the length of transcript $i$, then:
 
 					$$TPM_i = \frac{X_i}{\tilde{l}_i}\biggl(\frac{1}{\sum\limits_j\frac{X_j}{\tilde{l}_j}}\biggr)10^6$$
 
-				\item RPKM: reads per kilobase of exon per million reads mapped.
+				\item \textbf{RPKM}: reads per kilobase of exon per million reads mapped.
 					It is called FPKM for fragments.
+					It's the commonest type of count used.
+					
 
 					$$RPKM = \frac{X_i}{\big(\frac{\tilde{l}_i}{10^3}\big)\big(\frac{N}{10^6}\big)} = \frac{X_i}{\tilde{l}_iN}10^9$$
-			\end{itemize}
-		\end{multicols}
+					
+					The typical length of a gene and the typical number of reads generated by a RNA-seq experiments are taken into account by the constants.
+\end{itemize}
 
-		\subsubsection{Normalization}
+			\end{itemize}
+	
+		\subsubsection{Inter sample normalization}
 		To perform inter-sample normalization quantile normalization is used to make the distribution identical.
 		The best normalization methods for differential expression are coupled with sophisticated approaches as very low expressing genes are tricky, for example those with $FPKM<1$.
