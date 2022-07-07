@@ -1,4 +1,4 @@
-\graphicspath{{chapters/06/images/}}
+\graphicspath{{chapters/06/images6/}}
 \chapter{Gene set enrichment}
 	\section{Introduction}
 	The aim is to go from differentially expressed genes found in previous analyses to biological functions. How does my data relate to known biological functions? Are there specific functions that are characterized by gene expression changes?
@@ -18,7 +18,7 @@ Before diving into the concepts od GSE, we will first have a look at Gene Ontolo
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\section{Gene Ontology}
 	An \textbf{ontology} formally represents knowledge as a set of concepts within a domain and the relationships among those concepts.
 	It can be used to reason about the entities within that domain and may be used to describe the domain.
@@ -28,10 +28,16 @@ Ontologies and controlled vocabularies are heavily used in biological databases 
 \section{Gene ontology}
 A gene ontology is a way to capture biological knowledge for individual gene products in a written and computable form, in the sense that it has a formal structure such that it can be used by a machine.
 A GO can also be defined as a set of concepts and their relationships to each other is arranged as a hierarchy.
-An ontology is structured as an acyclic graph where terms can have more than one parent.
+An ontology is structured as an acyclic graph where terms can have more than one parent (figure \ref{fig:GO}).
 	Terms are linked by directed relationships like: "is part of", "regulates".
 	Each node can have multiple parents, but no cycles. 
-IMMAGINE WHAT IS A GO
+	
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{GO}
+\caption{Acyclic graph representation of Gene Ontology}
+\label{fig:GO}
+\end{figure}
 
 \subsection{Concepts in GO}
 GO is organized in three main hierarchies:
@@ -174,6 +180,14 @@ Each one of these has its own acyclic graph which contains a detailed descriptio
 	If by repeating the random sampling we never find a bigger overlap than the one we selected, it means that the gene-set is not casual.
 
 		\subsubsection{Fisher's exact test}
+		
+		\begin{figure}
+		\centering
+		\includegraphics[scale=0.2]{test_microarray}
+		\caption{In this microarray two-class experimental design, significant genes are selected by a threshold. The circle represents the overlap between significant genes and gene-set. Fisher's test will test if this overlap is larger than expected by random sampling the captured genes?}
+		\label{fig:test-microarray}
+\end{figure}				
+		
 		Fisher's exact test calculates the exact probability of the table of observed cell frequencies in a table given that:
 
 			\begin{itemize}
@@ -222,6 +236,13 @@ Each one of these has its own acyclic graph which contains a detailed descriptio
 	\subsection{Whole-distribution - GSEA enrichment}
 	Enrichment test can either be threshold-dependent, e.g., Fisher's test, but can also  be a \textbf{whole-distribution} test, e.g. GSEA, which considers all the genes in the experiment.
 	
+	\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.2]{beyond}
+	\caption{Difference between an enrichment test with genes selected by a threshold \textit{vs} GSEA }
+	\label{fig:beyond}
+	\end{figure}
+	
 	Whole distribution methods like GSEA, gene set enrichment analysis, have been shown to be more stable and statistically powerful.
 	Instead of excluding genes they are ranked according to a measure.
 	
@@ -253,14 +274,31 @@ Each one of these has its own acyclic graph which contains a detailed descriptio
 		To state that there's an enrichment we need to compare the ES againts a null hypothesis. 
 		In Fisher's test the test itself provided a p-value, in this case the p-value is calculated using a permutation method.
 		
-		\item[Generate the ES distribution for the null hypothesis using permutations]
-		We need a way to estimate the empirical p-value for every gene-set.
-		From randomized data a null-hypothesis distribution is generated. 
 		
+		\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.2]{method1}
+	\caption{Top bar: Indicates where the gene-set genes are located in the ranked list. We need to find out whether the distribution random, or if there's an enrichment in either end.
+	Every present gene (black vertical bar) gives a positive contribution, while every absent gene (no vertical bar) gives a negative contribution. 
+	\\
+	Bottom graph: The bottom curve is the running ES score.}
+	\label{fig:method1}
+	\end{figure}
 	
-		\item[Calculate the empirical p-value]
-		The empirical p-value is computed observing how many random data have enrichment score greater than the read ones.
+		\item[Empirical p-value estimation]
+		We need a way to estimate the empirical p-value for every gene-set.
+			\begin{itemize}
+			\item From randomized data a null-hypothesis distribution is generated. See permutation setting in subsection \ref{subsub:perm}!
+			\item The empirical p-value is computed observing how many random data have enrichment score greater than the read ones.
 		The p-value is estimated for each gene set for which we calculated the ES.
+			\end{itemize}
+		
+		\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.2]{method2}
+	\caption{Estimation of the empirical p-value for each gene-set}
+	\label{fig:method1}
+	\end{figure}
 		
 		\item[Calculate the FDR - False Discovery Rate correction]
 		
@@ -273,9 +311,10 @@ Each one of these has its own acyclic graph which contains a detailed descriptio
 		
 		N.B.: The p-value only depends on the single gene-set performance, while the FDR depends on the performance of all gene-sets.
 
-		\subsubsection{Permutations}
-		Permutations setting have important implication and can be used only when biological replicates are very similar within classes or are well separated.
-		When biological replicates tend to be dissimilar or stratified according to hidden experimental factors other whole-distribution enrichment methods need to be used.
+		\subsubsection{Permutations}\label{subsub:perm}
+		Permutations setting have important implications.
+		\textbf{Gene permutations} can be used when biological replicates are very similar within classes and classes are well separated
+		When biological replicates tend to be dissimilar or stratified according to hidden experimental factors \textbf{other whole-distribution enrichment methods} need to be used.
 
 		\subsubsection{Other uses of GSEA}
 		The GSEA tool allow to perform more general types of analysis specifying designs:
