@@ -1,30 +1,41 @@
+\graphicspath{{chapters/08/images/}}
 \chapter{Genome wide association studies}
 
-\section{Types of studies}
+\section{Observational studies}
+\textbf{Observational} studies can be divided in two categories: \textbf{descriptive} and analytical.
+The main idea is to observe a sample of population and extract information about environmental and/or genetic characteristics with respect to specific genetic or phenotype marks (often, diseases).
 
 	\subsection{Descriptive studies}
-	Descriptive studies are studies in which an hypothesis is generated.
+	Descriptive studies are studies in which an \textbf{hypothesis} is generated.
 	Then the patterns of disease occurrence in relation to variables such as person, place and time are studied.
-	They are often the first step or initial enquiry into a new topic event, disease or condition.
+	They are often the first step or initial inquiry into a new topic event, disease or condition.
 	They typically estimate the frequency and the magnitude of the event analysed.
 
 	\subsection{Analytical studies}
+	Analytical studies take the descriptive studies a step forward.
 	An analytical study is one in which action will be taken on a cause system to improve the future performance of the system of interest.
 	The focus is to test an hypothesis to produce predictive data.
 	In particular they are used to identify factors that are associated with a disease or to quantify the risk of these factors.
+	Analytical studies can be divided again into cohort and case studies.
 
-	\subsection{Cohort studies}
-	Cohort studies are a type of analytical studies that involve a cohort.
-	A cohort is a well-defined group of individuals who share a common characteristic or experience.
-	For example individual exposed to a drug, vaccine and pollutant.
+	\subsubsection{Cohort studies}
+	\textbf{Cohort} studies are a type of analytical studies that involve a cohort.
+	\textit{A cohort is a well-defined group of individuals who share a common characteristic or experience}.
+	For example individual exposed to a drug, vaccine or pollutant.
 
-		\subsubsection{Prospective cohort studies}
-		Prospective cohort studies potential exposure has already occurred while outcomes have yet to occur.
+		\paragraph{Prospective cohort studies}
+		In prospective cohort studies potential exposure has already occurred while outcomes have yet to occur.
 		Participants are grouped according to past or current exposure and a follow-up in the future determine whether the predicted outcome occurs.
 
-		\subsubsection{Retrospective cohort studies}
-		Retrospective cohort studies both exposure and outcomes have already occurred.
+		\paragraph{Retrospective cohort studies}
+		In retrospective cohort studies both exposure and outcomes have already occurred.
 		Participants are grouped according to past exposure and certain characteristics and are compared for a particular outcome.
+
+		\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.2]{cohort}
+		\caption{Prospective and retrospective cohort studies.}
+		\end{figure}
 
 		\subsubsection{Measures of associations}
 		In cohort study a $2\times 2$ table can be built to determine, for example, the effect of exposure to a certain event on disease presence.
@@ -45,51 +56,68 @@
 			\label{tab:risk_table}
 		\end{table}
 
-		Then from this table the percentage of individuals exposed harbouring the disease can be computed:
+		From such a table three main measures of association can be defined.
 
-		$$I_e = \frac{a}{a+b}$$
+			\paragraph{Strength of association: Relative Risk (RR) and Risk Excess (RE)}
+			First, from this table the percentage of individuals exposed harbouring the disease can be computed:
 
-		Also the percentage of individuals not exposed and not harbouring the disease:
+			$$I_e = \frac{a}{a+b}$$
 
-		$$I_{ne} = \frac{c}{c+d}$$
+			Also the percentage of individuals not exposed and not harbouring the disease:
 
-		From this two measure the risk excess $RE$ and the relative risk $RR$ can be computed:
+			$$I_{ne} = \frac{c}{c+d}$$
 
-		$$RE = I_e - I_{ne} \qquad\qquad RR= \frac{I_e}{I_{ne}}$$
+			From this the risk excess $RE$ and the relative risk $RR$ can be computed:
 
-		The risk excess determine how the exposure betters, or worsen the chance of presenting a disease.
-		The relative risk instead determine the nature of the exposure's event:
+			$$RE = I_e - I_{ne} \qquad\qquad RR= \frac{I_e}{I_{ne}}$$
 
-		\begin{multicols}{3}
-			\begin{itemize}
-				\item $RR<1$ indicates a protective factor.
-				\item $RR \sim 1$ indicates an absence of risk.
-				\item $RR> 1$ indicates a risk factor.
-			\end{itemize}
-		\end{multicols}
+			The risk excess determine how the exposure betters, or worsen the chance of presenting a disease.
+			The relative risk instead determine the nature of the exposure's event:
 
-			\paragraph{Statistical confidence}
-			From the table also a significance of association and a precision of association can be determined.
-			The first requires a $p$-value, that determine how unlikely it is that the events observed arise by chance.
-			The second requires a confidence interval $CI$, which can be with a certain level of confidence $\alpha$, usually around $80\%$ and $95\%$, that determine how many times the correct value will be inside the interval when the measurement or the estimate will be replicated many times.
+			\begin{multicols}{2}
+				\begin{itemize}
+					\item $RR<1$ indicates a protective factor: incidence of developing the disease is much lower when the population is exposed to an event.
+					\item $RR \sim 1$ indicates an absence of risk.
+					\item $RR> 1$ indicates a risk factor.
+				\end{itemize}
+			\end{multicols}
+
+
+			\paragraph{Precision of association: Confidence Interval (CI)}
+			The risk is calculated always in a sample of the population.
+			It is a range of values, on the basis of the sample data, in which the population value (or true value) may lie.
+			The confidence interval could be defined as an interval in which, repeating the experiment, the correct value will reside in that interval with a certain probability.
+			Typical confidence intervals probabilities are $95\%$ or $90\%$ or $80\%$.
+			In practice, the correct value (which is the one observed in a population) is inside the confidence interval with a great level of confidence.
 			Usually the relative risk indicates the amount of random error around the point estimate.
+			Then the relative risk can be written as:
+
+			$$RR = point\ estimate \,(\text{lower confidence limit - upper confidence limit})$$
+
+
+			\paragraph{Significance of association: p-value (P)}
+			From the table also a significance of association can be computed.
+			It requires a $p$-value, that determine how unlikely it is that the events observed arise by chance.
 
 	\subsection{Case-control study}
-	The purpose of a case-control study is typically to study rare diseases or multiple exposures that may be related to a single outcome.
-	Participants are selected based on outcome status:
+	The purpose of a case-control study is typically to study rare diseases or multiple exposures (or genetic factors) that may be related to a single outcome.
+	Participants are selected based on \textbf{outcome} status and therefore divided in two categories, case- and control-subjects:
 
 	\begin{multicols}{2}
 		\begin{itemize}
-			\item Case subjects have outcome of interest.
-			\item Control subjects do not have outcome of interest.
+			\item Case subjects have the outcome of interest.
+			\item Control subjects do not have the outcome of interest.
 		\end{itemize}
 	\end{multicols}
 
 	This type of study is usually preferred when funding is limited.
 
 		\subsubsection{Measure of association}
-		The same table as a cohort study is built (as in table \ref{tab:risk_table}), but the measure of association is different.
+		The same table as a cohort study is built (as in table \ref{tab:risk_table}), but the measure of strength of association is different.
+
+		\paragraph{Strength of association: Odds Ratio (OR)}
 		First the odds of exposure in cases is computed:
+		An odd is a ratio of probabilities, in this case between the probability that an event will happen and the probability that an event will not happen.
 
 		$$\frac{\frac{a}{a+c}}{\frac{c}{a+c}} = \frac{a}{c}$$
 
@@ -97,7 +125,7 @@
 
 		$$\frac{\frac{b}{b+d}}{\frac{d}{d+b}} = \frac{b}{d}$$
 
-		Finally the ratio of this two measure is the odds ratio $OR$, the measure of association for a case control study:
+		Finally the ratio of this two measures is the odds ratio $OR$, the measure of association for a case control study:
 
 		$$OR = \frac{\frac{a}{c}}{\frac{b}{d}} = \frac{ad}{bc}$$
 
@@ -117,11 +145,27 @@
 			\end{itemize}
 		\end{multicols}
 
-\section{GWAS}
+		\subsubsection*{Relation between RR and OR}
+		$RR$ and $OR$ are two different measures, derived from two different types of studies, one searching for the exposure and one searching for the outcome.
+		Some mathematical relation exists between these two measures: when the disease is rare, mathematically $RR = OR$.
+		A graphical representation of this relation is depicted in figure \ref{fig:divergence}.
+		The difference is that the $RR$ is \textit{immediate}, meaning that if a person has probability $2$ of developing a disease, it is the same as saying that it has double the risk of developing it of a person not exposed.
+		With $OR$ instead, this reasoning is not immediate.
 
+		\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{divergence}
+		\caption{The more a disease is rare, the stronger the correlation is. On the contrary, if the disease in a population is not that uncommon, we can see a divergence between $OR$ and $R_0$, where $R_0$ is the frequency of the disease in the not exposed population.}
+		\label{fig:divergence}
+		\end{figure}
+
+
+
+\section{GWAS}
 	\subsection{Objective of GWAS}
-	The objective of a GWAS is to find connections between a phenotype known to be heritable and whole-genome genotype.
+	The objective of a GWAS is to find connections between a phenotype like height or type-I diabetes known to be heritable and whole-genome genotype.
 	GWAS were developed in $2004$, mainly thanks to the HapMap project, which unravelled the existence of linkage disequilibrium blocks, which allowed the exploitation of tag SNPs.
+	Particularly important was the realization, after the discovery of the haplotype blocks, that not all of human genetic variation (millions of SNPs) had to be genotyped to find associate variants, but only a fraction of those (\textbf{tag SNPs}).
 	Specific goals are distinct:
 
 	\begin{multicols}{2}
@@ -135,43 +179,52 @@
 		\end{itemize}
 	\end{multicols}
 
-	\subsection{Main application of GWAS}
-	The main application of GWAS are:
 
-	\begin{multicols}{2}
-		\begin{itemize}
-			\item Identification of susceptibility variants for novel biological insights like:
+	\subsection{Main applications of GWAS}
+	 An overview of the possibilities provided by GWAS are reported in figure \ref{fig:potential}.
+	 \begin{figure}[H]
+	 \centering
+	 \includegraphics[scale=0.3]{potential}
+	 \caption{Potential of GWAS and main possible applications}
+	 \label{fig:potential}
+	 \end{figure}
 
-				\begin{itemize}
-					\item Therapeutic targets.
-					\item Biomarkers.
-				\end{itemize}
-
-			\item Improved measures of individual aetiological (the manner of causation of a disease or condition) processes for personalized medicine.
-		\end{itemize}
-	\end{multicols}
 
 	\subsection{GWAS methodology}
 	A typical GWAS methodology can be described as:
 
 	\begin{multicols}{2}
-		\begin{itemize}
+		\begin{enumerate}
 			\item Collect $n$ subjects with known phenotype, usually $n\in [10^3;10^4]$.
 			\item Measure each one in $m$ genomic locations representing common variation in the whole genome.
 				Typically these are SNPs.
 				Usually $m\in [10^5;10^6]$, but recently with whole genome sequencing $m = 3\cdot 10^9$.
-			\item The data can be thought as a matrix $X$ of dimension $n\times m$ with subject as rows and SNPs as columns.
+			\item The data can be thought as a matrix $X$ of dimension $n \times m$ with subject as rows and SNPs as columns.
 				This matrix is built such that $X_{ij} \in \{0,1,2\}$, representing the genotype at a single column.
 				Moreover a vector of phenotypes $Y_n$ can be given.
-		\end{itemize}
+		\end{enumerate}
 	\end{multicols}
 
-	Having collected the data and having computed the matrix $X$ and the vector $Y$ the first task is association testing: finding SNPs (column of $X$) that are statistically associated with $Y$.
+	Having collected the data and having computed the matrix $X$ and the vector $Y$ the first task is \textbf{association testing}: finding SNPs (column of $X$) that are statistically associated with $Y$.
 	This can be thought of as $m$ separate statistical tests run on the matrix $X$.
 
 	\subsection{Single nucleotide polymorphisms}
+	In general, genetic polymorphisms are genetic variants that have a prevalence greater than 1\% in the population.
+	There are different type of polymorphisms:
+
+	\begin{multicols}{2}
+		\begin{itemize}
+		 \item \textbf{Single Nucletoide Polymorphisms (SNPs)}, which will be the main focus;
+		 \item Small-scale insertions and deletions;
+		 \item Microsatellite variations;
+		 \item Copy Number variations.
+		 \end{itemize}
+	 \end{multicols}
+
 	A SNP is defined as a single base variation in a DNA sequence.
-	They are classified according to the minor allele frequency $MAF$:
+	They are classified according to the minor allele frequency $MAF$.
+	Minor allele frequency (MAF) is the frequency at which the second most common allele occurs in a given population.
+	They play a surprising role in heritability since MAF variants which occur only once, known as "singletons", drive an enormous amount of selection.
 
 	\begin{multicols}{2}
 		\begin{itemize}
@@ -186,14 +239,14 @@
 
 		\begin{multicols}{3}
 			\begin{itemize}
-				\item Harmless.
-				\item Harmful.
-				\item Latent.
+				\item Harmless, change only the phenotype.
+				\item Harmful, associated with a multitude of diseases.
+				\item Latent, can become detrimental only in particular conditions (genetic-environmental cooperation).
 			\end{itemize}
 		\end{multicols}
 
 		They can lie in coding regions, but the majority of them are found in non-coding one.
-		Thy are present between in $1$ every $1000$ bases or $1$ every $100$-$300$.
+		They are present between in $1$ every $1000$ bases or $1$ every $100$-$300$.
 		The abundance of SNPs and the ease with which they can be measured make them very important.
 		Two thirds of SNPs modification are from a $C$ to a $T$.
 		They are typically found in non-coding regions and are found less in less conserved regions.
@@ -206,7 +259,7 @@
 			\begin{itemize}
 				\item When they are found near a gene they can act as marker for that gene.
 				\item SNPs in regulatory regions can modify transcription influencing the binding of transcription factors.
-				\item SNPs in coding regions can modify the stricture of codified protein.
+				\item SNPs in coding regions can modify the structure of codified protein.
 			\end{itemize}
 		\end{multicols}
 
@@ -330,22 +383,89 @@
 				Perfect $LD$ implies complete $LD$.
 				There are situations in which $D'=1$ and $r^2$ is low, so usually both measures are reported.
 
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.25]{d22}
+				\includegraphics[scale=0.25]{r22}
+				\caption{The top image represets raw data for D' from chr22.The bottom one represents raw data for $r^2$ from chr22. The trend is the same, but being the measure less strong a decrease in density of high values can be seen.}
+				\label{fig:compare}
+				\end{figure}
+
+			\subparagraph{Detailed visualization of LD}
+			A useful visualization of the LD, which will come in handy when dealing with haplotypes, is the representation through a matrix.
+			In the example depicted in figure \ref{fig:visual}, 6 SNPs for which the LD is being computed are repeated both on the y and x axis, ordered by genomic coordinates.
+			The two parts of the matrix divided by the diagonal are used to visualize the $D'$ and $r^2$ relationship across all pairs of SNPs.
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.2]{vis1}
+				\includegraphics[scale=0.3]{vis2}
+				\caption{The top image is a schematic representation of the matrix. The bottom one a real example. Blocks that cluster together can be seen. Triangles arising on the diagonal are strongly correlated SNPs and, not casual pattern in the population. These are \textbf{haplotype blocks}.}
+				\label{fig:visual}
+				\end{figure}
+
+
 			\paragraph{Haplotypes}
 			An haplotype is a set of linked SNPs on the same chromosome.
-			Genotypes don't report informations about the connections of alleles at different SNPs loci, so there could be several possible haplotypes for the same genotype.
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{haplo}
+				\includegraphics[scale=0.3]{haplo2}
+				\caption{When dealing with haplotypes a phased genotype needs to be reconstructed and assigned. In this way the distribution of the SNPs in the two allele can be known. After doing this the analysis can shift into the haplotype space and the genetic profiles can be compared.}
+				\label{fig:haplo}
+				\end{figure}
+
+			Genotypes don't report information about the connections of alleles at different SNPs loci, so there could be several possible haplotypes for the same genotype (bottom figure in \ref{fig:haplo}).
 			An haplotype block is defined as a cluster of SNPs in linkage disequilibrium and an haplotype boundary as sequences of blocks with strong internal linkage disequilibrium but no linkage disequilibrium between them.
 			They usually reflect genetic recombination hotspots.
 
 			\paragraph{Tag SNPs}
 			Tag SNPs are a set of SNPs that captures most variations in haplotypes, removing redundancy.
+			If the linkage is extremely strong it is enough to have one (tag) SNP to retrieve the information about other SNPs.
+			Tag SNPs allow for computationally feasible GWAS.
+			There are different platforms to identify SNPs, one of the main used being GeneChip Human Mapping microarray, provided by Affymetrix.
 
 		\subsubsection{SNP genotyping}
-		SNP genotyping represents each SNP in the dimension of its $A$ and $B$ allele intensity.
-		Not all SNPs have a clear representation.
+		In microarray technologies, SNP genotyping represents each SNP in the dimension of its $A$ and $B$ allele intensity.
+		The genotype of an individual (monozygous for $A$, monozygous for $B$, heterozygous) is retrieved by comparing the intensity of the fluorescent signal (figure \ref{fig:geno}).
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.3]{genotype}
+			\caption{SNPs genotyping in microarray technologies. For individuals having genotype, for example, $AA$, more signal in probes carrying the $A$ is expected.}
+			\label{fig:geno}
+		\end{figure}
+
+		Not all SNPs have a clear representation, however, in the classical two-dimensional visualization.
+		For this reason, other methods to analyse the output images of the machine have been developed, like \textbf{Birdseed} by Affymetrix, or CRLMM.
 
 			\paragraph{Birdseed}
-			A method to call the genotype is Birdseed, a clustering algorithm that first construct training models for each SNP in the array and then compute SNPs genotyping on data of interest using the training models.
-			Each SNP is a bird, where its wing points are genotypes $AA$ and $BB$ and the body is $AB$.
+			A method to call the genotype is Birdseed.
+			Analysing Birdseed an interesting bridge between the expression arrays (RNA), seen in chapter 5, with genotyping arrays (DNA) can be seen.
+			Given a set of data coming from different individuals, Birdseed tries to infer their genotype based on how these intensities are disposed on the bi-dimensional space of the image.
+			A canonical, satisfying result is similar to the one in figure \ref{fig:birdseed}.
+			Each point represents an individual.
+
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{birdseed}
+				\caption{Classical good result of Birdseed.}
+				\label{fig:birdseed}
+			\end{figure}
+
+			Birdseed is a \textbf{clustering algorithm} that first construct training models for each SNP in the array and then compute SNPs genotyping on data of interest using the training models.
+			The high-level functioning can be summarized in two main steps:
+
+			\begin{multicols}{2}
+				\begin{enumerate}
+					\item Construct "training" models for each SNP in the array (data with known genotype).
+					\item Compute SNPs genotyping on data of interest using the training models.
+				\end{enumerate}
+			\end{multicols}
+
+			Each SNP is a bird, because if the three clusters are connected, it looks like a bird, where its wing points are genotypes $AA$ and $BB$ and the body is $AB$.
 			Birds are computed for all SNPs.
 			Then Birdseed estimates cluster centres and covariance matrices.
 			Its confidence is computed as:
@@ -357,12 +477,34 @@
 
 			$$QS = -\log_{10}(confidence + 0.00001)\cdot 2000$$
 
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{bird1}
+				\includegraphics[scale=0.3]{bird2}
+				\caption{Birdseed can make highly accurate predictions because it has learned cluster morphology patterns by studying flocks of birds. Birdseed uses a highly customized EM algorithm using the SNP-specific bird as the "seed" (hence the name) and as cluster anchors. For each SNP in a dataset the quality of the genotyping, given some \textit{a priori} information, can be known.}
+				\label{fig:birdseed1}
+			\end{figure}
+
 			\paragraph{SNP genotyping from NGS data}
-			To genotype SNP from NGS the pileup is used.
-			After the reads are aligned and the coverage computed the pileup is the count of the number of times the reference and the alternative reads appear.
-			From this the allelic fraction can be computed.
+			While microarray technologies are still sometimes used, since they give decent, precise results, nowadays they are being replaced by NGS sequences.
+			However, microarrays are still particularly relevant in GWAS, since these analyses are carried for thousands of individuals and microarrays are way cheaper.
+			The real potential of NGS for SNPs genotyping lies in the fact that NGS can capture all SNPs, even rare ones that are not captured by array technologies, which focus on common SNPs.
+			To genotype SNP from NGS the \textbf{pileup} is used.
+			After the reads are aligned and the \textbf{coverage} computed, the pileup is the count of the number of times the reference and the alternative reads appear.
+			From this the \textbf{allelic fraction} can be computed.
+			The main tools for SNP calling in NGS data are:
+
+			\begin{multicols}{4}
+				\begin{itemize}
+					\item Samtools.
+					\item  Bcftools.
+					\item  Vcftools.
+					\item  GATK.
+				\end{itemize}
+			\end{multicols}
 
 			\paragraph{Quality control}
+			Quality control is essential, since low-quality reads can introduce bias and produce unwanted artefacts.
 			To perform quality control of SNP genotyping:
 
 			\begin{multicols}{2}
@@ -376,7 +518,7 @@
 
 		\subsubsection{Independence of individuals}
 		Independence among samples is a fundamental assumption of case-control studies, so related individuals are excluded, or their association taken into account during association analysis.
-		Genomic distance between samples can be computed based on SNP profiles through genetic fingerprinting or through SPIA:
+		Genomic distance between samples can be computed based on SNP profiles through genetic fingerprinting or through \textbf{SPIA}:
 
 		$$D(CL_1, CL_2) = \frac{1}{vN_{SNPs}} \sum\limits_{i=1}^{N_{SNPs}} \neg\delta(CL_{1i}, CL_{2i})$$
 
@@ -384,21 +526,32 @@
 		Not everyone in the population has the same genetic background: some people are more genetically similar than others.
 		Admixed population are particularly interesting and many SNPs in the genome have different distribution between different population due to random drift.
 		Many traits have strong population association, so the genetic background of individuals of a cohort must be taken into account to avoid structure and stratification of the samples.
-		The degree of admixture and population of origin identification is important.
-		This can be done through SNP-based or model-based methods.
+		Traits having strong population association are, for example, diabetes, which in the US in much more common among blacks or Crohn's disease, which in Israel is more common among Ashkenazi Jews.
+		When designing a case control study, if population stratification is not the same in case and control sets, find signals that are not related to the disease, but just related to the difference in proportions of population can be found.
+		Because of this the degree of admixture and population of origin identification is important.
+		Identification of origin of the samples can be done through SNP-based or model-based methods.
 
 			\paragraph{Logistic regression}
-			Logistic regression is a method used to assess the associations of SNPs and outcomes.
+			Logistic regression is a variation of regression analysis, developed to deal with binary phenotypes.
+			It is a method used to assess the associations of SNPs and outcomes.
 			The better the fit the stronger the association.
 			It is computed as:
 
 			$$\log(\frac{\pi}{1-\pi}) = \beta_0+\beta_1x_1+\cdots \beta_mx_m$$
 
 			Where $x_i$ are the SNP genotype and $\beta$ the covariates like age, sex and population structure.
-			Then genetic structure correction is performed through $QQ$ plots, where deviation from the diagonal indicates structure.
+			Then genetic structure correction is performed through $QQ$ plots (figure \ref{fig:qq}), where deviation from the diagonal indicates structure.
 			The data is fitted to the diagonal as to reduce structures effects.
 
+			\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.3]{qq}
+			\caption{First row depicts unexpected deviation, probably given by population stratification. The two principal components of the case-control are computed , and these two eigenvectors are added to the logistic regression model to correct for the supposed stratification. After the correction the obtained p-value distribution is much closer to the expected one. Indeed in a normal scenario most of the SNPs are expected not to be associated, with only a tail of p-values diverging from the distribution only in case of a real signal. In this case this GWAS analysis can be determined as trustful.}
+			\label{fig:qq}
+			\end{figure}
+
 	\subsection{Standard cutoff in GWAS}
+	A measure for the significance of association is needed.
 	Considering evidence for $1M$ haplotype blocks in the genome, the accepted p-value cutoff in GWAS studies is between $10^{-6}$ and $10^{-8}$.
 	This is due to the fact that each SNP is tested at the traditional significance level and multiple comparison is an important consideration in a GWAS analysis and must be handled properly.
 
