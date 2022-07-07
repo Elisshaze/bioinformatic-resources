@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.18)  7 JUL 2022 15:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.18)  7 JUL 2022 15:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -855,7 +855,7 @@ Chapter 1.
 [4
 
 ]
-<chapters/01/images//substring-search.png, id=603, 1221.56375pt x 704.6325pt>
+<chapters/01/images//substring-search.png, id=608, 1221.56375pt x 704.6325pt>
 File: chapters/01/images//substring-search.png Graphic file (type png)
 <use chapters/01/images//substring-search.png>
 Package pdftex.def Info: chapters/01/images//substring-search.png  used on inpu
@@ -899,20 +899,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--49
 []\T1/cmr/m/n/10 Over-represented mo-tifs
  []
 
-<chapters/04/images//matrices.png, id=659, 1231.60126pt x 701.62125pt>
+<chapters/04/images//matrices.png, id=664, 1231.60126pt x 701.62125pt>
 File: chapters/04/images//matrices.png Graphic file (type png)
 <use chapters/04/images//matrices.png>
 Package pdftex.def Info: chapters/04/images//matrices.png  used on input line 7
 7.
 (pdftex.def)             Requested size: 369.48323pt x 210.48799pt.
 [12 <./chapters/04/images//matrices.png>] [13]
-<chapters/04/images//pwm.png, id=677, 1092.08pt x 380.42125pt>
+<chapters/04/images//pwm.png, id=682, 1092.08pt x 380.42125pt>
 File: chapters/04/images//pwm.png Graphic file (type png)
 <use chapters/04/images//pwm.png>
 Package pdftex.def Info: chapters/04/images//pwm.png  used on input line 175.
 (pdftex.def)             Requested size: 327.62653pt x 114.12724pt.
  [14 <./chapters/04/images//pwm.png>]
-<chapters/04/images//hmm_profile.png, id=689, 771.88374pt x 398.48875pt>
+<chapters/04/images//hmm_profile.png, id=694, 771.88374pt x 398.48875pt>
 File: chapters/04/images//hmm_profile.png Graphic file (type png)
 <use chapters/04/images//hmm_profile.png>
 Package pdftex.def Info: chapters/04/images//hmm_profile.png  used on input lin
@@ -923,19 +923,19 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
  (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [15]
-<chapters/04/images//HMM.png, id=696, 730.73pt x 762.85pt>
+<chapters/04/images//HMM.png, id=701, 730.73pt x 762.85pt>
 File: chapters/04/images//HMM.png Graphic file (type png)
 <use chapters/04/images//HMM.png>
 Package pdftex.def Info: chapters/04/images//HMM.png  used on input line 243.
 (pdftex.def)             Requested size: 219.22069pt x 228.85677pt.
  [16 <./chapters/04/images//hmm_profile.png> <./chapters/04/images//HMM.png>] [
 17]
-<chapters/04/images//tba.png, id=709, 1572.87625pt x 562.1pt>
+<chapters/04/images//tba.png, id=714, 1572.87625pt x 562.1pt>
 File: chapters/04/images//tba.png Graphic file (type png)
 <use chapters/04/images//tba.png>
 Package pdftex.def Info: chapters/04/images//tba.png  used on input line 301.
 (pdftex.def)             Requested size: 314.56967pt x 112.418pt.
-<chapters/04/images//denovo_scenario.png, id=710, 1592.95125pt x 688.5725pt>
+<chapters/04/images//denovo_scenario.png, id=715, 1592.95125pt x 688.5725pt>
 File: chapters/04/images//denovo_scenario.png Graphic file (type png)
 <use chapters/04/images//denovo_scenario.png>
 Package pdftex.def Info: chapters/04/images//denovo_scenario.png  used on input
@@ -950,7 +950,7 @@ Overfull \vbox (0.74922pt too high) has occurred while \output is active []
 
 [18 <./chapters/04/images//tba.png> <./chapters/04/images//denovo_scenario.png>
 ]
-<chapters/04/images//consensus.png, id=721, 1420.30624pt x 689.57625pt>
+<chapters/04/images//consensus.png, id=726, 1420.30624pt x 689.57625pt>
 File: chapters/04/images//consensus.png Graphic file (type png)
 <use chapters/04/images//consensus.png>
 Package pdftex.def Info: chapters/04/images//consensus.png  used on input line 
@@ -962,27 +962,27 @@ Chapter 5.
 [21
 
 ] [22]
-<chapters/05/images//microarray.png, id=756, 438.63875pt x 884.30376pt>
+<chapters/05/images//microarray.png, id=761, 438.63875pt x 884.30376pt>
 File: chapters/05/images//microarray.png Graphic file (type png)
 <use chapters/05/images//microarray.png>
 Package pdftex.def Info: chapters/05/images//microarray.png  used on input line
  144.
 (pdftex.def)             Requested size: 87.72618pt x 176.85762pt.
  [23]
-<chapters/05/images//scanner.png, id=764, 1294.8375pt x 662.475pt>
+<chapters/05/images//scanner.png, id=769, 1294.8375pt x 662.475pt>
 File: chapters/05/images//scanner.png Graphic file (type png)
 <use chapters/05/images//scanner.png>
 Package pdftex.def Info: chapters/05/images//scanner.png  used on input line 17
 7.
 (pdftex.def)             Requested size: 258.9629pt x 132.49265pt.
  [24 <./chapters/05/images//microarray.png>]
-<chapters/05/images//segmentation.png, id=774, 1240.635pt x 329.23pt>
+<chapters/05/images//segmentation.png, id=779, 1240.635pt x 329.23pt>
 File: chapters/05/images//segmentation.png Graphic file (type png)
 <use chapters/05/images//segmentation.png>
 Package pdftex.def Info: chapters/05/images//segmentation.png  used on input li
 ne 192.
 (pdftex.def)             Requested size: 372.19337pt x 98.76976pt.
-<chapters/05/images//design.png, id=775, 1245.65375pt x 578.16pt>
+<chapters/05/images//design.png, id=780, 1245.65375pt x 578.16pt>
 File: chapters/05/images//design.png Graphic file (type png)
 <use chapters/05/images//design.png>
 Package pdftex.def Info: chapters/05/images//design.png  used on input line 206
@@ -990,7 +990,7 @@ Package pdftex.def Info: chapters/05/images//design.png  used on input line 206
 (pdftex.def)             Requested size: 249.12633pt x 115.62994pt.
  [25 <./chapters/05/images//segmentation.png> <./chapters/05/images//scanner.pn
 g>] [26 <./chapters/05/images//design.png>]
-<chapters/05/images//MA.png, id=790, 1318.9275pt x 628.3475pt>
+<chapters/05/images//MA.png, id=795, 1318.9275pt x 628.3475pt>
 File: chapters/05/images//MA.png Graphic file (type png)
 <use chapters/05/images//MA.png>
 Package pdftex.def Info: chapters/05/images//MA.png  used on input line 269.
@@ -1011,13 +1011,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 283--284
  []
 
 [28] [29]
-<chapters/05/images//ROC.png, id=820, 860.21375pt x 682.55pt>
+<chapters/05/images//ROC.png, id=825, 860.21375pt x 682.55pt>
 File: chapters/05/images//ROC.png Graphic file (type png)
 <use chapters/05/images//ROC.png>
 Package pdftex.def Info: chapters/05/images//ROC.png  used on input line 425.
 (pdftex.def)             Requested size: 172.03969pt x 136.50758pt.
  [30 <./chapters/05/images//ROC.png>]
-<chapters/05/images//linkage.png, id=832, 1422.31375pt x 885.3075pt>
+<chapters/05/images//linkage.png, id=837, 1422.31375pt x 885.3075pt>
 File: chapters/05/images//linkage.png Graphic file (type png)
 <use chapters/05/images//linkage.png>
 Package pdftex.def Info: chapters/05/images//linkage.png  used on input line 45
@@ -1029,7 +1029,7 @@ Chapter 6.
 [35
 
 ]
-<chapters/06/images//GO.png, id=874, 1098.1025pt x 841.1425pt>
+<chapters/06/images//GO.png, id=879, 1098.1025pt x 841.1425pt>
 File: chapters/06/images//GO.png Graphic file (type png)
 <use chapters/06/images//GO.png>
 Package pdftex.def Info: chapters/06/images//GO.png  used on input line 37.
@@ -1080,7 +1080,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 145--146
  []
 
 [38]
-<chapters/06/images//test_microarray.png, id=893, 1235.61626pt x 729.72626pt>
+<chapters/06/images//test_microarray.png, id=898, 1235.61626pt x 729.72626pt>
 File: chapters/06/images//test_microarray.png Graphic file (type png)
 <use chapters/06/images//test_microarray.png>
 Package pdftex.def Info: chapters/06/images//test_microarray.png  used on input
@@ -1091,20 +1091,20 @@ Overfull \vbox (9.2152pt too high) detected at line 209
  []
 
 [39 <./chapters/06/images//test_microarray.png>]
-<chapters/06/images//beyond.png, id=904, 1168.365pt x 744.7825pt>
+<chapters/06/images//beyond.png, id=909, 1168.365pt x 744.7825pt>
 File: chapters/06/images//beyond.png Graphic file (type png)
 <use chapters/06/images//beyond.png>
 Package pdftex.def Info: chapters/06/images//beyond.png  used on input line 248
 .
 (pdftex.def)             Requested size: 233.66885pt x 148.95386pt.
  [40 <./chapters/06/images//beyond.png>]
-<chapters/06/images//method1.png, id=911, 1247.66125pt x 670.505pt>
+<chapters/06/images//method1.png, id=916, 1247.66125pt x 670.505pt>
 File: chapters/06/images//method1.png Graphic file (type png)
 <use chapters/06/images//method1.png>
 Package pdftex.def Info: chapters/06/images//method1.png  used on input line 28
 4.
 (pdftex.def)             Requested size: 249.52783pt x 134.09862pt.
-<chapters/06/images//method2.png, id=913, 1134.2375pt x 421.575pt>
+<chapters/06/images//method2.png, id=918, 1134.2375pt x 421.575pt>
 File: chapters/06/images//method2.png Graphic file (type png)
 <use chapters/06/images//method2.png>
 Package pdftex.def Info: chapters/06/images//method2.png  used on input line 30
@@ -1124,13 +1124,13 @@ Chapter 8.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `principal.out' has not changed.
-(rerunfilecheck)             Checksum: 5FFEABA2D50B710AD33EB9AC769F6F29;17559.
+(rerunfilecheck)             Checksum: F6D6CC4EACD0C1465C6EE806BCBA6AE4;17685.
  ) 
 Here is how much of TeX's memory you used:
- 23118 strings out of 478238
- 425115 string characters out of 5850456
+ 23120 strings out of 478238
+ 425149 string characters out of 5850456
  743262 words of memory out of 5000000
- 40675 multiletter control sequences out of 15000+600000
+ 40676 multiletter control sequences out of 15000+600000
  491184 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,12n,82p,518b,964s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1157,10 +1157,10 @@ ist/fonts/type1/public/cm-super/sfti0700.pfb></usr/share/texmf-dist/fonts/type1
 /public/cm-super/sfti0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
 r/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
 
-Output written on ./build/principal.pdf (58 pages, 2900970 bytes).
+Output written on ./build/principal.pdf (58 pages, 2900926 bytes).
 PDF statistics:
- 1225 PDF objects out of 1440 (max. 8388607)
- 1063 compressed objects within 11 object streams
- 322 named destinations out of 1000 (max. 500000)
- 997 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1230 PDF objects out of 1440 (max. 8388607)
+ 1068 compressed objects within 11 object streams
+ 323 named destinations out of 1000 (max. 500000)
+ 1005 words of extra memory for PDF output out of 10000 (max. 10000000)
 

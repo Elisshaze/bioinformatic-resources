@@ -9,18 +9,22 @@
 	Nodes can represent different entities and arcs any kind of interaction.
 
 	\subsection{Networks in system biology}
-	Networks are a relevant part of system biology, in particular since the advent in systems biology. Genome and genomics, proteome and proteomics are represented by networks.
+	Networks are a relevant part of system biology.
 	The objectives of system biology are:
 
+	\begin{multicols}{2}
 		\begin{itemize}
 			\item Comprehension at the level of system, representing it using formalisms like networks.
 			\item Analysis of individual components.
 			\item Analysis of interactions.
 			\item Analysis of potential emerging properties.
 		\end{itemize}
+	\end{multicols}
 
-Network (graph theory) allows us to recognize properties seen only at system level and not individual, need to capture the whole system dynamics.
-In biology, networks are used to model Signal transduction networks, gene regulatory networks, protein-protein interaction.
+	\subsection{Graph theory}
+	Networks, thanks to graph theory allow to recognize properties seen only at system level and not individual.
+	They are needed the whole system dynamics needs to be captured.
+	In biology, networks are used to model Signal transduction networks, gene regulatory networks or protein-protein interaction.
 
 \section{Graphs}
 
@@ -176,10 +180,9 @@ E.g., in protein-protein interaction, the failure (or absence) of a hub could pr
 		$$CC(n) = \frac{|V|}{\sum\limits_{n'}d(n,n')}$$
 
 		Where $d(n,n')$ is the length of the shortest path between $n$ and $n'$.
-		Can be seen a the ratio between the number of nodes and a notion of t\textit{total distance} between the node and all the others, calculated as shortest path.
-
+		Can be seen as the ratio between the number of nodes and a notion of \textit{total distance} between the node and all the others, calculated as shortest path.
 		Nodes with high closeness centrality can access quickly other nodes and have rapid cascade effects on other nodes.
-		Closeness us to rank the nodes in order of importance.
+		Closeness can be used to rank the nodes in order of importance.
 
 		\subsubsection{Eccentricity centrality}
 		Eccentricity centrality is computed as:
@@ -187,8 +190,7 @@ E.g., in protein-protein interaction, the failure (or absence) of a hub could pr
 		$$C_s(n) = \frac{1}{\max\{d(u,n):u\in V\}}$$
 
 		The eccentricity is a measure of the centrality index.
-
-		Is calculated by computing the shortest path between the node $v$ and all other nodes in the graph and then considering the longest shortest path.
+		It is calculated by computing the shortest path between the node $v$ and all other nodes in the graph and then considering the longest shortest path.
 		Higher eccentricity means that the node is proximal to other nodes.
 
 		\subsubsection{Betweenness centrality}
@@ -205,7 +207,7 @@ E.g., in protein-protein interaction, the failure (or absence) of a hub could pr
 		$$SC(n) = \sum\limits_{k=0}^\infty \frac{\mu_k(n)}{k!}$$
 
 		It accounts for the participation of a node in all sub graphs of the networks.
-		$\mu_k(v)$ is the number of closed walks of length $k$ starting and anding in node $v$.
+		$\mu_k(v)$ is the number of closed walks of length $k$ starting and ending in node $v$.
 
 		\subsubsection{Eigenvector centrality}
 		Eigenvector centrality is computed as:
@@ -215,21 +217,21 @@ E.g., in protein-protein interaction, the failure (or absence) of a hub could pr
 		Where $\lambda$ is a constant, $a$ is the adjacency matrix and $M(v)$ are the neighbours of $v$.
 		It can be written in vector notation as $A\vec{x} = \lambda\vec{x}$.
 		It is a measure of the influence of a node in a network.
-		The hogh-scoring nodes contribute more to the score of the node in question.
+		The high-scoring nodes contribute more to the score of the node in question.
 		A high eigenvector score means that a node is connected to many nodes who themselves have high scores.
 
 	\subsection{Analysis of groups}
-	During the analysis of groups groups or nodes are identified that have cohesion characteristics.
+	During the analysis of groups groups of nodes with cohesion characteristics are identified.
 	A typical analysis is network clustering, which means diving the graph by its characteristics.
 	First a similarity function between nodes is defined in terms of network topology.
-	For example, in the enrichment analysis (gene ontology) the higher the overlap, the closer the terms
+	For example, in the enrichment analysis (gene ontology) the higher the overlap, the closer the terms in the network.
 	Then a method to group the nodes in terms of their similarity is applied.
 
 	\subsection{Analysis of network}
 	During the analysis at the level of network topological properties that are global to the network are identified.
 
 		\subsubsection{Clustering coefficient}
-		The clustering coefficient measures the degree at which nodes in a graph tend to e connected.
+		The clustering coefficient measures the degree at which nodes in a graph tend to be connected.
 
 			\paragraph{Local clustering coefficient}
 			A local clustering coefficient indicates how much the neighbours of a node are distance from being a clique.
