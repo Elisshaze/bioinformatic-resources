@@ -9,7 +9,7 @@
 	Nodes can represent different entities and arcs any kind of interaction.
 
 	\subsection{Networks in system biology}
-	Networks are a relevant part of system biology, in particular since the advent in systems biology. Genome and genomics, proteome and proteomics are represented by networks. 
+	Networks are a relevant part of system biology, in particular since the advent in systems biology. Genome and genomics, proteome and proteomics are represented by networks.
 	The objectives of system biology are:
 
 		\begin{itemize}
@@ -19,7 +19,7 @@
 			\item Analysis of potential emerging properties.
 		\end{itemize}
 
-Network (graph theory) allows us to recognize properties seen only at system level and not individual, need to capture the whole system dynamics. 
+Network (graph theory) allows us to recognize properties seen only at system level and not individual, need to capture the whole system dynamics.
 In biology, networks are used to model Signal transduction networks, gene regulatory networks, protein-protein interaction.
 
 \section{Graphs}
@@ -153,7 +153,7 @@ In biology, networks are used to model Signal transduction networks, gene regula
 		It is not efficient for dense graphs.
 
 \section{Networks analysis}
-Comparing two big networks is not as easy. For example, defining isomorphisms is simply not feasible. 
+Comparing two big networks is not as easy. For example, defining isomorphisms is simply not feasible.
 A field of research focuses on network properties and works on three main abstraction levels: analysis of \textbf{single elements}, analysis at the level of \textbf{groups} and \textbf{global} analysis.
 
 	\subsection{Analysis of single elements}
@@ -168,18 +168,18 @@ A field of research focuses on network properties and works on three main abstra
 		$$DC(n) = degree(n)$$
 
 		Nodes with high $DC$ are defined as hubs and usually they have important roles in a network.
-E.g., in protein-protein interaction, the failure (or absence) of a hub could produce a dramatic cascade effect. 
+E.g., in protein-protein interaction, the failure (or absence) of a hub could produce a dramatic cascade effect.
 
 		\subsubsection{Closeness centrality}
 		Closeness centrality is measured as:
 
 		$$CC(n) = \frac{|V|}{\sum\limits_{n'}d(n,n')}$$
-		
+
 		Where $d(n,n')$ is the length of the shortest path between $n$ and $n'$.
-		Can be seen a the ratio between the number of nodes and a notion of t\textit{total distance} between the node and all the others, calculated as shortest path. 
+		Can be seen a the ratio between the number of nodes and a notion of t\textit{total distance} between the node and all the others, calculated as shortest path.
 
 		Nodes with high closeness centrality can access quickly other nodes and have rapid cascade effects on other nodes.
-		Closeness us to rank the nodes in order of importance. 
+		Closeness us to rank the nodes in order of importance.
 
 		\subsubsection{Eccentricity centrality}
 		Eccentricity centrality is computed as:
@@ -187,7 +187,7 @@ E.g., in protein-protein interaction, the failure (or absence) of a hub could pr
 		$$C_s(n) = \frac{1}{\max\{d(u,n):u\in V\}}$$
 
 		The eccentricity is a measure of the centrality index.
-		
+
 		Is calculated by computing the shortest path between the node $v$ and all other nodes in the graph and then considering the longest shortest path.
 		Higher eccentricity means that the node is proximal to other nodes.
 
@@ -221,7 +221,7 @@ E.g., in protein-protein interaction, the failure (or absence) of a hub could pr
 	\subsection{Analysis of groups}
 	During the analysis of groups groups or nodes are identified that have cohesion characteristics.
 	A typical analysis is network clustering, which means diving the graph by its characteristics.
-	First a similarity function between nodes is defined in terms of network topology. 
+	First a similarity function between nodes is defined in terms of network topology.
 	For example, in the enrichment analysis (gene ontology) the higher the overlap, the closer the terms
 	Then a method to group the nodes in terms of their similarity is applied.
 
