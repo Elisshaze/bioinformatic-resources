@@ -163,8 +163,8 @@ Analytical studies can be ulteriorly divided into cohort and case studies.
 		
 		\begin{figure}[H]
 		\centering
-		\includegraphics[scale=0.2]{divergence}
-		\caption{The more a disease is rare, the stroger the correlation is. On the contrary, if the disease in a population is not that uncommon, we can see a divergence between OR and R0, where R0 is the frequency of the disease in the not exposed population.}
+		\includegraphics[scale=0.3]{divergence}
+		\caption{The more a disease is rare, the stronger the correlation is. On the contrary, if the disease in a population is not that uncommon, we can see a divergence between OR and R0, where R0 is the frequency of the disease in the not exposed population.}
 		\label{fig:divergence}
 		\end{figure}
 
@@ -382,25 +382,93 @@ Analytical studies can be ulteriorly divided into cohort and case studies.
 
 				Perfect $LD$ implies complete $LD$.
 				There are situations in which $D'=1$ and $r^2$ is low, so usually both measures are reported.
+				
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.25]{d22}
+				\includegraphics[scale=0.25]{r22}
+				\caption{Top: raw data for D' from chr22.\\
+				Bottom: raw data for $r^2$ from chr22. The trend is the same, but being the measure less strong we see a decrease in density of high values.
+				}
+				\label{fig:compare}
+				\end{figure}
+				
+			\subparagraph{Detailed visualization of LD}
+			A useful visualization of the LD, which will come in handy when dealing with haplotypes, is the representation through a matrix. 
+			In this example (figure \ref{fig:visual}), we have 6 SNPs for which we are calculating the LD repeated both on the y and x axis, ordered by genomic coordinates. 
+			The two parts of the matrix divided by the diagonal are used to visualize the $D'$ and $r^2$ relation across all pairs of SNPs.
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.2]{vis1}
+				\includegraphics[scale=0.3]{vis2}
+				\caption{Top: Schematic representation of the matrix\\
+				Bottom: real example. we can see block that cluster together. Triangles arising on the diagonal are SNPs strongly correlated, not casual pattern in the population. These are \textbf{haplotype blocks}. }
+				\label{fig:visual}
+				\end{figure}
+			
 
 			\paragraph{Haplotypes}
 			An haplotype is a set of linked SNPs on the same chromosome.
-			Genotypes don't report informations about the connections of alleles at different SNPs loci, so there could be several possible haplotypes for the same genotype.
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{haplo}
+				\includegraphics[scale=0.3]{haplo2}
+				\caption{Remember that when when talking about haplotypes we also need first to somehow reconstruct and assign a so called "phased" genotype so we know how the SNPs are disposed in the two alleles. Only after having a clear view of the genotype we can reason in terms of haplotype, comparing the genetic profiles  }
+				\label{fig:haplo}
+				\end{figure}
+				
+			Genotypes don't report information about the connections of alleles at different SNPs loci, so there could be several possible haplotypes for the same genotype (bottom figure in \ref{fig:haplo}).
 			An haplotype block is defined as a cluster of SNPs in linkage disequilibrium and an haplotype boundary as sequences of blocks with strong internal linkage disequilibrium but no linkage disequilibrium between them.
 			They usually reflect genetic recombination hotspots.
 
 			\paragraph{Tag SNPs}
 			Tag SNPs are a set of SNPs that captures most variations in haplotypes, removing redundancy.
+			If the linkage is extremely strong it is enough to have one (tag) SNP to retrieve the information about other SNPs.
+			Tag SNPs allow for computationally feasible GWAS.
+			\\
+			There are different platforms to identify SNPs, one of the main used being GeneChip Human Mapping microarray, provided by Affymetrix. 
 
 		\subsubsection{SNP genotyping}
-		SNP genotyping represents each SNP in the dimension of its $A$ and $B$ allele intensity.
-		Not all SNPs have a clear representation.
+		In microarray technologies, SNP genotyping represents each SNP in the dimension of its $A$ and $B$ allele intensity.
+		The genotype of an individual (monozygous for $A$, monozygous for $B$, heterozygous) is retrieved by comparing the intensity of the fluorescent signal (figure \ref{fig:geno}). 
+		
+		\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{genotype}
+				\caption{SNPs genotyping in microarray technologies. For individuals having genotype, for example, $AA$, we expect to have much more signal in probes carrying the $A$ }
+				\label{fig:geno}
+				\end{figure}
+				
+			Not all SNPs have a clear representation, however, in the classical two-dimensional visualization.
+			For this reason, other methods to analyze the output images of the machine have been developed, like \textbf{Birdseed} by Affymetrix, or CRLMM.
 
 			\paragraph{Birdseed}
-			A method to call the genotype is Birdseed, a clustering algorithm that first construct training models for each SNP in the array and then compute SNPs genotyping on data of interest using the training models.
-			Each SNP is a bird, where its wing points are genotypes $AA$ and $BB$ and the body is $AB$.
+			A method to call the genotype is Birdseed\footnote{This paragraph draws an interesting bridge between the expression arrays (RNA), seen in chapter 5, with genotyping arrays (DNA)}.
+			Given a set of data coming from different individuals, tries to infer their genotype based on how these intensities are disposed on the bi-dimensional space of the image.
+			A canonical, satisfying result is similar to the one in figure \ref{fig:birdseed}. 
+			Each point represents an individual. 
+						
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{birdseed}
+				\caption{Classical good result of Birdseed. }
+				\label{fig:birdseed}
+				\end{figure}
+			
+			
+			Birdseed is a \textbf{clustering algorithm} that first construct training models for each SNP in the array and then compute SNPs genotyping on data of interest using the training models.
+			The high-level functioning can be summarized in two main steps:
+			\begin{enumerate}
+			\item Construct "training" models for each SNP in the array (data with known genotype);
+			\item Compute SNPs genotyping on data of interest using the training models. 
+			\end{enumerate}
+			
+			Each SNP is a bird\footnote{Because if the three clusters are connected, it looks like a bird, apparently.}, where its wing points are genotypes $AA$ and $BB$ and the body is $AB$.
 			Birds are computed for all SNPs.
-			Then Birdseed estimates cluster centres and covariance matrices.
+			Then Birdseed estimates cluster centers and covariance matrices.
 			Its confidence is computed as:
 
 			$$Confidence = 80\% E_1 + 20\% E_2$$
@@ -409,13 +477,29 @@ Analytical studies can be ulteriorly divided into cohort and case studies.
 			Then the quality score is computed as:
 
 			$$QS = -\log_{10}(confidence + 0.00001)\cdot 2000$$
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{bird1}
+				\includegraphics[scale=0.3]{bird2}
+				\caption{Birdseed can make highly accurate predictions because it has learned cluster morphology patterns by studying flocks of birds.\\
+				Birdseed uses a highly customized EM algorithm using the SNP-specific bird as the "seed" (hence the name) and as cluster anchors. For each SNP in a dataset we can know the quality of the genotyping, given some \textit{a priori} information. }
+				\label{fig:birdseed1}
+				\end{figure}
+			
 
 			\paragraph{SNP genotyping from NGS data}
-			To genotype SNP from NGS the pileup is used.
-			After the reads are aligned and the coverage computed the pileup is the count of the number of times the reference and the alternative reads appear.
-			From this the allelic fraction can be computed.
+			While microarray technologies are still sometimes used, since they give decent, precise results, nowadays they are being replaced by NGS sequences. 
+			However, microarrays are still particularly relevant in GWAS, since these analyses are carried for thousands of individuals and microarrays are way cheaper. 
+			The real potential of NGS for SNPs genotyping lies in the fact that NGS can capture all SNPs, even rare ones that are not captured by array technologies, which focus on common SNPs. 			\\
+			To genotype SNP from NGS the \textbf{pileup} is used.
+			After the reads are aligned and the \textbf{coverage} computed, the pileup is the count of the number of times the reference and the alternative reads appear.
+			From this the \textbf{allelic fraction} can be computed.
+			\\
+			The main tools for SNP calling in NGS data are Samtools, Bcftools, Vcftools, GATK.
 
 			\paragraph{Quality control}
+			Quality control is essential, since low-quality reads can introduce bias and produce unwanted artifacts.
 			To perform quality control of SNP genotyping:
 
 			\begin{multicols}{2}
@@ -429,7 +513,7 @@ Analytical studies can be ulteriorly divided into cohort and case studies.
 
 		\subsubsection{Independence of individuals}
 		Independence among samples is a fundamental assumption of case-control studies, so related individuals are excluded, or their association taken into account during association analysis.
-		Genomic distance between samples can be computed based on SNP profiles through genetic fingerprinting or through SPIA:
+		Genomic distance between samples can be computed based on SNP profiles through genetic fingerprinting or through \textbf{SPIA}:
 
 		$$D(CL_1, CL_2) = \frac{1}{vN_{SNPs}} \sum\limits_{i=1}^{N_{SNPs}} \neg\delta(CL_{1i}, CL_{2i})$$
 
@@ -437,21 +521,35 @@ Analytical studies can be ulteriorly divided into cohort and case studies.
 		Not everyone in the population has the same genetic background: some people are more genetically similar than others.
 		Admixed population are particularly interesting and many SNPs in the genome have different distribution between different population due to random drift.
 		Many traits have strong population association, so the genetic background of individuals of a cohort must be taken into account to avoid structure and stratification of the samples.
+		
+		Traits having strong population association are, for example, diabetes, which in the US in much more common among blacks; or Crohn's disease, wirh in Israel is more common among Ashkenazi Jews.
+		When designing a case control study, if population stratification is not the same in case and control sets, we may find signals that are not related to the disease, but just related to the difference in proportions of population.
+		
 		The degree of admixture and population of origin identification is important.
 		This can be done through SNP-based or model-based methods.
 
 			\paragraph{Logistic regression}
-			Logistic regression is a method used to assess the associations of SNPs and outcomes.
+			Logistic regression is a variation of regression analysis, developed to deal with binary phenotypes.
+			It is a method used to assess the associations of SNPs and outcomes.
 			The better the fit the stronger the association.
 			It is computed as:
 
 			$$\log(\frac{\pi}{1-\pi}) = \beta_0+\beta_1x_1+\cdots \beta_mx_m$$
 
 			Where $x_i$ are the SNP genotype and $\beta$ the covariates like age, sex and population structure.
-			Then genetic structure correction is performed through $QQ$ plots, where deviation from the diagonal indicates structure.
+			Then genetic structure correction is performed through $QQ$ plots (figure \ref{fig:qq}), where deviation from the diagonal indicates structure.
 			The data is fitted to the diagonal as to reduce structures effects.
 
+			
+			\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.3]{qq}
+			\caption{First row: unexpected deviation, probably given by population stratification. We can calculated the two principal components of the case-control, and add to our logistic regression model these two eigenvectors to correct for the supposed stratification. After the correction we can see that the obtained p-value distribution is much closer to the expected one. Indeed in a normal scenario we expect most of the SNPs not to be associated, with only a tail of p-values diverging from the distribution only in case of a real signal. In this case we can say that our GWAS analysis is trustful. }
+			\label{fig:qq}
+			\end{figure}
+	
 	\subsection{Standard cutoff in GWAS}
+	We need a measure for the significance of association.
 	Considering evidence for $1M$ haplotype blocks in the genome, the accepted p-value cutoff in GWAS studies is between $10^{-6}$ and $10^{-8}$.
 	This is due to the fact that each SNP is tested at the traditional significance level and multiple comparison is an important consideration in a GWAS analysis and must be handled properly.
 
